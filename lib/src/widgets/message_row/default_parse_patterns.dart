@@ -7,7 +7,10 @@ List<MatchText> defaultPersePatterns = <MatchText>[
       decoration: TextDecoration.underline,
     ),
     onTap: (String url) {
-      // chatRoomBloc.openLink(url);
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'http://' + url;
+      }
+      launch(url);
     },
   ),
 ];

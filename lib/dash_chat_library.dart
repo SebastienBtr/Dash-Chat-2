@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:flutter_parsed_text/flutter_parsed_text.dart';
 import 'package:better_player/better_player.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 part 'src/models/input_options.dart';
 part 'src/models/cursor_style.dart';

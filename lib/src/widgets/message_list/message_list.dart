@@ -173,7 +173,6 @@ class _MessageListState extends State<MessageList> {
           message.createdAt.month,
           message.createdAt.day,
         );
-        print(previousDate.difference(messageDate).inDays);
         return previousDate.difference(messageDate).inDays.abs() > 0;
       case SeparatorFrequency.hours:
         final DateTime previousDate = DateTime(

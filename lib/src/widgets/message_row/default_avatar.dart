@@ -76,6 +76,8 @@ class DefaultAvatar extends StatelessWidget {
                 Center(
                   child: ClipOval(
                     child: FadeInImage(
+                      width: size,
+                      height: size,
                       fit: BoxFit.cover,
                       image: NetworkImage(user.profileImage!),
                       placeholder: fallbackImage ??
