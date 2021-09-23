@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Models}
 class ChatUser {
   ChatUser({
     required this.id,

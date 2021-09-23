@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// @nodoc
 class MediaContainer extends StatelessWidget {
   const MediaContainer({
     required this.message,

@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Customization}
 class CursorStyle {
   const CursorStyle({
     this.color,

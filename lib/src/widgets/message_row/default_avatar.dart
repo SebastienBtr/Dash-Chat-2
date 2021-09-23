@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 class DefaultAvatar extends StatelessWidget {
   const DefaultAvatar({
     required this.user,

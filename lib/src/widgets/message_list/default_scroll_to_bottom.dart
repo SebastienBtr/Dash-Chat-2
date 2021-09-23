@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 class DefaultScrollToBottom extends StatelessWidget {
   const DefaultScrollToBottom({
     required this.scrollController,

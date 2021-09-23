@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// @nodoc
 class TypingIndicator extends StatefulWidget {
   const TypingIndicator({
     Key? key,

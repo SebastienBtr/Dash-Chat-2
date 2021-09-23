@@ -1,0 +1,12 @@
+dartdoc:
+  categories:
+    "Entry point":
+      markdown: doc/entryPoint.md
+    "Models":
+      markdown: doc/models.md
+    "Customization":
+      markdown: doc/customization.md
+    "Default widgets":
+      markdown: doc/defaultWidgets.md
+  # categoryOrder: ["Entry point", "Models", "Customization", "Default widgets"]
+  showUndocumentedCategories: true

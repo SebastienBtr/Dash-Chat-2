@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 BoxDecoration defaultMessageDecoration({
   required Color color,
   required double borderTopLeft,

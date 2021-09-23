@@ -2,6 +2,7 @@ part of dash_chat;
 
 // TODO: manage onMention
 
+/// @nodoc
 class InputToolbar extends StatefulWidget {
   const InputToolbar({
     required this.currentUser,

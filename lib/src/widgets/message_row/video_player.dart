@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// @nodoc
 class VideoPlayer extends StatefulWidget {
   const VideoPlayer({
     required this.url,

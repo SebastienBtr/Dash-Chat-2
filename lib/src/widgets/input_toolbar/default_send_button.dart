@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 Widget Function(Function send) defaultSendButton({
   required Color color,
   IconData icon = Icons.send,

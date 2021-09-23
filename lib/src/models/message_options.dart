@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Customization}
 class MessageOptions {
   const MessageOptions({
     this.showCurrentUserAvatar = false,

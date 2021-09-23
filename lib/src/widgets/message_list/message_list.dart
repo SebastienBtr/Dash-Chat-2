@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// @nodoc
 class MessageList extends StatefulWidget {
   const MessageList({
     required this.currentUser,

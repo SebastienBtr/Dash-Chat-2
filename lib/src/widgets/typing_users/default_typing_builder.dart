@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 class DefaultTypingBuilder extends StatelessWidget {
   const DefaultTypingBuilder({
     required this.user,

@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 InputDecoration defaultInputDecoration({
   String hintText = 'Write a message...',
   TextStyle hintStyle = const TextStyle(color: Colors.grey),

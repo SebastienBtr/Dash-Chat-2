@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 List<MatchText> defaultPersePatterns = <MatchText>[
   MatchText(
     type: ParsedType.URL,

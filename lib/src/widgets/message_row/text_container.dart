@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// @nodoc
 class TextContainer extends StatelessWidget {
   const TextContainer({
     required this.message,

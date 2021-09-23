@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Customization}
 class ScrollToBottomOptions {
   const ScrollToBottomOptions({
     this.disabled = false,

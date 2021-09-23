@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 class DefaultDateSeparator extends StatelessWidget {
   const DefaultDateSeparator({
     required this.date,

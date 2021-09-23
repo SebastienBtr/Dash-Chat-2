@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 class DefaultMessageText extends StatelessWidget {
   const DefaultMessageText({
     required this.message,

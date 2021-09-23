@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// @nodoc
 class MessageRow extends StatelessWidget {
   const MessageRow({
     required this.message,

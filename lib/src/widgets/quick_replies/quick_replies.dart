@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// @nodoc
 class QuickReplies extends StatelessWidget {
   const QuickReplies({
     required this.quickReplies,

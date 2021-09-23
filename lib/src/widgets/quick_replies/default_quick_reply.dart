@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Default widgets}
 class DefaultQuickReply extends StatelessWidget {
   const DefaultQuickReply({
     required this.quickReply,

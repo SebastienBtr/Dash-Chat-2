@@ -1,5 +1,6 @@
 part of dash_chat;
 
+/// {@category Entry point}
 class DashChat extends StatelessWidget {
   const DashChat({
     required this.currentUser,
