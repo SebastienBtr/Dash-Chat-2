@@ -44,7 +44,7 @@ class DefaultAvatar extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: 10,
         ),
-        child: Container(
+        child: SizedBox(
           height: size,
           width: size,
           child: Stack(

@@ -44,7 +44,7 @@ class _TypingIndicatorState extends State<TypingIndicator>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 30,
       height: 15,
       child: Row(

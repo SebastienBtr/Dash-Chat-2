@@ -65,7 +65,7 @@ class DefaultScrollToBottom extends StatelessWidget {
       left: left,
       top: top,
       bottom: bottom,
-      child: Container(
+      child: SizedBox(
         width: width,
         height: height,
         child: RawMaterialButton(
