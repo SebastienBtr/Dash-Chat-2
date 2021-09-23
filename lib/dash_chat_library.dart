@@ -2,11 +2,11 @@ library dash_chat;
 
 import 'dart:io';
 import 'dart:math';
+import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart' as intl;
 import 'package:flutter_parsed_text/flutter_parsed_text.dart';
-import 'package:better_player/better_player.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:url_launcher/url_launcher.dart';
 
 part 'src/models/input_options.dart';
