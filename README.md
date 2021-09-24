@@ -1,4 +1,7 @@
 <p align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <img src="DashChat.png" width="200"/>
   <h3 align="center">The most complete Chat UI for flutter</h3>
   <p align="center">
@@ -124,5 +127,18 @@ If you have any suggestions for including a feature or if something doesn't work
 ## Contributors
 
 ## Credits
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/SebastienBtr"><img src="https://avatars.githubusercontent.com/u/18089010?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SebastienBtr</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=SebastienBtr" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Thanks to [Fayeed](https://github.com/fayeed) who created the v1 of this package: [https://github.com/fayeed/dash_chat](https://github.com/fayeed/dash_chat) and made that possible!
