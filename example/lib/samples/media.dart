@@ -1,4 +1,4 @@
-import 'package:dash_chat/dash_chat_library.dart';
+import 'package:dash_chat/dash_chat.dart';
 import 'package:examples/data.dart';
 import 'package:flutter/material.dart';
 

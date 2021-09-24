@@ -42,7 +42,7 @@ Of course, if  you think this feature can be useful to other people, feel free t
 ## Basic Usage
 
 ```dart
-import 'package:dash_chat/dash_chat_library.dart';
+import 'package:dash_chat/dash_chat.dart';
 import 'package:flutter/material.dart';
 
 class Basic extends StatefulWidget {
@@ -85,7 +85,7 @@ class _BasicState extends State<Basic> {
 }
 ```
 
-You can run the [examples](examples) project to see more complex ways of using the package
+You can run the [example](example) project to see more complex ways of using the package
 
 ## Parameters of DashChat
 

@@ -1,20 +1,20 @@
-import 'package:dash_chat/dash_chat_library.dart';
+import 'package:dash_chat/dash_chat.dart';
 import 'package:examples/data.dart';
 import 'package:flutter/material.dart';
 
-class Basic extends StatefulWidget {
+class AvatarSample extends StatefulWidget {
   @override
-  _BasicState createState() => _BasicState();
+  _AvatarSampleState createState() => _AvatarSampleState();
 }
 
-class _BasicState extends State<Basic> {
-  List<ChatMessage> messages = basicSample;
+class _AvatarSampleState extends State<AvatarSample> {
+  List<ChatMessage> messages = allUsersSample;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Basic example'),
+        title: const Text('Users example'),
       ),
       body: DashChat(
         currentUser: user,

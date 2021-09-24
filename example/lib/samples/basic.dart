@@ -1,20 +1,20 @@
-import 'package:dash_chat/dash_chat_library.dart';
+import 'package:dash_chat/dash_chat.dart';
 import 'package:examples/data.dart';
 import 'package:flutter/material.dart';
 
-class TypingUsersSample extends StatefulWidget {
+class Basic extends StatefulWidget {
   @override
-  _TypingUsersSampleState createState() => _TypingUsersSampleState();
+  _BasicState createState() => _BasicState();
 }
 
-class _TypingUsersSampleState extends State<TypingUsersSample> {
+class _BasicState extends State<Basic> {
   List<ChatMessage> messages = basicSample;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Typing user example'),
+        title: const Text('Basic example'),
       ),
       body: DashChat(
         currentUser: user,
@@ -23,7 +23,6 @@ class _TypingUsersSampleState extends State<TypingUsersSample> {
             messages.insert(0, m);
           });
         },
-        typingUsers: <ChatUser>[user3],
         messages: messages,
       ),
     );
