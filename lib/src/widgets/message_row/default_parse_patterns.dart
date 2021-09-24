@@ -1,4 +1,4 @@
-part of dash_chat;
+part of dash_chat_2;
 
 /// {@category Default widgets}
 List<MatchText> defaultPersePatterns = <MatchText>[

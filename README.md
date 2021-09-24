@@ -42,7 +42,7 @@ Of course, if  you think this feature can be useful to other people, feel free t
 ## Basic Usage
 
 ```dart
-import 'package:dash_chat/dash_chat.dart';
+import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
 
 class Basic extends StatefulWidget {
@@ -89,25 +89,25 @@ You can run the [example](example) project to see more complex ways of using the
 
 ## Parameters of DashChat
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/ChatUser-class.html">ChatUser</a> currentUser</span> - <span style="color:#FF3F3F">required</span>: Basically "you", we need to know who is the current user to put their messages to right side
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/ChatUser-class.html">ChatUser</a> currentUser</span> - <span style="color:#FF3F3F">required</span>: Basically "you", we need to know who is the current user to put their messages to right side
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;">Function(<a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/ChatMessage-class.html">ChatMessage</a> message) onSend</span> - <span style="color:#FF3F3F">required</span>: Function to call when the user sends a message, that's where you handle the logic to send the message to your backend and append the list of `messages`
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;">Function(<a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/ChatMessage-class.html">ChatMessage</a> message) onSend</span> - <span style="color:#FF3F3F">required</span>: Function to call when the user sends a message, that's where you handle the logic to send the message to your backend and append the list of `messages`
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;">List<<a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/ChatMessage-class.html">ChatMessage</a>> messages</span> - <span style="color:#FF3F3F">required</span>: The list of messages of the channel, you would usually not load all the messages at once but use the `onLoadEarlier` param of `MessageListOptions` to trigger a lazy loading
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;">List<<a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/ChatMessage-class.html">ChatMessage</a>> messages</span> - <span style="color:#FF3F3F">required</span>: The list of messages of the channel, you would usually not load all the messages at once but use the `onLoadEarlier` param of `MessageListOptions` to trigger a lazy loading
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/InputOptions-class.html">InputOptions</a> inputOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the chat input
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/InputOptions-class.html">InputOptions</a> inputOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the chat input
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/MessageOptions-class.html">MessageOptions</a> messageOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the messages
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/MessageOptions-class.html">MessageOptions</a> messageOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the messages
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/MessageListOptions-class.html">MessageListOptions</a> messageListOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the overall list of message
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/MessageListOptions-class.html">MessageListOptions</a> messageListOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the overall list of message
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/QuickReplyOptions-class.html">QuickReplyOptions</a> quickReplyOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the quick replies
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/QuickReplyOptions-class.html">QuickReplyOptions</a> quickReplyOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the quick replies
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/ScrollToBottomOptions-class.html">ScrollToBottomOptions</a> scrollToBottomOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the scroll-to-bottom button
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;"><a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/ScrollToBottomOptions-class.html">ScrollToBottomOptions</a> scrollToBottomOptions</span> - <span style="color:#FFB23F">optional</span>: Options to customize the behaviour and design of the scroll-to-bottom button
 
 - <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;">readOnly</span> - <span style="color:#FFB23F">optional</span> (default to false): Option to make the chat read only, it will hide the input field
 
-- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;">List<<a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat/ChatUser-class.html">ChatUser</a>> typingUsers</span> - <span style="color:#FFB23F">optional</span>: List of users currently typing in the chat
+- <span style="color:#24292E; background-color:#F3F4F4; padding: .2em .4em;; border-radius: 6px;">List<<a href="https://pub.dev/documentation/dash_chat_2/latest/dash_chat_2/ChatUser-class.html">ChatUser</a>> typingUsers</span> - <span style="color:#FFB23F">optional</span>: List of users currently typing in the chat
 
 ## Full documentation
 

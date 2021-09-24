@@ -64,7 +64,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  dash_chat:
+  dash_chat_2:
     dependency: "direct main"
     description:
       path: ".."

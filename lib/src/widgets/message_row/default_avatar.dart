@@ -1,4 +1,4 @@
-part of dash_chat;
+part of dash_chat_2;
 
 /// {@category Default widgets}
 class DefaultAvatar extends StatelessWidget {
@@ -68,7 +68,7 @@ class DefaultAvatar extends StatelessWidget {
                           image: fallbackImage ??
                               const AssetImage(
                                 'assets/profile_placeholder.png',
-                                package: 'dash_chat',
+                                package: 'dash_chat_2',
                               ),
                         ),
                 ),
@@ -84,7 +84,7 @@ class DefaultAvatar extends StatelessWidget {
                       placeholder: fallbackImage ??
                           const AssetImage(
                             'assets/profile_placeholder.png',
-                            package: 'dash_chat',
+                            package: 'dash_chat_2',
                           ),
                     ),
                   ),
