@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="DashChat.png" width="200"/>
+  <img src="https://firebasestorage.googleapis.com/v0/b/molteo-40978.appspot.com/o/DashChat.png?alt=media&token=b1adb9b0-c601-4a33-89b7-2cb722647401" width="200"/>
   <h3 align="center">The most complete Chat UI for flutter</h3>
   <p align="center">
       Easy to use, highly customizable and fully featured
