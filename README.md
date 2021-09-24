@@ -128,7 +128,7 @@ If you have any suggestions for including a feature or if something doesn't work
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/SebastienBtr"><img src="https://avatars.githubusercontent.com/u/18089010?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SebastienBtr</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=SebastienBtr" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/SebastienBtr"><img src="https://avatars.githubusercontent.com/u/18089010?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SebastienBtr</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=SebastienBtr" title="Code">💻</a> <a href="#design-SebastienBtr" title="Design">🎨</a></td>
   </tr>
 </table>
 
