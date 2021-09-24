@@ -14,11 +14,11 @@
     <img alt="Pub version" src="https://img.shields.io/pub/v/dash_chat_2" />
   </a>
   <a href="#contributors">
-    <img alt="Contributors" src="https://img.shields.io/github/contributors/molteo-engineering-team/Dash-Chat-2" />
+    <img alt="Contributors" src="https://img.shields.io/github/all-contributors/molteo-engineering-team/Dash-Chat-2/main" />
   </a>
 </p>
 
-<hr style="height:1px;border-width:0;color:gray;background-color:gray">
+<h1></h1>
 
 ## Features
 
@@ -39,7 +39,7 @@ You need another feature? you can use the `customProperties` field of the models
 
 Of course, if  you think this feature can be useful to other people, feel free to open an issue/pull-request to discuss including it "natively" in the package.
 
-### Basic Usage
+## Basic Usage
 
 ```dart
 import 'package:dash_chat/dash_chat_library.dart';
