@@ -23,7 +23,7 @@ class InputOptions {
     this.inputMaxLines = 5,
     this.showTraillingBeforeSend = false,
     this.inputToolbarPadding = const EdgeInsets.all(8.0),
-    this.inputToolbarMargin,
+    this.inputToolbarMargin = const EdgeInsets.only(top: 8.0),
     this.cursorStyle = const CursorStyle(),
   });
 
