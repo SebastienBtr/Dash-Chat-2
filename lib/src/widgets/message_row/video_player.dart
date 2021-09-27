@@ -18,71 +18,54 @@ class VideoPlayer extends StatefulWidget {
 }
 
 class _VideoPlayerState extends State<VideoPlayer> {
-  late BetterPlayerController _betterPlayerController;
-  late Orientation _orientationBeforeFullScreen;
-  final List<DeviceOrientation> _portraitOrientation = <DeviceOrientation>[
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ];
-  final List<DeviceOrientation> _landscapeOrientation = <DeviceOrientation>[
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight
-  ];
+  late vp.VideoPlayerController _controller;
 
   @override
   void initState() {
-    final BetterPlayerDataSource dataSource = BetterPlayerDataSource(
-      BetterPlayerDataSourceType.network,
-      widget.url,
-    );
-    _betterPlayerController = BetterPlayerController(
-      BetterPlayerConfiguration(
-        fit: BoxFit.scaleDown,
-        aspectRatio: widget.aspectRatio,
-        controlsConfiguration: const BetterPlayerControlsConfiguration(
-          enableSkips: false,
-          enableOverflowMenu: false,
-          enableMute: false,
-        ),
-      ),
-    );
-    _betterPlayerController.setupDataSource(dataSource);
-
-    _betterPlayerController.addEventsListener((BetterPlayerEvent event) {
-      /// On fullscreen event check current Orientation
-      if (event.betterPlayerEventType == BetterPlayerEventType.openFullscreen) {
-        _orientationBeforeFullScreen = MediaQuery.of(context).orientation;
-      }
-
-      /// On fullscreen finish set DeviceOrientation based on saved Orientation
-      if (event.betterPlayerEventType == BetterPlayerEventType.hideFullscreen) {
-        if (_orientationBeforeFullScreen == Orientation.portrait) {
-          SystemChrome.setPreferredOrientations(_portraitOrientation);
-        }
-        if (_orientationBeforeFullScreen == Orientation.landscape) {
-          SystemChrome.setPreferredOrientations(_landscapeOrientation);
-        }
-
-        /// Once page correctly render in given Orientation, add normal
-        /// orientations, so user can use both portrait and landscape.
-        Future<void>.delayed(const Duration(milliseconds: 500), () {
-          SystemChrome.setPreferredOrientations(
-            <DeviceOrientation>[
-              ..._portraitOrientation,
-              ..._landscapeOrientation,
-            ],
-          );
-        });
-      }
-    });
     super.initState();
+    _controller = vp.VideoPlayerController.network(widget.url)
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, 
+        // even before the play button has been pressed.
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: widget.aspectRatio,
-      child: BetterPlayer(controller: _betterPlayerController),
-    );
+    return _controller.value.isInitialized
+        ? Stack(
+            alignment: _controller.value.isPlaying
+                ? AlignmentDirectional.bottomStart
+                : AlignmentDirectional.center,
+            children: [
+              AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: vp.VideoPlayer(_controller),
+              ),
+              IconButton(
+                iconSize: _controller.value.isPlaying ? 24 : 60,
+                onPressed: () {
+                  setState(() {
+                    _controller.value.isPlaying
+                        ? _controller.pause()
+                        : _controller.play();
+                  });
+                },
+                icon: Icon(
+                  _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                  color: Colors.white,
+                  // size: 60,
+                ),
+              ),
+            ],
+          )
+        : Container();
   }
 }
