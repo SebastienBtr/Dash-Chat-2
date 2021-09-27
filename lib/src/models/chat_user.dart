@@ -21,8 +21,8 @@ class ChatUser {
   /// Can be useful to extend existing features
   final Map<String, dynamic>? customProperties;
 
-  /// First name of the user, 
-  /// if you only have the name as one string 
+  /// First name of the user,
+  /// if you only have the name as one string
   /// you can put the entire value in the [fristName] field
   final String? firstName;
 
