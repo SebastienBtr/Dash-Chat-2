@@ -23,8 +23,6 @@ linter:
   # producing the lint.
   rules:
     use_key_in_widget_constructors: false
-    constant_identifier_names: false
-    file_names: false
     prefer_single_quotes: true
 
 # Additional information about this file can be found at
