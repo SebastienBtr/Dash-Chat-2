@@ -11,7 +11,7 @@
     <img alt="License" src="https://img.shields.io/github/license/molteo-engineering-team/Dash-Chat-2?label=License" />
   </a>
   <a href="https://pub.dev/packages/dash_chat_2">
-    <img alt="Pub version" src="https://img.shields.io/pub/v/dash_chat_2" />
+    <img alt="Pub version" src="https://img.shields.io/pub/v/dash_chat_2?color=blue" />
   </a>
   <a href="#contributors">
     <img alt="Contributors" src="https://img.shields.io/github/all-contributors/molteo-engineering-team/Dash-Chat-2/main" />
