@@ -33,4 +33,27 @@ class ChatMedia {
   final Map<String, dynamic>? customProperties;
 }
 
-enum MediaType { image, video, file }
+class MediaType {
+  final String _value;
+  const MediaType._internal(this._value);
+
+  @override
+  toString() => _value;
+
+  static MediaType parse(String value) {
+    switch (value) {
+      case 'image':
+        return MediaType.image;
+      case 'video':
+        return MediaType.video;
+      case 'file':
+        return MediaType.file;
+      default:
+        throw UnsupportedError('$value is not a valid MediaType');
+    }
+  }
+
+  static const image = MediaType._internal('image');
+  static const video = MediaType._internal('video');
+  static const file = MediaType._internal('file');
+}
