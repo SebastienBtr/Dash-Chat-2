@@ -12,25 +12,24 @@ class ChatMedia {
   });
 
   /// URL of the media, can local (will use FileImage) or remote (will use NetworkImage)
-  final String url;
+  String url;
 
   /// Name of the file that will be shown in some cases
-  final String fileName;
+  String fileName;
 
   /// Type of media
-  final MediaType type;
+  MediaType type;
 
   /// If the media is still uploading, usefull to add a visual feedback
-  final bool isUploading;
+  bool isUploading;
 
   /// Uploaded date of the media
-  /// You can use DefaultTypingBuilder to only override some variables
-  final DateTime? uploadedDate;
+  DateTime? uploadedDate;
 
   /// A list of custom properties to extend the existing ones
   /// in case you need to store more things.
   /// Can be useful to extend existing features
-  final Map<String, dynamic>? customProperties;
+  Map<String, dynamic>? customProperties;
 }
 
 class MediaType {

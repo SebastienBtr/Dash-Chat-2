@@ -11,23 +11,23 @@ class ChatUser {
   });
 
   /// Id of the user
-  final String id;
+  String id;
 
   /// Profile image of the user
-  final String? profileImage;
+  String? profileImage;
 
   /// A list of custom properties to extend the existing ones
   /// in case you need to store more things.
   /// Can be useful to extend existing features
-  final Map<String, dynamic>? customProperties;
+  Map<String, dynamic>? customProperties;
 
   /// First name of the user,
   /// if you only have the name as one string
   /// you can put the entire value in the [fristName] field
-  final String? firstName;
+  String? firstName;
 
   /// Last name of the user
-  final String? lastName;
+  String? lastName;
 
   /// Get the full name (firstName + lastName) of the user
   String getFullName() {

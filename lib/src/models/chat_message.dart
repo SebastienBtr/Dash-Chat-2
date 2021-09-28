@@ -15,33 +15,33 @@ class ChatMessage {
   });
 
   /// Text of the message (optional because you can also just send a media)
-  final String text;
+  String text;
 
   /// Author of the message
-  final ChatUser user;
+  ChatUser user;
 
   /// List of medias of the message
-  final List<ChatMedia>? medias;
+  List<ChatMedia>? medias;
 
   /// A list of quick replies that users can use to reply to this message
-  final List<QuickReply>? quickReplies;
+  List<QuickReply>? quickReplies;
 
   /// A list of custom properties to extend the existing ones
   /// in case you need to store more things.
   /// Can be useful to extend existing features
-  final Map<String, dynamic>? customProperties;
+  Map<String, dynamic>? customProperties;
 
   /// Date of the message
-  final DateTime createdAt;
+  DateTime createdAt;
 
   /// List of mentionned users in the message TODO:
-  final List<ChatUser>? mentions;
+  List<ChatUser>? mentions;
 
   /// Status of the message TODO:
-  final MessageStatus? status;
+  MessageStatus? status;
 
   /// If the message is a reply of another one TODO:
-  final ChatMessage? replyTo;
+  ChatMessage? replyTo;
 }
 
 enum MessageStatus { none, read, received, pending }
