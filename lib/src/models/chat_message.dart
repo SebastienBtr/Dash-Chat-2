@@ -44,4 +44,30 @@ class ChatMessage {
   ChatMessage? replyTo;
 }
 
-enum MessageStatus { none, read, received, pending }
+class MessageStatus {
+  final String _value;
+  const MessageStatus._internal(this._value);
+
+  @override
+  toString() => _value;
+
+  static MessageStatus parse(String value) {
+    switch (value) {
+      case 'none':
+        return MessageStatus.none;
+      case 'read':
+        return MessageStatus.read;
+      case 'received':
+        return MessageStatus.received;
+      case 'pending':
+        return MessageStatus.pending;
+      default:
+        throw UnsupportedError('$value is not a valid MessageStatus');
+    }
+  }
+
+  static const none = MessageStatus._internal('none');
+  static const read = MessageStatus._internal('read');
+  static const received = MessageStatus._internal('received');
+  static const pending = MessageStatus._internal('pending');
+}
