@@ -51,6 +51,7 @@ class MediaContainer extends StatelessWidget {
         );
       default:
         return TextContainer(
+          isOwnMessage: isOwnMessage,
           messageOptions: messageOptions,
           message: message,
           messageTextBuilder: (ChatMessage m, ChatMessage? p, ChatMessage? n) {
