@@ -14,6 +14,35 @@ class ChatMessage {
     this.replyTo,
   });
 
+  /// Create a ChatMessage instance from json data
+  factory ChatMessage.fromJson(Map<String, dynamic> jsonData) {
+    return ChatMessage(
+      user: ChatUser.fromJson(jsonData['user']),
+      createdAt: DateTime.parse(jsonData['createdAt'].toString()).toLocal(),
+      text: jsonData['text'],
+      medias: jsonData['medias'] != null
+          ? (jsonData['medias'] as List<dynamic>)
+              .map((dynamic media) => ChatMedia.fromJson(media))
+              .toList()
+          : [],
+      quickReplies: jsonData['quickReplies'] != null
+          ? (jsonData['quickReplies'] as List<dynamic>)
+              .map((dynamic quickReply) => QuickReply.fromJson(quickReply))
+              .toList()
+          : [],
+      customProperties: jsonData['customProperties'],
+      mentions: jsonData['mentions'] != null
+          ? (jsonData['mentions'] as List<dynamic>)
+              .map((dynamic mention) => ChatUser.fromJson(mention))
+              .toList()
+          : [],
+      status: MessageStatus.parse(jsonData['status']),
+      replyTo: jsonData['replyTo'] != null
+          ? ChatMessage.fromJson(jsonData['replyTo'])
+          : null,
+    );
+  }
+
   /// Text of the message (optional because you can also just send a media)
   String text;
 
@@ -42,6 +71,23 @@ class ChatMessage {
 
   /// If the message is a reply of another one TODO:
   ChatMessage? replyTo;
+
+  /// Convert a ChatMessage into a json
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'user': user.toJson(),
+      'createdAt': createdAt.toUtc().toIso8601String(),
+      'text': text,
+      'medias': medias?.map((ChatMedia media) => media.toJson()).toList(),
+      'quickReplies': quickReplies
+          ?.map((QuickReply quickReply) => quickReply.toJson())
+          .toList(),
+      'customProperties': customProperties,
+      'mentions': mentions?.map((ChatUser user) => user.toJson()).toList(),
+      'status': status.toString(),
+      'replyTo': replyTo?.toJson(),
+    };
+  }
 }
 
 class MessageStatus {
@@ -62,7 +108,7 @@ class MessageStatus {
       case 'pending':
         return MessageStatus.pending;
       default:
-        throw UnsupportedError('$value is not a valid MessageStatus');
+        return MessageStatus.none;
     }
   }
 

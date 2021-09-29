@@ -10,6 +10,17 @@ class ChatUser {
     this.lastName,
   });
 
+  /// Create a ChatUser instance from json data
+  factory ChatUser.fromJson(Map<String, dynamic> jsonData) {
+    return ChatUser(
+      id: jsonData['id'],
+      profileImage: jsonData['profileImage'],
+      firstName: jsonData['firstName'],
+      lastName: jsonData['lastName'],
+      customProperties: jsonData['customProperties'],
+    );
+  }
+
   /// Id of the user
   String id;
 
@@ -35,5 +46,16 @@ class ChatUser {
         (firstName != null && lastName != null
             ? ' ' + lastName!
             : lastName ?? '');
+  }
+
+  /// Convert a ChatUser into a json
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'id': id,
+      'profileImage': profileImage,
+      'firstName': firstName,
+      'lastName': lastName,
+      'customProperties': customProperties,
+    };
   }
 }

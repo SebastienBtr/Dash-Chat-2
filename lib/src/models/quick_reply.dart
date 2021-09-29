@@ -8,6 +8,15 @@ class QuickReply {
     this.customProperties,
   });
 
+  /// Create a QuickReply instance from json data
+  factory QuickReply.fromJson(Map<String, dynamic> jsonData) {
+    return QuickReply(
+      title: jsonData['title'],
+      value: jsonData['value'],
+      customProperties: jsonData['customProperties'],
+    );
+  }
+
   /// Title of the quick reply,
   /// it's what will be visible in the quick replies list
   String title;
@@ -20,4 +29,13 @@ class QuickReply {
   /// in case you need to store more things.
   /// Can be useful to extend existing features
   Map<String, dynamic>? customProperties;
+
+  /// Convert a QuickReply into a json
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'title': title,
+      'value': value,
+      'customProperties': customProperties,
+    };
+  }
 }

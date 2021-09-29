@@ -11,6 +11,20 @@ class ChatMedia {
     this.customProperties,
   });
 
+  /// Create a ChatMedia instance from json data
+  factory ChatMedia.fromJson(Map<String, dynamic> jsonData) {
+    return ChatMedia(
+      url: jsonData['url'],
+      fileName: jsonData['fileName'],
+      type: MediaType.parse(jsonData['type']),
+      isUploading: jsonData['isUploading'] == true,
+      uploadedDate: jsonData['uploadedDate'] != null
+          ? DateTime.parse(jsonData['uploadedDate'].toString()).toLocal()
+          : null,
+      customProperties: jsonData['customProperties'],
+    );
+  }
+
   /// URL of the media, can local (will use FileImage) or remote (will use NetworkImage)
   String url;
 
@@ -30,6 +44,18 @@ class ChatMedia {
   /// in case you need to store more things.
   /// Can be useful to extend existing features
   Map<String, dynamic>? customProperties;
+
+  /// Convert a ChatMedia into a json
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'url': url,
+      'type': type.toString(),
+      'fileName': fileName,
+      'isUploading': isUploading,
+      'uploadedDate': uploadedDate?.toUtc().toIso8601String(),
+      'customProperties': customProperties,
+    };
+  }
 }
 
 class MediaType {
