@@ -13,11 +13,11 @@ class ChatUser {
   /// Create a ChatUser instance from json data
   factory ChatUser.fromJson(Map<String, dynamic> jsonData) {
     return ChatUser(
-      id: jsonData['id'],
-      profileImage: jsonData['profileImage'],
-      firstName: jsonData['firstName'],
-      lastName: jsonData['lastName'],
-      customProperties: jsonData['customProperties'],
+      id: jsonData['id'].toString(),
+      profileImage: jsonData['profileImage']?.toString(),
+      firstName: jsonData['firstName']?.toString(),
+      lastName: jsonData['lastName']?.toString(),
+      customProperties: jsonData['customProperties'] as Map<String, dynamic>,
     );
   }
 

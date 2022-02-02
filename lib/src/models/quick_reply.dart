@@ -11,9 +11,9 @@ class QuickReply {
   /// Create a QuickReply instance from json data
   factory QuickReply.fromJson(Map<String, dynamic> jsonData) {
     return QuickReply(
-      title: jsonData['title'],
-      value: jsonData['value'],
-      customProperties: jsonData['customProperties'],
+      title: jsonData['title'].toString(),
+      value: jsonData['value']?.toString(),
+      customProperties: jsonData['customProperties'] as Map<String, dynamic>,
     );
   }
 

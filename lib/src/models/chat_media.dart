@@ -14,14 +14,14 @@ class ChatMedia {
   /// Create a ChatMedia instance from json data
   factory ChatMedia.fromJson(Map<String, dynamic> jsonData) {
     return ChatMedia(
-      url: jsonData['url'],
-      fileName: jsonData['fileName'],
-      type: MediaType.parse(jsonData['type']),
+      url: jsonData['url'].toString(),
+      fileName: jsonData['fileName'].toString(),
+      type: MediaType.parse(jsonData['type'].toString()),
       isUploading: jsonData['isUploading'] == true,
       uploadedDate: jsonData['uploadedDate'] != null
           ? DateTime.parse(jsonData['uploadedDate'].toString()).toLocal()
           : null,
-      customProperties: jsonData['customProperties'],
+      customProperties: jsonData['customProperties'] as Map<String, dynamic>,
     );
   }
 
@@ -59,11 +59,11 @@ class ChatMedia {
 }
 
 class MediaType {
-  final String _value;
   const MediaType._internal(this._value);
+  final String _value;
 
   @override
-  toString() => _value;
+  String toString() => _value;
 
   static MediaType parse(String value) {
     switch (value) {

@@ -17,28 +17,31 @@ class ChatMessage {
   /// Create a ChatMessage instance from json data
   factory ChatMessage.fromJson(Map<String, dynamic> jsonData) {
     return ChatMessage(
-      user: ChatUser.fromJson(jsonData['user']),
+      user: ChatUser.fromJson(jsonData['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(jsonData['createdAt'].toString()).toLocal(),
-      text: jsonData['text'],
+      text: jsonData['text']?.toString() ?? '',
       medias: jsonData['medias'] != null
           ? (jsonData['medias'] as List<dynamic>)
-              .map((dynamic media) => ChatMedia.fromJson(media))
+              .map((dynamic media) =>
+                  ChatMedia.fromJson(media as Map<String, dynamic>))
               .toList()
-          : [],
+          : <ChatMedia>[],
       quickReplies: jsonData['quickReplies'] != null
           ? (jsonData['quickReplies'] as List<dynamic>)
-              .map((dynamic quickReply) => QuickReply.fromJson(quickReply))
+              .map((dynamic quickReply) =>
+                  QuickReply.fromJson(quickReply as Map<String, dynamic>))
               .toList()
-          : [],
-      customProperties: jsonData['customProperties'],
+          : <QuickReply>[],
+      customProperties: jsonData['customProperties'] as Map<String, dynamic>,
       mentions: jsonData['mentions'] != null
           ? (jsonData['mentions'] as List<dynamic>)
-              .map((dynamic mention) => ChatUser.fromJson(mention))
+              .map((dynamic mention) =>
+                  ChatUser.fromJson(mention as Map<String, dynamic>))
               .toList()
-          : [],
-      status: MessageStatus.parse(jsonData['status']),
+          : <ChatUser>[],
+      status: MessageStatus.parse(jsonData['status'].toString()),
       replyTo: jsonData['replyTo'] != null
-          ? ChatMessage.fromJson(jsonData['replyTo'])
+          ? ChatMessage.fromJson(jsonData['replyTo'] as Map<String, dynamic>)
           : null,
     );
   }
@@ -91,11 +94,11 @@ class ChatMessage {
 }
 
 class MessageStatus {
-  final String _value;
   const MessageStatus._internal(this._value);
+  final String _value;
 
   @override
-  toString() => _value;
+  String toString() => _value;
 
   static MessageStatus parse(String value) {
     switch (value) {
@@ -112,8 +115,8 @@ class MessageStatus {
     }
   }
 
-  static const none = MessageStatus._internal('none');
-  static const read = MessageStatus._internal('read');
-  static const received = MessageStatus._internal('received');
-  static const pending = MessageStatus._internal('pending');
+  static const MessageStatus none = MessageStatus._internal('none');
+  static const MessageStatus read = MessageStatus._internal('read');
+  static const MessageStatus received = MessageStatus._internal('received');
+  static const MessageStatus pending = MessageStatus._internal('pending');
 }

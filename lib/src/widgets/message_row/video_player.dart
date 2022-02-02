@@ -44,7 +44,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
             alignment: _controller.value.isPlaying
                 ? AlignmentDirectional.bottomStart
                 : AlignmentDirectional.center,
-            children: [
+            children: <Widget>[
               AspectRatio(
                 aspectRatio: _controller.value.aspectRatio,
                 child: vp.VideoPlayer(_controller),

@@ -9,6 +9,11 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -22,8 +27,50 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    use_key_in_widget_constructors: false
+    always_declare_return_types: true
+    always_put_control_body_on_new_line: true
+    always_put_required_named_parameters_first: true
+    always_specify_types: true
+    avoid_bool_literals_in_conditional_expressions: true
+    avoid_empty_else: true
+    avoid_slow_async_io: true
+    avoid_types_as_parameter_names: true
+    avoid_unused_constructor_parameters: true
+    avoid_void_async: true
+    await_only_futures: true
+    camel_case_extensions: true
+    camel_case_types: true
+    cancel_subscriptions: true
+    directives_ordering: true
+    empty_catches: true
+    iterable_contains_unrelated_type: true
+    list_remove_unrelated_type: true
+    no_duplicate_case_values: true
+    non_constant_identifier_names: true
+    package_api_docs: true
+    prefer_final_in_for_each: true
+    prefer_if_elements_to_conditional_expressions: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_relative_imports: true
     prefer_single_quotes: true
+    prefer_typing_uninitialized_variables: true
+    sort_constructors_first: true
+    sort_pub_dependencies: true
+    sort_unnamed_constructors_first: true
+    test_types_in_equals: true
+    throw_in_finally: true
+    unnecessary_null_aware_assignments: true
+    unnecessary_overrides: true
+    unnecessary_parenthesis: true
+    unnecessary_statements: true
+    unrelated_type_equality_checks: true
+    valid_regexps: true
+    void_checks: true
+
+    use_key_in_widget_constructors: false
+    constant_identifier_names: false
+    file_names: false
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
