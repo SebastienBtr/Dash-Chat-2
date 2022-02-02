@@ -92,7 +92,7 @@ class MediaContainer extends StatelessWidget {
   /// Get the right image provider if the image is local or remote
   ImageProvider _getImage(String url) {
     if (url.startsWith('http')) {
-      return NetworkImage(url);
+      return CachedNetworkImageProvider(url);
     } else {
       return FileImage(
         File(url),
