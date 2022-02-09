@@ -78,7 +78,7 @@ class MediaType {
     }
   }
 
-  static const image = MediaType._internal('image');
-  static const video = MediaType._internal('video');
-  static const file = MediaType._internal('file');
+  static const MediaType image = MediaType._internal('image');
+  static const MediaType video = MediaType._internal('video');
+  static const MediaType file = MediaType._internal('file');
 }
