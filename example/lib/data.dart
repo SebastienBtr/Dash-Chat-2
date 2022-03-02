@@ -6,7 +6,7 @@ String profileImage =
 // We have all the possibilities for users
 ChatUser user = ChatUser(id: '0');
 ChatUser user1 = ChatUser(id: '1');
-ChatUser user2 = ChatUser(id: '2', firstName: 'Toto Clark');
+ChatUser user2 = ChatUser(id: '2', firstName: 'Niki Lauda');
 ChatUser user3 = ChatUser(id: '3', lastName: 'Clark');
 ChatUser user4 = ChatUser(id: '4', profileImage: profileImage);
 ChatUser user5 = ChatUser(id: '5', firstName: 'Charles', lastName: 'Leclerc');

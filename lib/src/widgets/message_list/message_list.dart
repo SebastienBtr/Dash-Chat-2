@@ -40,7 +40,7 @@ class MessageList extends StatefulWidget {
 
 class _MessageListState extends State<MessageList> {
   bool scrollToBottomIsVisible = false;
-  bool topReached = false;
+  bool isLoadingMore = false;
   late ScrollController scrollController;
 
   @override
@@ -132,11 +132,13 @@ class _MessageListState extends State<MessageList> {
                 widget.messageListOptions.chatFooterBuilder!,
             ],
           ),
-          if (topReached &&
-              widget.messageListOptions.loadEarlierBuilder != null)
+          if (isLoadingMore)
             Positioned(
               top: 8.0,
-              child: widget.messageListOptions.loadEarlierBuilder!,
+              right: 0,
+              left: 0,
+              child: widget.messageListOptions.loadEarlierBuilder ??
+                  const CircularProgressIndicator(),
             ),
           if (!widget.scrollToBottomOptions.disabled && scrollToBottomIsVisible)
             widget.scrollToBottomOptions.scrollToBottomBuilder != null
@@ -145,7 +147,7 @@ class _MessageListState extends State<MessageList> {
                 : DefaultScrollToBottom(
                     scrollController: scrollController,
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                    textColor: Theme.of(context).primaryColor,
+                    textColor: Theme.of(context).primaryColorLight,
                   ),
         ],
       ),
@@ -197,13 +199,17 @@ class _MessageListState extends State<MessageList> {
   /// Sroll listener to trigger different actions:
   /// show scroll-to-bottom btn and LoadEarlier behaviour
   bool _onScroll(ScrollNotification scrollNotification) {
-    setState(() {
-      topReached = scrollController.offset >=
-              scrollController.position.maxScrollExtent &&
-          !scrollController.position.outOfRange;
-    });
+    bool topReached =
+        scrollController.offset >= scrollController.position.maxScrollExtent &&
+            !scrollController.position.outOfRange;
     if (topReached && widget.messageListOptions.onLoadEarlier != null) {
+      setState(() {
+        isLoadingMore = true;
+      });
       widget.messageListOptions.onLoadEarlier!();
+      setState(() {
+        isLoadingMore = false;
+      });
     }
     if (scrollNotification.metrics.pixels == 0) {
       if (scrollToBottomIsVisible) {
