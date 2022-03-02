@@ -146,7 +146,7 @@ class _MessageListState extends State<MessageList> {
                 : DefaultScrollToBottom(
                     scrollController: scrollController,
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                    textColor: Theme.of(context).primaryColorLight,
+                    textColor: Theme.of(context).primaryColor,
                   ),
         ],
       ),
