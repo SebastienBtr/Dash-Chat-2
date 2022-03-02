@@ -24,6 +24,11 @@ class _BasicState extends State<Basic> {
           });
         },
         messages: messages,
+        messageListOptions: MessageListOptions(
+          onLoadEarlier: () async {
+            await Future.delayed(const Duration(seconds: 3));
+          },
+        ),
       ),
     );
   }

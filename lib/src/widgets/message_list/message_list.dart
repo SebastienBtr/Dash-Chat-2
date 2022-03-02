@@ -47,6 +47,7 @@ class _MessageListState extends State<MessageList> {
   void initState() {
     scrollController =
         widget.messageListOptions.scrollController ?? ScrollController();
+    scrollController.addListener(() => _onScroll());
     super.initState();
   }
 
@@ -60,53 +61,47 @@ class _MessageListState extends State<MessageList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                child: NotificationListener<ScrollNotification>(
-                  onNotification: _onScroll,
-                  child: ListView.builder(
-                    controller: scrollController,
-                    reverse: true,
-                    itemCount: widget.messages.length,
-                    itemBuilder: (BuildContext context, int i) {
-                      final ChatMessage? previousMessage =
-                          i < widget.messages.length - 1
-                              ? widget.messages[i + 1]
-                              : null;
-                      final ChatMessage? nextMessage =
-                          i > 0 ? widget.messages[i - 1] : null;
-                      final ChatMessage message = widget.messages[i];
+                child: ListView.builder(
+                  controller: scrollController,
+                  reverse: true,
+                  itemCount: widget.messages.length,
+                  itemBuilder: (BuildContext context, int i) {
+                    final ChatMessage? previousMessage =
+                        i < widget.messages.length - 1
+                            ? widget.messages[i + 1]
+                            : null;
+                    final ChatMessage? nextMessage =
+                        i > 0 ? widget.messages[i - 1] : null;
+                    final ChatMessage message = widget.messages[i];
 
-                      return Column(
-                        children: <Widget>[
-                          if (_shouldShowDateSeparator(
-                              previousMessage, message))
-                            widget.messageListOptions.dateSeparatorBuilder !=
-                                    null
-                                ? widget.messageListOptions
-                                    .dateSeparatorBuilder!(message.createdAt)
-                                : DefaultDateSeparator(
-                                    date: message.createdAt,
-                                    messageListOptions:
-                                        widget.messageListOptions,
-                                  ),
-                          if (widget.messageOptions.messageRowBuilder !=
-                              null) ...<Widget>[
-                            widget.messageOptions.messageRowBuilder!(
-                              message,
-                              previousMessage,
-                              nextMessage,
-                            ),
-                          ] else
-                            MessageRow(
-                              message: widget.messages[i],
-                              nextMessage: nextMessage,
-                              previousMessage: previousMessage,
-                              currentUser: widget.currentUser,
-                              messageOptions: widget.messageOptions,
-                            ),
-                        ],
-                      );
-                    },
-                  ),
+                    return Column(
+                      children: <Widget>[
+                        if (_shouldShowDateSeparator(previousMessage, message))
+                          widget.messageListOptions.dateSeparatorBuilder != null
+                              ? widget.messageListOptions
+                                  .dateSeparatorBuilder!(message.createdAt)
+                              : DefaultDateSeparator(
+                                  date: message.createdAt,
+                                  messageListOptions: widget.messageListOptions,
+                                ),
+                        if (widget.messageOptions.messageRowBuilder !=
+                            null) ...<Widget>[
+                          widget.messageOptions.messageRowBuilder!(
+                            message,
+                            previousMessage,
+                            nextMessage,
+                          ),
+                        ] else
+                          MessageRow(
+                            message: widget.messages[i],
+                            nextMessage: nextMessage,
+                            previousMessage: previousMessage,
+                            currentUser: widget.currentUser,
+                            messageOptions: widget.messageOptions,
+                          ),
+                      ],
+                    );
+                  },
                 ),
               ),
               if (widget.typingUsers != null && widget.typingUsers!.isNotEmpty)
@@ -138,7 +133,11 @@ class _MessageListState extends State<MessageList> {
               right: 0,
               left: 0,
               child: widget.messageListOptions.loadEarlierBuilder ??
-                  const CircularProgressIndicator(),
+                  const Center(
+                    child: SizedBox(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
             ),
           if (!widget.scrollToBottomOptions.disabled && scrollToBottomIsVisible)
             widget.scrollToBottomOptions.scrollToBottomBuilder != null
@@ -198,32 +197,41 @@ class _MessageListState extends State<MessageList> {
 
   /// Sroll listener to trigger different actions:
   /// show scroll-to-bottom btn and LoadEarlier behaviour
-  bool _onScroll(ScrollNotification scrollNotification) {
+  Future<void> _onScroll() async {
     bool topReached =
         scrollController.offset >= scrollController.position.maxScrollExtent &&
             !scrollController.position.outOfRange;
-    if (topReached && widget.messageListOptions.onLoadEarlier != null) {
+    if (topReached &&
+        widget.messageListOptions.onLoadEarlier != null &&
+        !isLoadingMore) {
       setState(() {
         isLoadingMore = true;
       });
-      widget.messageListOptions.onLoadEarlier!();
+      showScrollToBottom();
+      await widget.messageListOptions.onLoadEarlier!();
       setState(() {
         isLoadingMore = false;
       });
+    } else if (scrollController.offset > 200) {
+      showScrollToBottom();
+    } else {
+      hideScrollToBottom();
     }
-    if (scrollNotification.metrics.pixels == 0) {
-      if (scrollToBottomIsVisible) {
-        setState(() {
-          scrollToBottomIsVisible = false;
-        });
-      }
-    } else if (scrollNotification.metrics.pixels > 200) {
-      if (!scrollToBottomIsVisible) {
-        setState(() {
-          scrollToBottomIsVisible = true;
-        });
-      }
+  }
+
+  void showScrollToBottom() {
+    if (!scrollToBottomIsVisible) {
+      setState(() {
+        scrollToBottomIsVisible = true;
+      });
     }
-    return true;
+  }
+
+  void hideScrollToBottom() {
+    if (scrollToBottomIsVisible) {
+      setState(() {
+        scrollToBottomIsVisible = false;
+      });
+    }
   }
 }

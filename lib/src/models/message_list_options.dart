@@ -44,7 +44,7 @@ class MessageListOptions {
 
   /// Function to call when the top of the list is reached
   /// Usefull to load more messages
-  final Function? onLoadEarlier;
+  final Future<void> Function()? onLoadEarlier;
 
   /// Builder to create your own typing widget
   final Widget Function(ChatUser user)? typingBuilder;
