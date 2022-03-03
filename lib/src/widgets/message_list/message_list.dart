@@ -73,10 +73,16 @@ class _MessageListState extends State<MessageList> {
                     final ChatMessage? nextMessage =
                         i > 0 ? widget.messages[i - 1] : null;
                     final ChatMessage message = widget.messages[i];
-
+                    final bool isAfterDateSeparator = _shouldShowDateSeparator(
+                        previousMessage, message, widget.messageListOptions);
+                    bool isBeforeDateSeparator = false;
+                    if (nextMessage != null) {
+                      isBeforeDateSeparator = _shouldShowDateSeparator(
+                          message, nextMessage, widget.messageListOptions);
+                    }
                     return Column(
                       children: <Widget>[
-                        if (_shouldShowDateSeparator(previousMessage, message))
+                        if (isAfterDateSeparator)
                           widget.messageListOptions.dateSeparatorBuilder != null
                               ? widget.messageListOptions
                                   .dateSeparatorBuilder!(message.createdAt)
@@ -90,6 +96,8 @@ class _MessageListState extends State<MessageList> {
                             message,
                             previousMessage,
                             nextMessage,
+                            isAfterDateSeparator,
+                            isBeforeDateSeparator,
                           ),
                         ] else
                           MessageRow(
@@ -97,6 +105,8 @@ class _MessageListState extends State<MessageList> {
                             nextMessage: nextMessage,
                             previousMessage: previousMessage,
                             currentUser: widget.currentUser,
+                            isAfterDateSeparator: isAfterDateSeparator,
+                            isBeforeDateSeparator: isBeforeDateSeparator,
                             messageOptions: widget.messageOptions,
                           ),
                       ],
@@ -154,16 +164,16 @@ class _MessageListState extends State<MessageList> {
   }
 
   /// Check if a date separator needs to be shown
-  bool _shouldShowDateSeparator(
-      ChatMessage? previousMessage, ChatMessage message) {
-    if (!widget.messageListOptions.showDateSeparator) {
+  bool _shouldShowDateSeparator(ChatMessage? previousMessage,
+      ChatMessage message, MessageListOptions messageListOptions) {
+    if (!messageListOptions.showDateSeparator) {
       return false;
     }
     if (previousMessage == null) {
       // Means this is the first message
       return true;
     }
-    switch (widget.messageListOptions.separatorFrequency) {
+    switch (messageListOptions.separatorFrequency) {
       case SeparatorFrequency.days:
         final DateTime previousDate = DateTime(
           previousMessage.createdAt.year,

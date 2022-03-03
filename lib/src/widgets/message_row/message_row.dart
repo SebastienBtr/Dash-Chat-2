@@ -7,6 +7,8 @@ class MessageRow extends StatelessWidget {
     required this.currentUser,
     this.previousMessage,
     this.nextMessage,
+    this.isAfterDateSeparator = false,
+    this.isBeforeDateSeparator = false,
     this.messageOptions = const MessageOptions(),
     Key? key,
   }) : super(key: key);
@@ -22,6 +24,12 @@ class MessageRow extends StatelessWidget {
 
   /// Current user of the chat
   final ChatUser currentUser;
+
+  /// If the message is preceded by a date separator
+  final bool isAfterDateSeparator;
+
+  /// If the message is before a date separator
+  final bool isBeforeDateSeparator;
 
   /// Options to customize the behaviour and design of the messages
   final MessageOptions messageOptions;
@@ -62,7 +70,10 @@ class MessageRow extends StatelessWidget {
         children: <Widget>[
           if (messageOptions.showOtherUsersAvatar)
             Opacity(
-              opacity: !isOwnMessage && !isNextSameAuthor ? 1 : 0,
+              opacity:
+                  !isOwnMessage && (!isNextSameAuthor || isBeforeDateSeparator)
+                      ? 1
+                      : 0,
               child: getAvatar(),
             ),
           if (!messageOptions.showOtherUsersAvatar)
@@ -88,7 +99,7 @@ class MessageRow extends StatelessWidget {
                     messageOptions.top!(message, previousMessage, nextMessage),
                   if (!isOwnMessage &&
                       messageOptions.showOtherUsersName &&
-                      !isPreviousSameAuthor)
+                      (!isPreviousSameAuthor || isAfterDateSeparator))
                     messageOptions.userNameBuilder != null
                         ? messageOptions.userNameBuilder!(message.user)
                         : DefaultUserName(user: message.user),
@@ -112,6 +123,8 @@ class MessageRow extends StatelessWidget {
                       isOwnMessage: isOwnMessage,
                       isNextSameAuthor: isNextSameAuthor,
                       isPreviousSameAuthor: isPreviousSameAuthor,
+                      isAfterDateSeparator: isAfterDateSeparator,
+                      isBeforeDateSeparator: isBeforeDateSeparator,
                       messageTextBuilder: messageOptions.messageTextBuilder,
                     ),
                   if (message.medias != null &&

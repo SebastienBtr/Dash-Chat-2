@@ -87,8 +87,13 @@ class MessageOptions {
   final Color? textColor;
 
   /// Builder to create the entire message row yourself
-  final Widget Function(ChatMessage message, ChatMessage? previousMessage,
-      ChatMessage? nextMessage)? messageRowBuilder;
+  final Widget Function(
+    ChatMessage message,
+    ChatMessage? previousMessage,
+    ChatMessage? nextMessage,
+    bool isAfterDateSeparator,
+    bool isBeforeDateSeparator,
+  )? messageRowBuilder;
 
   /// Builder to create own message text widget
   final Widget Function(ChatMessage message, ChatMessage? previousMessage,
