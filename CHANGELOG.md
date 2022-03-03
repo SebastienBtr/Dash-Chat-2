@@ -1,3 +1,8 @@
+## [0.0.4] - 03/03/2022
+
+* Fixed scrollController issue for onLoadEarlier
+* UI improvements
+
 ## [0.0.3] - 27/09/2021
 
 * Change better_player to video_player to have support for web
