@@ -44,7 +44,7 @@ class MediaContainer extends StatelessWidget {
               width: width,
               fit: BoxFit.cover,
               alignment: isOwnMessage ? Alignment.topRight : Alignment.topLeft,
-              image: _getImage(media.url),
+              image: getImageProvider(media.url),
             ),
             if (media.isUploading) loading
           ],
@@ -89,17 +89,6 @@ class MediaContainer extends StatelessWidget {
     }
   }
 
-  /// Get the right image provider if the image is local or remote
-  ImageProvider _getImage(String url) {
-    if (url.startsWith('http')) {
-      return CachedNetworkImageProvider(url);
-    } else {
-      return FileImage(
-        File(url),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     if (message.medias != null && message.medias!.isNotEmpty) {
@@ -128,7 +117,11 @@ class MediaContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
-                      m.isUploading ? Colors.white54 : Colors.transparent,
+                      m.isUploading
+                          ? Colors.white54
+                          : Colors.white.withOpacity(
+                              0.1,
+                            ), // Because transparent is causing an issue on flutter web
                       BlendMode.srcATop,
                     ),
                     child: _getMedia(

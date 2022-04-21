@@ -80,7 +80,7 @@ class DefaultAvatar extends StatelessWidget {
                       width: size,
                       height: size,
                       fit: BoxFit.cover,
-                      image: CachedNetworkImageProvider(user.profileImage!),
+                      image: getImageProvider(user.profileImage!),
                       placeholder: fallbackImage ??
                           const AssetImage(
                             'assets/profile_placeholder.png',

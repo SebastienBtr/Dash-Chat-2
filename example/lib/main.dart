@@ -75,15 +75,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-//         messageOptions: const MessageOptions(showTime: true),
-//         messageListOptions: MessageListOptions(
-//           loadEarlierBuilder: Center(
-//             child: ElevatedButton(
-//               onPressed: () {},
-//               child: const Text('toto'),
-//             ),
-//           ),
-//           separatorFrequency: SeparatorFrequency.hours
-//         ),
-//       ),

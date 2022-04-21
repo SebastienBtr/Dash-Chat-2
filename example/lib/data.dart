@@ -1,7 +1,7 @@
 import 'package:dash_chat_2/dash_chat_2.dart';
 
 String profileImage =
-    'https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70';
+    'https://firebasestorage.googleapis.com/v0/b/molteo-40978.appspot.com/o/1-intro-photo-final.jpeg?alt=media&token=daf78997-d8f0-49d1-9120-a9380bde48b5';
 
 // We have all the possibilities for users
 ChatUser user = ChatUser(id: '0');
