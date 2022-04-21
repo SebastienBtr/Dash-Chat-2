@@ -1,3 +1,7 @@
+## [0.0.5] - 21/04/2022
+
+* Added flutter web support
+
 ## [0.0.4] - 03/03/2022
 
 * Fixed scrollController issue for onLoadEarlier
