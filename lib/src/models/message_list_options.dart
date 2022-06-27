@@ -13,6 +13,7 @@ class MessageListOptions {
     this.loadEarlierBuilder,
     this.onLoadEarlier,
     this.typingBuilder,
+    this.scrollPhysics,
   });
 
   /// If you want to who a date separator between messages of different dates
@@ -48,6 +49,9 @@ class MessageListOptions {
 
   /// Builder to create your own typing widget
   final Widget Function(ChatUser user)? typingBuilder;
+
+  /// Scroll physics of the ListView
+  final ScrollPhysics? scrollPhysics;
 }
 
 enum SeparatorFrequency { days, hours }
