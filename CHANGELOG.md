@@ -1,3 +1,9 @@
+## [0.0.7] - 21/04/2022
+
+* Upgraded dependencies
+* Fixed example
+* Added `scrollPhysics` param in `MessageListOptions`
+
 ## [0.0.6] - 21/04/2022
 
 * Added flutter web support
