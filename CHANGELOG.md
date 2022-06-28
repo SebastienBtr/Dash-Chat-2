@@ -1,4 +1,8 @@
-## [0.0.7] - 21/04/2022
+## [0.0.8] - 28/06/2022
+
+* Fixed `sendOnEnter` param not working
+
+## [0.0.7] - 27/06/2022
 
 * Upgraded dependencies
 * Fixed example
