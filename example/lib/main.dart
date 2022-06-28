@@ -2,6 +2,7 @@ import 'package:examples/samples/avatar.dart';
 import 'package:examples/samples/basic.dart';
 import 'package:examples/samples/media.dart';
 import 'package:examples/samples/quick_replies_sample.dart';
+import 'package:examples/samples/send_on_enter.dart';
 import 'package:examples/samples/typing_users_sample.dart';
 import 'package:flutter/material.dart';
 
@@ -58,6 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () => push(TypingUsersSample()),
               child: const Text('Typing users'),
+            ),
+            ElevatedButton(
+              onPressed: () => push(SendOnEnter()),
+              child: const Text('Send on enter'),
             ),
           ],
         ),
