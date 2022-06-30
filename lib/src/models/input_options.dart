@@ -25,6 +25,7 @@ class InputOptions {
     this.inputToolbarPadding = const EdgeInsets.all(8.0),
     this.inputToolbarMargin = const EdgeInsets.only(top: 8.0),
     this.cursorStyle = const CursorStyle(),
+    this.autocorrect = true,
   });
 
   /// Function to call when a mentio is triggered in the input,
@@ -95,4 +96,6 @@ class InputOptions {
 
   /// Style of the cursor
   final CursorStyle cursorStyle;
+
+  final bool autocorrect;
 }

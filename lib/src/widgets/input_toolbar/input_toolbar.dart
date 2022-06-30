@@ -78,6 +78,7 @@ class _InputToolbarState extends State<InputToolbar> {
                       widget.inputOptions.onTextChange!(value);
                     }
                   },
+                  autocorrect: widget.inputOptions.autocorrect,
                 ),
               ),
             ),
