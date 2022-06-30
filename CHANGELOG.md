@@ -1,3 +1,7 @@
+## [0.0.10] - 30/06/2022
+
+* Improved tap gesture area of default send button
+
 ## [0.0.9] - 29/06/2022
 
 * Improved tap gesture area of default send button
