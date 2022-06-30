@@ -97,5 +97,6 @@ class InputOptions {
   /// Style of the cursor
   final CursorStyle cursorStyle;
 
+  /// Whether to enable autocorrection. Defaults to true.
   final bool autocorrect;
 }
