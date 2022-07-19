@@ -5,6 +5,7 @@ class VideoPlayer extends StatefulWidget {
   const VideoPlayer({
     required this.url,
     this.aspectRatio = 1,
+    this.canPlay = true,
   });
 
   /// Link of the video
@@ -12,6 +13,9 @@ class VideoPlayer extends StatefulWidget {
 
   /// The Aspect Ratio of the Video. Important to get the correct size of the video
   final double aspectRatio;
+
+  /// If the video can be played
+  final bool canPlay;
 
   @override
   _VideoPlayerState createState() => _VideoPlayerState();
@@ -51,13 +55,15 @@ class _VideoPlayerState extends State<VideoPlayer> {
               ),
               IconButton(
                 iconSize: _controller.value.isPlaying ? 24 : 60,
-                onPressed: () {
-                  setState(() {
-                    _controller.value.isPlaying
-                        ? _controller.pause()
-                        : _controller.play();
-                  });
-                },
+                onPressed: widget.canPlay
+                    ? () {
+                        setState(() {
+                          _controller.value.isPlaying
+                              ? _controller.pause()
+                              : _controller.play();
+                        });
+                      }
+                    : null,
                 icon: Icon(
                   _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
                   color: Colors.white,
