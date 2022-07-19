@@ -1,3 +1,7 @@
+## [0.0.12] - 19/07/2022
+
+* Added new param to the video player
+
 ## [0.0.11] - 06/07/2022
 
 * Improved default send button padding
