@@ -105,6 +105,7 @@ class _MessageListState extends State<MessageList> {
                             message: widget.messages[i],
                             nextMessage: nextMessage,
                             previousMessage: previousMessage,
+                            maxWidth: widget.messageOptions.maxWidth,
                             currentUser: widget.currentUser,
                             isAfterDateSeparator: isAfterDateSeparator,
                             isBeforeDateSeparator: isBeforeDateSeparator,

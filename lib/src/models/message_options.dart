@@ -17,6 +17,7 @@ class MessageOptions {
     this.containerColor,
     this.textColor,
     this.messagePadding,
+    this.maxWidth = null,
     this.messageDecorationBuilder,
     this.top,
     this.bottom,
@@ -116,6 +117,10 @@ class MessageOptions {
   /// Padding arround the message
   /// Default to: EdgeInsets.all(11)
   final EdgeInsets? messagePadding;
+
+  /// Max message width
+  /// Default to: null, MediaQuery.of(context).size.width * 0.7
+  final double? maxWidth;
 
   /// When a message have both an text and a list of media
   /// it will determine which one th show first
