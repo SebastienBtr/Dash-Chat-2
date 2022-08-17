@@ -7,7 +7,6 @@ class MessageRow extends StatelessWidget {
     required this.currentUser,
     this.previousMessage,
     this.nextMessage,
-    this.maxWidth,
     this.isAfterDateSeparator = false,
     this.isBeforeDateSeparator = false,
     this.messageOptions = const MessageOptions(),
@@ -22,9 +21,6 @@ class MessageRow extends StatelessWidget {
 
   /// Next message in the list
   final ChatMessage? nextMessage;
-
-  // Max message width
-  final double? maxWidth;
 
   /// Current user of the chat
   final ChatUser currentUser;
@@ -91,7 +87,8 @@ class MessageRow extends StatelessWidget {
                 : null,
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxWidth: maxWidth ?? MediaQuery.of(context).size.width * 0.7,
+                maxWidth: messageOptions.maxWidth ??
+                    MediaQuery.of(context).size.width * 0.7,
               ),
               child: Column(
                 crossAxisAlignment: isOwnMessage

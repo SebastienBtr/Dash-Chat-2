@@ -17,7 +17,7 @@ class MessageOptions {
     this.containerColor,
     this.textColor,
     this.messagePadding,
-    this.maxWidth = null,
+    this.maxWidth,
     this.messageDecorationBuilder,
     this.top,
     this.bottom,
