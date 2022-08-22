@@ -34,10 +34,10 @@
 - Quick Reply messages
 - Load earlier messages
 - Scroll to bottom Widget
-- Multiple media support
-- @ Mention users - WIP
-- Reply to messages - WIP
+- Multiple media support (Audio support: WIP)
+- @ Mention users (or anything else)
 - Typing users
+- Reply to messages - WIP
 - Message status - WIP
 
 You need another feature? you can use the `customProperties` field of the models, it allows you to pass other data to the library that you can then use inside custom builders to implement any feature you need. 
