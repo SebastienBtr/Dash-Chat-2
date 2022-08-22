@@ -1,7 +1,5 @@
 part of dash_chat_2;
 
-// TODO: manage onMention
-
 /// @nodoc
 class InputToolbar extends StatefulWidget {
   const InputToolbar({
@@ -26,6 +24,9 @@ class InputToolbar extends StatefulWidget {
 
 class _InputToolbarState extends State<InputToolbar> {
   late TextEditingController textController;
+  OverlayEntry? _overlayEntry;
+  int currentMentionIndex = -1;
+  String currentTrigger = '';
 
   @override
   void initState() {
@@ -72,11 +73,16 @@ class _InputToolbarState extends State<InputToolbar> {
                       _sendMessage();
                     }
                   },
-                  onChanged: (String value) {
+                  onChanged: (String value) async {
                     setState(() {});
                     if (widget.inputOptions.onTextChange != null) {
                       widget.inputOptions.onTextChange!(value);
                     }
+                    WidgetsBinding.instance.addPostFrameCallback((_) async {
+                      if (widget.inputOptions.onMention != null) {
+                        await _checkMentions(value);
+                      }
+                    });
                   },
                   autocorrect: widget.inputOptions.autocorrect,
                 ),
@@ -99,6 +105,94 @@ class _InputToolbarState extends State<InputToolbar> {
         ),
       ),
     );
+  }
+
+  Future<void> _checkMentions(String text) async {
+    bool hasMatch = false;
+    for (final String trigger in widget.inputOptions.onMentionTriggers) {
+      final RegExp regexp = RegExp(r'(?<![^\s<>])' + trigger + r'([^\s<>]+)$');
+      if (regexp.hasMatch(text)) {
+        hasMatch = true;
+        currentMentionIndex = textController.text.indexOf(regexp);
+        currentTrigger = trigger;
+        List<Widget> children = await widget.inputOptions.onMention!(
+          trigger,
+          regexp.firstMatch(text)!.group(1)!,
+          _onMentionClick,
+        );
+        _showMentionModal(children);
+      }
+    }
+    if (!hasMatch) {
+      _clearOverlay();
+    }
+  }
+
+  void _onMentionClick(String value) {
+    textController.text = textController.text.replaceRange(
+      currentMentionIndex,
+      textController.text.length,
+      currentTrigger + value,
+    );
+    textController.selection = TextSelection.collapsed(
+      offset: textController.text.length,
+    );
+    _clearOverlay();
+  }
+
+  void _clearOverlay() {
+    if (_overlayEntry != null && _overlayEntry!.mounted) {
+      _overlayEntry!.remove();
+    }
+  }
+
+  void _showMentionModal(List<Widget> children) {
+    final OverlayState overlay = Overlay.of(context)!;
+    final RenderBox renderBox = context.findRenderObject() as RenderBox;
+    final Offset topLeftCornerOffset = renderBox.localToGlobal(Offset.zero);
+
+    double bottomPosition =
+        MediaQuery.of(context).size.height - topLeftCornerOffset.dy;
+    if (widget.inputOptions.inputToolbarMargin != null) {
+      bottomPosition -= widget.inputOptions.inputToolbarMargin!.top -
+          widget.inputOptions.inputToolbarMargin!.bottom;
+    }
+
+    _clearOverlay();
+
+    _overlayEntry = OverlayEntry(
+      builder: (BuildContext context) {
+        return Positioned(
+          width: renderBox.size.width,
+          bottom: bottomPosition,
+          child: Container(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(context).size.height -
+                  bottomPosition -
+                  MediaQuery.of(context).padding.top -
+                  kToolbarHeight,
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  width: 0.2,
+                  color: Theme.of(context).dividerColor,
+                ),
+              ),
+            ),
+            child: Material(
+              color: Theme.of(context).selectedRowColor,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: children,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+    overlay.insert(_overlayEntry!);
   }
 
   void _sendMessage() {

@@ -62,9 +62,13 @@ List<ChatMessage> allUsersSample = <ChatMessage>[
 
 List<ChatMessage> basicSample = <ChatMessage>[
   ChatMessage(
-    text: 'google.com',
+    text: 'google.com hello you @Marc is it &you okay?',
     user: user2,
     createdAt: DateTime(2021, 01, 31, 16, 45),
+    mentions: [
+      Mention(title: '@Marc'),
+      Mention(title: '&you'),
+    ],
   ),
   ChatMessage(
     text: 'google.com',
@@ -148,6 +152,23 @@ List<ChatMessage> quickReplies = <ChatMessage>[
       QuickReply(title: 'Great!'),
       QuickReply(title: 'Awesome'),
     ],
+  ),
+];
+
+List<ChatMessage> mentionSample = <ChatMessage>[
+  ChatMessage(
+    text: 'Hello @Niki, you should check #channel',
+    user: user2,
+    createdAt: DateTime(2021, 01, 31, 16, 45),
+    mentions: [
+      Mention(title: '@Niki', customProperties: {'userId': user5.id}),
+      Mention(title: '#channel'),
+    ],
+  ),
+  ChatMessage(
+    text: "Oh what's up guys?",
+    user: user5,
+    createdAt: DateTime(2021, 01, 30, 16, 45),
   ),
 ];
 

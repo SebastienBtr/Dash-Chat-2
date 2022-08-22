@@ -12,6 +12,7 @@ class MessageOptions {
     this.onLongPressAvatar,
     this.onLongPressMessage,
     this.onPressMessage,
+    this.onPressMention,
     this.currentUserContainerColor,
     this.currentUserTextColor,
     this.containerColor,
@@ -69,6 +70,9 @@ class MessageOptions {
 
   /// Function to call when the user press on a message
   final Function(ChatMessage)? onPressMessage;
+
+  /// Function to call when the user press on a message mention
+  final Function(Mention)? onPressMention;
 
   /// Color of the current user chat bubbles
   /// Default to primary color

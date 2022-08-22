@@ -2,6 +2,7 @@ library dash_chat_2;
 
 import 'dart:math';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_parsed_text/flutter_parsed_text.dart';
 import 'package:intl/intl.dart' as intl;
@@ -16,6 +17,7 @@ part 'src/models/chat_message.dart';
 part 'src/models/chat_user.dart';
 part 'src/models/cursor_style.dart';
 part 'src/models/input_options.dart';
+part 'src/models/mention.dart';
 part 'src/models/message_list_options.dart';
 part 'src/models/message_options.dart';
 part 'src/models/quick_reply.dart';

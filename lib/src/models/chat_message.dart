@@ -36,9 +36,9 @@ class ChatMessage {
       mentions: jsonData['mentions'] != null
           ? (jsonData['mentions'] as List<dynamic>)
               .map((dynamic mention) =>
-                  ChatUser.fromJson(mention as Map<String, dynamic>))
+                  Mention.fromJson(mention as Map<String, dynamic>))
               .toList()
-          : <ChatUser>[],
+          : <Mention>[],
       status: MessageStatus.parse(jsonData['status'].toString()),
       replyTo: jsonData['replyTo'] != null
           ? ChatMessage.fromJson(jsonData['replyTo'] as Map<String, dynamic>)
@@ -66,8 +66,8 @@ class ChatMessage {
   /// Date of the message
   DateTime createdAt;
 
-  /// List of mentionned users in the message TODO:
-  List<ChatUser>? mentions;
+  /// Mentionned elements in the message
+  List<Mention>? mentions;
 
   /// Status of the message TODO:
   MessageStatus? status;
@@ -86,7 +86,7 @@ class ChatMessage {
           ?.map((QuickReply quickReply) => quickReply.toJson())
           .toList(),
       'customProperties': customProperties,
-      'mentions': mentions?.map((ChatUser user) => user.toJson()).toList(),
+      'mentions': mentions,
       'status': status.toString(),
       'replyTo': replyTo?.toJson(),
     };

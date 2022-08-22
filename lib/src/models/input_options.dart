@@ -7,6 +7,7 @@ class InputOptions {
     this.focusNode,
     this.inputTextDirection = TextDirection.ltr,
     this.onMention,
+    this.onMentionTriggers = const <String>['@'],
     this.onTextChange,
     this.inputDisabled = false,
     this.inputDecoration,
@@ -28,9 +29,16 @@ class InputOptions {
     this.autocorrect = true,
   });
 
-  /// Function to call when a mentio is triggered in the input,
+  /// Function to call when a mention is triggered in the input,
   /// ie: typing ' @'
-  final ChatUser Function(String value)? onMention;
+  /// You need to return a list of widget that will be shown inside the selection overlay, 
+  /// for instance user ListTiles
+  final Future<List<Widget>> Function(String trigger, String value,
+      void Function(String value) onMentionClick)? onMention;
+
+  /// The list of string triggers for the onMention callback
+  /// By default it only includes '@' character
+  final List<String> onMentionTriggers;
 
   /// Function to call when the input text changee
   final void Function(String value)? onTextChange;
