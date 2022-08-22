@@ -87,7 +87,8 @@ class MessageRow extends StatelessWidget {
                 : null,
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.7,
+                maxWidth: messageOptions.maxWidth ??
+                    MediaQuery.of(context).size.width * 0.7,
               ),
               child: Column(
                 crossAxisAlignment: isOwnMessage
