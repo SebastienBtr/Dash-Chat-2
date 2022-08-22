@@ -31,7 +31,7 @@ class InputOptions {
 
   /// Function to call when a mention is triggered in the input,
   /// ie: typing ' @'
-  /// You need to return a list of widget that will be shown inside the selection overlay, 
+  /// You need to return a list of widget that will be shown inside the selection overlay,
   /// for instance user ListTiles
   final Future<List<Widget>> Function(String trigger, String value,
       void Function(String value) onMentionClick)? onMention;

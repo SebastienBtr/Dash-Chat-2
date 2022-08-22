@@ -1,3 +1,8 @@
+## [0.0.13] - 22/08/2022
+
+* Added ability to mention anything using any trigger (for instance: @username)
+* Added maxWidth message option
+
 ## [0.0.12] - 19/07/2022
 
 * Added new param to the video player
