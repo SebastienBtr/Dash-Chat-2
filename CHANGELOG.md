@@ -1,3 +1,7 @@
+## [0.0.14] - 23/08/2022
+
+* Hid the mention overlay when the input toolbar is disposed
+
 ## [0.0.13] - 22/08/2022
 
 * Added ability to mention anything using any trigger (for instance: @username)
