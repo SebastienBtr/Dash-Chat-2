@@ -36,6 +36,12 @@ class _InputToolbarState extends State<InputToolbar> {
   }
 
   @override
+  void dispose() {
+    _clearOverlay();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
