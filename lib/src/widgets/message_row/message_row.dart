@@ -80,7 +80,7 @@ class MessageRow extends StatelessWidget {
             const Padding(padding: EdgeInsets.only(left: 10)),
           GestureDetector(
             onLongPress: messageOptions.onLongPressMessage != null
-                ? () => messageOptions.onLongPressMessage!(message)
+                ? () => messageOptions.onLongPressMessage!(message, context)
                 : null,
             onTap: messageOptions.onPressMessage != null
                 ? () => messageOptions.onPressMessage!(message)

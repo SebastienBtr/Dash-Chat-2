@@ -45,8 +45,7 @@ class _MessageListState extends State<MessageList> {
 
   @override
   void initState() {
-    scrollController =
-        widget.messageListOptions.scrollController ?? ScrollController();
+    scrollController = widget.messageListOptions.scrollController ?? ScrollController();
     scrollController.addListener(() => _onScroll());
     super.initState();
   }
@@ -67,32 +66,25 @@ class _MessageListState extends State<MessageList> {
                   reverse: true,
                   itemCount: widget.messages.length,
                   itemBuilder: (BuildContext context, int i) {
-                    final ChatMessage? previousMessage =
-                        i < widget.messages.length - 1
-                            ? widget.messages[i + 1]
-                            : null;
-                    final ChatMessage? nextMessage =
-                        i > 0 ? widget.messages[i - 1] : null;
+                    final ChatMessage? previousMessage = i < widget.messages.length - 1 ? widget.messages[i + 1] : null;
+                    final ChatMessage? nextMessage = i > 0 ? widget.messages[i - 1] : null;
                     final ChatMessage message = widget.messages[i];
-                    final bool isAfterDateSeparator = _shouldShowDateSeparator(
-                        previousMessage, message, widget.messageListOptions);
+                    final bool isAfterDateSeparator = _shouldShowDateSeparator(previousMessage, message, widget.messageListOptions);
                     bool isBeforeDateSeparator = false;
                     if (nextMessage != null) {
-                      isBeforeDateSeparator = _shouldShowDateSeparator(
-                          message, nextMessage, widget.messageListOptions);
+                      isBeforeDateSeparator = _shouldShowDateSeparator(message, nextMessage, widget.messageListOptions);
                     }
                     return Column(
+                      key: widget.messages[i].id == null ? UniqueKey() : LabeledGlobalKey(widget.messages[i].id),
                       children: <Widget>[
                         if (isAfterDateSeparator)
                           widget.messageListOptions.dateSeparatorBuilder != null
-                              ? widget.messageListOptions
-                                  .dateSeparatorBuilder!(message.createdAt)
+                              ? widget.messageListOptions.dateSeparatorBuilder!(message.createdAt)
                               : DefaultDateSeparator(
                                   date: message.createdAt,
                                   messageListOptions: widget.messageListOptions,
                                 ),
-                        if (widget.messageOptions.messageRowBuilder !=
-                            null) ...<Widget>[
+                        if (widget.messageOptions.messageRowBuilder != null) ...<Widget>[
                           widget.messageOptions.messageRowBuilder!(
                             message,
                             previousMessage,
@@ -122,9 +114,7 @@ class _MessageListState extends State<MessageList> {
                   }
                   return DefaultTypingBuilder(user: user);
                 }).toList(),
-              if (widget.messageListOptions.showFooterBeforeQuickReplies &&
-                  widget.messageListOptions.chatFooterBuilder != null)
-                widget.messageListOptions.chatFooterBuilder!,
+              if (widget.messageListOptions.showFooterBeforeQuickReplies && widget.messageListOptions.chatFooterBuilder != null) widget.messageListOptions.chatFooterBuilder!,
               if (widget.messages.isNotEmpty &&
                   widget.messages.first.quickReplies != null &&
                   widget.messages.first.quickReplies!.isNotEmpty &&
@@ -133,9 +123,7 @@ class _MessageListState extends State<MessageList> {
                   quickReplies: widget.messages.first.quickReplies!,
                   quickReplyOptions: widget.quickReplyOptions,
                 ),
-              if (!widget.messageListOptions.showFooterBeforeQuickReplies &&
-                  widget.messageListOptions.chatFooterBuilder != null)
-                widget.messageListOptions.chatFooterBuilder!,
+              if (!widget.messageListOptions.showFooterBeforeQuickReplies && widget.messageListOptions.chatFooterBuilder != null) widget.messageListOptions.chatFooterBuilder!,
             ],
           ),
           if (isLoadingMore)
@@ -152,8 +140,7 @@ class _MessageListState extends State<MessageList> {
             ),
           if (!widget.scrollToBottomOptions.disabled && scrollToBottomIsVisible)
             widget.scrollToBottomOptions.scrollToBottomBuilder != null
-                ? widget.scrollToBottomOptions
-                    .scrollToBottomBuilder!(scrollController)
+                ? widget.scrollToBottomOptions.scrollToBottomBuilder!(scrollController)
                 : DefaultScrollToBottom(
                     scrollController: scrollController,
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -165,8 +152,7 @@ class _MessageListState extends State<MessageList> {
   }
 
   /// Check if a date separator needs to be shown
-  bool _shouldShowDateSeparator(ChatMessage? previousMessage,
-      ChatMessage message, MessageListOptions messageListOptions) {
+  bool _shouldShowDateSeparator(ChatMessage? previousMessage, ChatMessage message, MessageListOptions messageListOptions) {
     if (!messageListOptions.showDateSeparator) {
       return false;
     }
@@ -209,12 +195,8 @@ class _MessageListState extends State<MessageList> {
   /// Sroll listener to trigger different actions:
   /// show scroll-to-bottom btn and LoadEarlier behaviour
   Future<void> _onScroll() async {
-    bool topReached =
-        scrollController.offset >= scrollController.position.maxScrollExtent &&
-            !scrollController.position.outOfRange;
-    if (topReached &&
-        widget.messageListOptions.onLoadEarlier != null &&
-        !isLoadingMore) {
+    bool topReached = scrollController.offset >= scrollController.position.maxScrollExtent && !scrollController.position.outOfRange;
+    if (topReached && widget.messageListOptions.onLoadEarlier != null && !isLoadingMore) {
       setState(() {
         isLoadingMore = true;
       });

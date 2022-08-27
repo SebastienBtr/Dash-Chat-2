@@ -12,6 +12,7 @@ class ChatMessage {
     this.mentions,
     this.status = MessageStatus.none,
     this.replyTo,
+    this.id,
   });
 
   /// Create a ChatMessage instance from json data
@@ -20,31 +21,21 @@ class ChatMessage {
       user: ChatUser.fromJson(jsonData['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(jsonData['createdAt'].toString()).toLocal(),
       text: jsonData['text']?.toString() ?? '',
-      medias: jsonData['medias'] != null
-          ? (jsonData['medias'] as List<dynamic>)
-              .map((dynamic media) =>
-                  ChatMedia.fromJson(media as Map<String, dynamic>))
-              .toList()
-          : <ChatMedia>[],
+      medias: jsonData['medias'] != null ? (jsonData['medias'] as List<dynamic>).map((dynamic media) => ChatMedia.fromJson(media as Map<String, dynamic>)).toList() : <ChatMedia>[],
       quickReplies: jsonData['quickReplies'] != null
-          ? (jsonData['quickReplies'] as List<dynamic>)
-              .map((dynamic quickReply) =>
-                  QuickReply.fromJson(quickReply as Map<String, dynamic>))
-              .toList()
+          ? (jsonData['quickReplies'] as List<dynamic>).map((dynamic quickReply) => QuickReply.fromJson(quickReply as Map<String, dynamic>)).toList()
           : <QuickReply>[],
       customProperties: jsonData['customProperties'] as Map<String, dynamic>,
-      mentions: jsonData['mentions'] != null
-          ? (jsonData['mentions'] as List<dynamic>)
-              .map((dynamic mention) =>
-                  Mention.fromJson(mention as Map<String, dynamic>))
-              .toList()
-          : <Mention>[],
+      mentions:
+          jsonData['mentions'] != null ? (jsonData['mentions'] as List<dynamic>).map((dynamic mention) => Mention.fromJson(mention as Map<String, dynamic>)).toList() : <Mention>[],
       status: MessageStatus.parse(jsonData['status'].toString()),
-      replyTo: jsonData['replyTo'] != null
-          ? ChatMessage.fromJson(jsonData['replyTo'] as Map<String, dynamic>)
-          : null,
+      replyTo: jsonData['replyTo'] != null ? ChatMessage.fromJson(jsonData['replyTo'] as Map<String, dynamic>) : null,
+      id: jsonData['id'] == null ? null : jsonData['id'] as String,
     );
   }
+
+  ///id of message
+  String? id;
 
   /// Text of the message (optional because you can also just send a media)
   String text;
@@ -82,19 +73,19 @@ class ChatMessage {
       'createdAt': createdAt.toUtc().toIso8601String(),
       'text': text,
       'medias': medias?.map((ChatMedia media) => media.toJson()).toList(),
-      'quickReplies': quickReplies
-          ?.map((QuickReply quickReply) => quickReply.toJson())
-          .toList(),
+      'quickReplies': quickReplies?.map((QuickReply quickReply) => quickReply.toJson()).toList(),
       'customProperties': customProperties,
       'mentions': mentions,
       'status': status.toString(),
       'replyTo': replyTo?.toJson(),
+      'id': id,
     };
   }
 }
 
 class MessageStatus {
   const MessageStatus._internal(this._value);
+
   final String _value;
 
   @override
