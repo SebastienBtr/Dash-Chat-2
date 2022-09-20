@@ -22,21 +22,39 @@ class InputToolbar extends StatefulWidget {
   _InputToolbarState createState() => _InputToolbarState();
 }
 
-class _InputToolbarState extends State<InputToolbar> {
+class _InputToolbarState extends State<InputToolbar> with WidgetsBindingObserver {
   late TextEditingController textController;
   OverlayEntry? _overlayEntry;
   int currentMentionIndex = -1;
   String currentTrigger = '';
+  late FocusNode focusNode;
 
   @override
   void initState() {
     textController =
         widget.inputOptions.textController ?? TextEditingController();
+    focusNode = widget.inputOptions.focusNode ?? FocusNode();
+    focusNode.addListener(() {
+      if (!focusNode.hasFocus) {
+        _clearOverlay();
+      }
+    });
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
   @override
+  void didChangeMetrics() {
+    final double bottomInset = WidgetsBinding.instance.window.viewInsets.bottom;
+    final bool isKeyboardActive = bottomInset > 0.0;
+    if (!isKeyboardActive) {
+      _clearOverlay();
+    }
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _clearOverlay();
     super.dispose();
   }
@@ -58,7 +76,7 @@ class _InputToolbarState extends State<InputToolbar> {
               child: Directionality(
                 textDirection: widget.inputOptions.inputTextDirection,
                 child: TextField(
-                  focusNode: widget.inputOptions.focusNode,
+                  focusNode: focusNode,
                   controller: textController,
                   enabled: !widget.inputOptions.inputDisabled,
                   textCapitalization: widget.inputOptions.textCapitalization,
@@ -148,7 +166,8 @@ class _InputToolbarState extends State<InputToolbar> {
 
   void _clearOverlay() {
     if (_overlayEntry != null && _overlayEntry!.mounted) {
-      _overlayEntry!.remove();
+      _overlayEntry?.remove();
+      _overlayEntry?.dispose();
     }
   }
 
