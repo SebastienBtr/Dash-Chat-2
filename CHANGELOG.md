@@ -1,3 +1,9 @@
+## [0.0.15] - 03/10/2022
+
+* Fixed opening dynamic links (deeplinks)
+* Fixed issue with video previews
+* Fixed issues related to the mention overlay
+
 ## [0.0.14] - 23/08/2022
 
 * Hid the mention overlay when the input toolbar is disposed

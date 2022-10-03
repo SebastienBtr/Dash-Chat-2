@@ -22,7 +22,8 @@ class InputToolbar extends StatefulWidget {
   _InputToolbarState createState() => _InputToolbarState();
 }
 
-class _InputToolbarState extends State<InputToolbar> with WidgetsBindingObserver {
+class _InputToolbarState extends State<InputToolbar>
+    with WidgetsBindingObserver {
   late TextEditingController textController;
   OverlayEntry? _overlayEntry;
   int currentMentionIndex = -1;
