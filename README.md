@@ -132,11 +132,14 @@ If you have any suggestions for including a feature or if something doesn't work
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/SebastienBtr"><img src="https://avatars.githubusercontent.com/u/18089010?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SebastienBtr</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=SebastienBtr" title="Code">💻</a> <a href="#design-SebastienBtr" title="Design">🎨</a></td>
-    <td align="center"><a href="https://github.com/chuusungmin"><img src="https://avatars.githubusercontent.com/u/17997403?v=4?s=100" width="100px;" alt=""/><br /><sub><b>chuusungmin</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=chuusungmin" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/fufesou"><img src="https://avatars.githubusercontent.com/u/13586388?v=4?s=100" width="100px;" alt=""/><br /><sub><b>fufesou</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=fufesou" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/SebastienBtr"><img src="https://avatars.githubusercontent.com/u/18089010?v=4?s=100" width="100px;" alt="SebastienBtr"/><br /><sub><b>SebastienBtr</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=SebastienBtr" title="Code">💻</a> <a href="#design-SebastienBtr" title="Design">🎨</a></td>
+      <td align="center"><a href="https://github.com/chuusungmin"><img src="https://avatars.githubusercontent.com/u/17997403?v=4?s=100" width="100px;" alt="chuusungmin"/><br /><sub><b>chuusungmin</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=chuusungmin" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/fufesou"><img src="https://avatars.githubusercontent.com/u/13586388?v=4?s=100" width="100px;" alt="fufesou"/><br /><sub><b>fufesou</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=fufesou" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/farmery"><img src="https://avatars.githubusercontent.com/u/56759256?v=4?s=100" width="100px;" alt="Nwachi ifeanyichukwu Victor"/><br /><sub><b>Nwachi ifeanyichukwu Victor</b></sub></a><br /><a href="https://github.com/molteo-engineering-team/Dash-Chat-2/commits?author=farmery" title="Code">💻</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->

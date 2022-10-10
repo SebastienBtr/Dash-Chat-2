@@ -32,6 +32,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "farmery",
+      "name": "Nwachi ifeanyichukwu Victor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56759256?v=4",
+      "profile": "https://github.com/farmery",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -39,5 +48,6 @@
   "projectOwner": "molteo-engineering-team",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
