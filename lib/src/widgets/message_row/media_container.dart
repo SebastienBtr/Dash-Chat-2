@@ -137,6 +137,6 @@ class MediaContainer extends StatelessWidget {
         ).toList(),
       );
     }
-    return Container();
+    return const SizedBox();
   }
 }
