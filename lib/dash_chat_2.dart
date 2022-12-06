@@ -11,6 +11,8 @@ import 'package:video_player/video_player.dart' as vp;
 
 import 'src/widgets/image_provider/image_provider.dart';
 
+export 'package:flutter_parsed_text/flutter_parsed_text.dart';
+
 part 'src/dash_chat.dart';
 part 'src/models/chat_media.dart';
 part 'src/models/chat_message.dart';
