@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 ImageProvider getImageProvider(String url) {
   if (url.startsWith('http')) {
     return CachedNetworkImageProvider(url);
+  } else if (url.startsWith('assets')) {
+    return AssetImage(url);
   } else {
     return FileImage(
       File(url),
