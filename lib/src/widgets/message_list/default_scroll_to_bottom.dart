@@ -60,7 +60,7 @@ class DefaultScrollToBottom extends StatelessWidget {
   /// It will scroll down in any case
   final void Function()? onScrollToBottomPress;
 
-  /// Whether the chat is readOnly or not, used to add safe area padding.
+  /// Whether the chat is read only, used to add safe area padding to bottom
   final bool readOnly;
 
   @override
@@ -69,7 +69,9 @@ class DefaultScrollToBottom extends StatelessWidget {
       right: right,
       left: left,
       top: top,
-      bottom: readOnly ? MediaQuery.of(context).padding.bottom : bottom,
+      bottom: readOnly
+          ? MediaQuery.of(context).padding.bottom + (bottom ?? 0)
+          : bottom,
       child: SizedBox(
         width: width,
         height: height,

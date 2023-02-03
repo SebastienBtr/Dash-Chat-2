@@ -14,13 +14,14 @@ class MessageList extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  final bool readOnly;
-
   /// The current user of the chat
   final ChatUser currentUser;
 
   /// List of messages visible in the chat
   final List<ChatMessage> messages;
+
+  /// Whether the chat is read only, used for safe area
+  final bool readOnly;
 
   /// Options to customize the behaviour and design of the messages
   final MessageOptions messageOptions;
