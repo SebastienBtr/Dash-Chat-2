@@ -124,10 +124,10 @@ class MessageOptions {
   /// Default to: EdgeInsets.all(11)
   final EdgeInsets? messagePadding;
 
-  /// Padding before each message where the previous author is the same
+  /// Margin around each message where the previous author is the same
   final EdgeInsets messageMarginSameAuthor;
 
-  /// Padding before each message where the previous author is different
+  /// Margin around each message where the previous author is different
   final EdgeInsets messageMarginDifferentAuthor;
 
   /// Max message width
