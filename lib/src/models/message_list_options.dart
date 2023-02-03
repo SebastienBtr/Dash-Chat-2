@@ -14,6 +14,7 @@ class MessageListOptions {
     this.onLoadEarlier,
     this.typingBuilder,
     this.scrollPhysics,
+    this.padding = EdgeInsets.zero,
   });
 
   /// If you want to who a date separator between messages of different dates
@@ -52,6 +53,9 @@ class MessageListOptions {
 
   /// Scroll physics of the ListView
   final ScrollPhysics? scrollPhysics;
+
+  /// Padding of the ListView
+  final EdgeInsets padding;
 }
 
 enum SeparatorFrequency { days, hours }
