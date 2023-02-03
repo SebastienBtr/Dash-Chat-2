@@ -5,6 +5,7 @@ class MessageList extends StatefulWidget {
   const MessageList({
     required this.currentUser,
     required this.messages,
+    required this.readOnly,
     this.messageOptions = const MessageOptions(),
     this.messageListOptions = const MessageListOptions(),
     this.quickReplyOptions = const QuickReplyOptions(),
@@ -12,6 +13,8 @@ class MessageList extends StatefulWidget {
     this.typingUsers,
     Key? key,
   }) : super(key: key);
+
+  final bool readOnly;
 
   /// The current user of the chat
   final ChatUser currentUser;
@@ -63,7 +66,7 @@ class _MessageListState extends State<MessageList> {
               Expanded(
                 child: ListView.builder(
                   physics: widget.messageListOptions.scrollPhysics,
-                  padding: widget.messageListOptions.padding,
+                  padding: widget.readOnly ? null : EdgeInsets.zero,
                   controller: scrollController,
                   reverse: true,
                   itemCount: widget.messages.length,
@@ -157,6 +160,7 @@ class _MessageListState extends State<MessageList> {
                     .scrollToBottomBuilder!(scrollController)
                 : DefaultScrollToBottom(
                     scrollController: scrollController,
+                    readOnly: widget.readOnly,
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     textColor: Theme.of(context).primaryColor,
                   ),
