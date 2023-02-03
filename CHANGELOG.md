@@ -1,3 +1,8 @@
+## [0.0.16] - 02/03/2023
+
+* Added the ability to change the `Margin` before each message
+* Fixed `ListView.builder()` automatically padding `MessageList`
+
 ## [0.0.15] - 03/10/2022
 
 * Fixed opening dynamic links (deeplinks)
