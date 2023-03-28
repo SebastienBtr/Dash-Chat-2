@@ -63,6 +63,7 @@ class _InputToolbarState extends State<InputToolbar>
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Container(
         padding: widget.inputOptions.inputToolbarPadding,
         margin: widget.inputOptions.inputToolbarMargin,
