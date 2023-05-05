@@ -6,7 +6,6 @@ class MessageOptions {
     this.avatarBuilder,
     this.borderRadius = 18.0,
     this.bottom,
-    this.containerColor,
     this.currentUserContainerColor = Colors.white,
     this.currentUserTextColor = Colors.white,
     this.currentUserTimeTextColor = Colors.white70,
@@ -35,12 +34,13 @@ class MessageOptions {
     this.showTime = false,
     this.spaceWhenAvatarIsMissing = 10.0,
     this.textBeforeMedia = true,
-    this.textColor,
     this.timeFontSize = 10.0,
     this.timeFormat,
     this.timeSpacing = 5.0,
     this.top,
     this.userNameBuilder,
+    @Deprecated('Please use otherUserContainerColor') this.containerColor,
+    @Deprecated('Please use otherUserTimeTextColor') this.textColor,
   });
 
   /// Format of the time if [showTime] is true
@@ -106,7 +106,6 @@ class MessageOptions {
   final Color otherUserContainerColor;
 
   /// Deprecated in favor of `otherUserContainerColor`
-  @Deprecated('Deprecated in favor of otherUserContainerColor')
   final Color? containerColor;
 
   /// Color of other user's text in chat bubbles
@@ -120,7 +119,6 @@ class MessageOptions {
   final Color otherUserTimeTextColor;
 
   /// Deprecated in favor of `otherUserTimeTextColor`
-  @Deprecated('Deprecated in favor of otherUserTimeTextColor')
   final Color? textColor;
 
   /// Builder to create the entire message row yourself

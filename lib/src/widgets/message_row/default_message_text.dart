@@ -38,7 +38,6 @@ class DefaultMessageText extends StatelessWidget {
                     style: TextStyle(
                       color: isOwnMessage
                           ? messageOptions.currentUserTimeTextColor
-                          // ignore: deprecated_member_use_from_same_package
                           : messageOptions.textColor ??
                               messageOptions.otherUserTimeTextColor,
                       fontSize: messageOptions.timeFontSize,
@@ -94,7 +93,6 @@ class DefaultMessageText extends StatelessWidget {
       style: TextStyle(
         color: isOwnMessage
             ? messageOptions.currentUserTextColor
-            // ignore: deprecated_member_use_from_same_package
             : messageOptions.textColor ?? messageOptions.otherUserTextColor,
       ),
     );
@@ -111,7 +109,6 @@ class DefaultMessageText extends StatelessWidget {
         style: TextStyle(
           color: isOwnMessage
               ? messageOptions.currentUserTextColor
-              // ignore: deprecated_member_use_from_same_package
               : messageOptions.textColor ?? messageOptions.otherUserTextColor,
           decoration: TextDecoration.none,
           fontWeight: FontWeight.w600,
