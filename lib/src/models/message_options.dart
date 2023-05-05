@@ -13,12 +13,6 @@ class MessageOptions {
     this.onLongPressMessage,
     this.onPressMessage,
     this.onPressMention,
-    this.currentUserContainerColor,
-    this.currentUserTextColor,
-    this.containerColor,
-    this.textColor,
-    this.messagePadding,
-    this.maxWidth,
     this.messageDecorationBuilder,
     this.top,
     this.bottom,
@@ -31,7 +25,10 @@ class MessageOptions {
     this.timeFormat,
     this.messageTimeBuilder,
     this.messageMediaBuilder,
+    this.style = const MessageStyle(),
   });
+
+  final MessageStyle style;
 
   /// Format of the time if [showTime] is true
   /// Default to: DateFormat('HH:mm')
@@ -75,22 +72,6 @@ class MessageOptions {
   /// Function to call when the user press on a message mention
   final Function(Mention)? onPressMention;
 
-  /// Color of the current user chat bubbles
-  /// Default to primary color
-  final Color? currentUserContainerColor;
-
-  /// Color of the current user text in chat bubbles
-  /// Default to white
-  final Color? currentUserTextColor;
-
-  /// Color of the other users chat bubbles
-  /// Default to Colors.grey[100]
-  final Color? containerColor;
-
-  /// Color of the other users text in chat bubbles
-  /// Default to black
-  final Color? textColor;
-
   /// Builder to create the entire message row yourself
   final Widget Function(
     ChatMessage message,
@@ -117,14 +98,6 @@ class MessageOptions {
   /// to parse and customize accordingly some part of the text
   /// By default ParsedType.URL is set and will use launchUrl to open the link
   final List<MatchText>? parsePatterns;
-
-  /// Padding arround the message
-  /// Default to: EdgeInsets.all(11)
-  final EdgeInsets? messagePadding;
-
-  /// Max message width
-  /// Default to: null, MediaQuery.of(context).size.width * 0.7
-  final double? maxWidth;
 
   /// When a message have both an text and a list of media
   /// it will determine which one th show first

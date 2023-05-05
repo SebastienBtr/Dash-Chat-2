@@ -4,6 +4,7 @@ import 'package:examples/samples/media.dart';
 import 'package:examples/samples/mention.dart';
 import 'package:examples/samples/quick_replies_sample.dart';
 import 'package:examples/samples/send_on_enter.dart';
+import 'package:examples/samples/theming.dart';
 import 'package:examples/samples/typing_users_sample.dart';
 import 'package:flutter/material.dart';
 
@@ -68,6 +69,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () => push(MentionSample()),
               child: const Text('Mention'),
+            ),
+            ElevatedButton(
+              onPressed: () => push(Themeing()),
+              child: const Text('Themeing'),
             ),
           ],
         ),
