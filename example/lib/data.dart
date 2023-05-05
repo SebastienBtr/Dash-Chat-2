@@ -100,16 +100,6 @@ List<ChatMessage> basicSample = <ChatMessage>[
     user: user,
     createdAt: DateTime(2021, 01, 28, 15, 50),
   ),
-  ChatMessage(
-    text: 'Hey!',
-    user: user,
-    createdAt: DateTime(2021, 01, 28, 15, 50),
-  ),
-  ChatMessage(
-    text: 'Hey!',
-    user: user,
-    createdAt: DateTime(2021, 01, 28, 15, 50),
-  ),
 ];
 
 List<ChatMessage> media = <ChatMessage>[

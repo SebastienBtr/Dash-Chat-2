@@ -85,6 +85,44 @@ class MessageOptions {
   /// Function to call when the user press on a message mention
   final Function(Mention)? onPressMention;
 
+  /// Color of currentUser's chat bubbles
+  ///
+  /// Default to: `Colors.white`
+  final Color currentUserContainerColor;
+
+  /// Color of currentUser's text in chat bubbles
+  ///
+  /// Default to: `Colors.white`
+  final Color currentUserTextColor;
+
+  /// Color of currentUser's time text in chat bubbles
+  ///
+  /// Default to: `Colors.white70`
+  final Color currentUserTimeTextColor;
+
+  /// Color of other user's chat bubbles
+  ///
+  /// Default to: `Colors.grey.shade100`
+  final Color otherUserContainerColor;
+
+  /// Deprecated in favor of `otherUserContainerColor`
+  @Deprecated('Deprecated in favor of otherUserContainerColor')
+  final Color? containerColor;
+
+  /// Color of other user's text in chat bubbles
+  ///
+  /// Default to: `Colors.black`
+  final Color otherUserTextColor;
+
+  /// Color of other user's text in chat bubbles
+  ///
+  /// Default to: `Colors.black54`
+  final Color otherUserTimeTextColor;
+
+  /// Deprecated in favor of `otherUserTimeTextColor`
+  @Deprecated('Deprecated in favor of otherUserTimeTextColor')
+  final Color? textColor;
+
   /// Builder to create the entire message row yourself
   final Widget Function(
     ChatMessage message,
@@ -112,6 +150,16 @@ class MessageOptions {
   /// By default ParsedType.URL is set and will use launchUrl to open the link
   final List<MatchText>? parsePatterns;
 
+  /// Padding around the text in chat bubbles
+  ///
+  /// Default to: `EdgeInsets.all(11)`
+  final EdgeInsets messagePadding;
+
+  /// Max chat bubble width
+  ///
+  /// Default to: `MediaQuery.of(context).size.width * 0.7`
+  final double? maxWidth;
+
   /// When a message have both an text and a list of media
   /// it will determine which one th show first
   final bool textBeforeMedia;
@@ -137,79 +185,31 @@ class MessageOptions {
 
   /// Border radius of the chat bubbles
   ///
-  /// Default: `18.0`
+  /// Default to: `18.0`
   final double borderRadius;
-
-  /// Color of currentUser's chat bubbles
-  ///
-  /// Default: `Colors.white`
-  final Color currentUserContainerColor;
-
-  /// Color of currentUser's text in chat bubbles
-  ///
-  /// Default: `Colors.white`
-  final Color currentUserTextColor;
-
-  /// Color of currentUser's time text in chat bubbles
-  ///
-  /// Default: `Colors.white70`
-  final Color currentUserTimeTextColor;
 
   /// Margin around the chat bubble when previous author is different
   ///
-  /// Default: `Colors.white`
+  /// Default to: `Colors.white`
   final EdgeInsets marginDifferentAuthor;
 
   /// Margin around the chat bubble when previous author is the same
   ///
-  /// Default: `Colors.white`
+  /// Default to: `Colors.white`
   final EdgeInsets marginSameAuthor;
-
-  /// Max chat bubble width
-  ///
-  /// Default: `MediaQuery.of(context).size.width * 0.7`
-  final double? maxWidth;
-
-  /// Color of other user's chat bubbles
-  ///
-  /// Default: `Colors.grey.shade100`
-  final Color otherUserContainerColor;
-
-  /// Deprecated in favor of `otherUserContainerColor`
-  @Deprecated('Deprecated in favor of otherUserContainerColor')
-  final Color? containerColor;
-
-  /// Color of other user's text in chat bubbles
-  ///
-  /// Default: `Colors.black`
-  final Color otherUserTextColor;
-
-  /// Deprecated in favor of `otherUserTimeTextColor`
-  @Deprecated('Deprecated in favor of otherUserTimeTextColor')
-  final Color? textColor;
-
-  /// Color of other user's text in chat bubbles
-  ///
-  /// Default: `Colors.black54`
-  final Color otherUserTimeTextColor;
-
-  /// Padding around the text in chat bubbles
-  ///
-  /// Default: `EdgeInsets.all(11)`
-  final EdgeInsets messagePadding;
 
   /// Space between chat bubble and edge of the list when avatar is missing
   ///
-  /// Default: `10.0`
+  /// Default to: `10.0`
   final double spaceWhenAvatarIsMissing;
 
   /// Font size of the time text in chat bubbles
   ///
-  /// Default: `10.0`
+  /// Default to: `10.0`
   final double timeFontSize;
 
   /// Space between time and message text in chat bubbles
   ///
-  /// Default: `5.0`
+  /// Default to: `5.0`
   final double timeSpacing;
 }
