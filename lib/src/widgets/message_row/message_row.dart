@@ -61,12 +61,8 @@ class MessageRow extends StatelessWidget {
     if (nextMessage != null && nextMessage!.user.id == message.user.id) {
       isNextSameAuthor = true;
     }
-    return Container(
-      margin: isAfterDateSeparator
-          ? EdgeInsets.zero
-          : isPreviousSameAuthor
-              ? messageOptions.messageMarginSameAuthor
-              : messageOptions.messageMarginDifferentAuthor,
+    return Padding(
+      padding: EdgeInsets.only(top: isPreviousSameAuthor ? 2 : 15),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment:

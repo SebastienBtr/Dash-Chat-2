@@ -18,8 +18,6 @@ class MessageOptions {
     this.containerColor,
     this.textColor,
     this.messagePadding,
-    this.messageMarginDifferentAuthor = const EdgeInsets.only(top: 15),
-    this.messageMarginSameAuthor = const EdgeInsets.only(top: 2),
     this.maxWidth,
     this.messageDecorationBuilder,
     this.top,
@@ -120,15 +118,9 @@ class MessageOptions {
   /// By default ParsedType.URL is set and will use launchUrl to open the link
   final List<MatchText>? parsePatterns;
 
-  /// Padding around the message
+  /// Padding arround the message
   /// Default to: EdgeInsets.all(11)
   final EdgeInsets? messagePadding;
-
-  /// Margin around each message where the previous author is the same
-  final EdgeInsets messageMarginSameAuthor;
-
-  /// Margin around each message where the previous author is different
-  final EdgeInsets messageMarginDifferentAuthor;
 
   /// Max message width
   /// Default to: null, MediaQuery.of(context).size.width * 0.7
