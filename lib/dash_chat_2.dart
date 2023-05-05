@@ -22,7 +22,6 @@ part 'src/models/input_options.dart';
 part 'src/models/mention.dart';
 part 'src/models/message_list_options.dart';
 part 'src/models/message_options.dart';
-part 'src/models/message_style.dart';
 part 'src/models/quick_reply.dart';
 part 'src/models/quick_reply_options.dart';
 part 'src/models/scroll_to_bottom_options.dart';

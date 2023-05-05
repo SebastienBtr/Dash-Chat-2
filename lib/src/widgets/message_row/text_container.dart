@@ -50,8 +50,6 @@ class TextContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MessageStyle style = messageOptions.style;
-
     return Container(
       decoration: messageOptions.messageDecorationBuilder != null
           ? messageOptions.messageDecorationBuilder!(
@@ -61,26 +59,26 @@ class TextContainer extends StatelessWidget {
             )
           : defaultMessageDecoration(
               color: isOwnMessage
-                  ? style.currentUserContainerColor
-                  : style.otherUserContainerColor,
+                  ? messageOptions.currentUserContainerColor
+                  : messageOptions.otherUserContainerColor,
               borderTopLeft:
                   isPreviousSameAuthor && !isOwnMessage && !isAfterDateSeparator
                       ? 0.0
-                      : style.borderRadius,
+                      : messageOptions.borderRadius,
               borderTopRight:
                   isPreviousSameAuthor && isOwnMessage && !isAfterDateSeparator
                       ? 0.0
-                      : style.borderRadius,
+                      : messageOptions.borderRadius,
               borderBottomLeft:
                   !isOwnMessage && !isBeforeDateSeparator && isNextSameAuthor
                       ? 0.0
-                      : style.borderRadius,
+                      : messageOptions.borderRadius,
               borderBottomRight:
                   isOwnMessage && !isBeforeDateSeparator && isNextSameAuthor
                       ? 0.0
-                      : style.borderRadius,
+                      : messageOptions.borderRadius,
             ),
-      padding: messageOptions.style.padding,
+      padding: messageOptions.messagePadding,
       child: messageTextBuilder != null
           ? messageTextBuilder!(message, previousMessage, nextMessage)
           : DefaultMessageText(

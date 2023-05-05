@@ -51,7 +51,6 @@ class MessageRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MessageStyle style = messageOptions.style;
     final bool isOwnMessage = message.user.id == currentUser.id;
     bool isPreviousSameAuthor = false;
     bool isNextSameAuthor = false;
@@ -67,8 +66,8 @@ class MessageRow extends StatelessWidget {
       margin: isAfterDateSeparator
           ? EdgeInsets.zero
           : isPreviousSameAuthor
-              ? style.marginSameAuthor
-              : style.marginDifferentAuthor,
+              ? messageOptions.marginSameAuthor
+              : messageOptions.marginDifferentAuthor,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment:
@@ -83,7 +82,7 @@ class MessageRow extends StatelessWidget {
               child: getAvatar(),
             ),
           if (!messageOptions.showOtherUsersAvatar)
-            SizedBox(width: style.spaceWhenAvatarIsMissing),
+            SizedBox(width: messageOptions.spaceWhenAvatarIsMissing),
           GestureDetector(
             onLongPress: messageOptions.onLongPressMessage != null
                 ? () => messageOptions.onLongPressMessage!(message)
@@ -93,8 +92,8 @@ class MessageRow extends StatelessWidget {
                 : null,
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxWidth:
-                    style.maxWidth ?? MediaQuery.of(context).size.width * 0.7,
+                maxWidth: messageOptions.maxWidth ??
+                    MediaQuery.of(context).size.width * 0.7,
               ),
               child: Column(
                 crossAxisAlignment: isOwnMessage
@@ -158,7 +157,7 @@ class MessageRow extends StatelessWidget {
               child: getAvatar(),
             ),
           if (!messageOptions.showCurrentUserAvatar)
-            SizedBox(width: style.spaceWhenAvatarIsMissing),
+            SizedBox(width: messageOptions.spaceWhenAvatarIsMissing),
         ],
       ),
     );

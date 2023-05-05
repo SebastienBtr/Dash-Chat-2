@@ -3,32 +3,45 @@ part of dash_chat_2;
 /// {@category Customization}
 class MessageOptions {
   const MessageOptions({
+    this.avatarBuilder,
+    this.borderRadius = 18.0,
+    this.bottom,
+    this.containerColor,
+    this.currentUserContainerColor = Colors.white,
+    this.currentUserTextColor = Colors.white,
+    this.currentUserTimeTextColor = Colors.white70,
+    this.marginDifferentAuthor = const EdgeInsets.only(top: 15),
+    this.marginSameAuthor = const EdgeInsets.only(top: 2),
+    this.maxWidth,
+    this.messageDecorationBuilder,
+    this.messageMediaBuilder,
+    this.messagePadding = const EdgeInsets.all(11),
+    this.messageRowBuilder,
+    this.messageTextBuilder,
+    this.messageTimeBuilder,
+    this.onLongPressAvatar,
+    this.onLongPressMessage,
+    this.onPressAvatar,
+    this.onPressMention,
+    this.onPressMessage,
+    this.onTapMedia,
+    this.otherUserContainerColor = const Color(0xFFF5F5F5),
+    this.otherUserTextColor = Colors.black,
+    this.otherUserTimeTextColor = Colors.black54,
+    this.parsePatterns,
     this.showCurrentUserAvatar = false,
     this.showOtherUsersAvatar = true,
     this.showOtherUsersName = true,
-    this.userNameBuilder,
-    this.avatarBuilder,
-    this.onPressAvatar,
-    this.onLongPressAvatar,
-    this.onLongPressMessage,
-    this.onPressMessage,
-    this.onPressMention,
-    this.messageDecorationBuilder,
-    this.top,
-    this.bottom,
-    this.messageRowBuilder,
-    this.messageTextBuilder,
-    this.parsePatterns,
-    this.textBeforeMedia = true,
-    this.onTapMedia,
     this.showTime = false,
+    this.spaceWhenAvatarIsMissing = 10.0,
+    this.textBeforeMedia = true,
+    this.textColor,
+    this.timeFontSize = 10.0,
     this.timeFormat,
-    this.messageTimeBuilder,
-    this.messageMediaBuilder,
-    this.style = const MessageStyle(),
+    this.timeSpacing = 5.0,
+    this.top,
+    this.userNameBuilder,
   });
-
-  final MessageStyle style;
 
   /// Format of the time if [showTime] is true
   /// Default to: DateFormat('HH:mm')
@@ -121,4 +134,82 @@ class MessageOptions {
   /// Function to call when the user clicks on a media
   /// Will not work with the default video player
   final void Function(ChatMedia media)? onTapMedia;
+
+  /// Border radius of the chat bubbles
+  ///
+  /// Default: `18.0`
+  final double borderRadius;
+
+  /// Color of currentUser's chat bubbles
+  ///
+  /// Default: `Colors.white`
+  final Color currentUserContainerColor;
+
+  /// Color of currentUser's text in chat bubbles
+  ///
+  /// Default: `Colors.white`
+  final Color currentUserTextColor;
+
+  /// Color of currentUser's time text in chat bubbles
+  ///
+  /// Default: `Colors.white70`
+  final Color currentUserTimeTextColor;
+
+  /// Margin around the chat bubble when previous author is different
+  ///
+  /// Default: `Colors.white`
+  final EdgeInsets marginDifferentAuthor;
+
+  /// Margin around the chat bubble when previous author is the same
+  ///
+  /// Default: `Colors.white`
+  final EdgeInsets marginSameAuthor;
+
+  /// Max chat bubble width
+  ///
+  /// Default: `MediaQuery.of(context).size.width * 0.7`
+  final double? maxWidth;
+
+  /// Color of other user's chat bubbles
+  ///
+  /// Default: `Colors.grey.shade100`
+  final Color otherUserContainerColor;
+
+  /// Deprecated in favor of `otherUserContainerColor`
+  @Deprecated('Deprecated in favor of otherUserContainerColor')
+  final Color? containerColor;
+
+  /// Color of other user's text in chat bubbles
+  ///
+  /// Default: `Colors.black`
+  final Color otherUserTextColor;
+
+  /// Deprecated in favor of `otherUserTimeTextColor`
+  @Deprecated('Deprecated in favor of otherUserTimeTextColor')
+  final Color? textColor;
+
+  /// Color of other user's text in chat bubbles
+  ///
+  /// Default: `Colors.black54`
+  final Color otherUserTimeTextColor;
+
+  /// Padding around the text in chat bubbles
+  ///
+  /// Default: `EdgeInsets.all(11)`
+  final EdgeInsets messagePadding;
+
+  /// Space between chat bubble and edge of the list when avatar is missing
+  ///
+  /// Default: `10.0`
+  final double spaceWhenAvatarIsMissing;
+
+  /// Font size of the time text in chat bubbles
+  ///
+  /// Default: `10.0`
+  final double timeFontSize;
+
+  /// Space between time and message text in chat bubbles
+  ///
+  /// Default: `5.0`
+  final double timeSpacing;
 }

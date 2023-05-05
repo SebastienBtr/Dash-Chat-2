@@ -31,16 +31,15 @@ class DefaultMessageText extends StatelessWidget {
           messageOptions.messageTimeBuilder != null
               ? messageOptions.messageTimeBuilder!(message, isOwnMessage)
               : Padding(
-                  padding: const EdgeInsets.only(top: 5),
+                  padding: EdgeInsets.only(top: messageOptions.timeSpacing),
                   child: Text(
                     (messageOptions.timeFormat ?? intl.DateFormat('HH:mm'))
                         .format(message.createdAt),
                     style: TextStyle(
-                      // TODO ???
                       color: isOwnMessage
-                          ? messageOptions.style.currentUserTextColor
-                          : messageOptions.style.otherUserTextColor,
-                      fontSize: 10,
+                          ? messageOptions.currentUserTimeTextColor
+                          : messageOptions.otherUserTimeTextColor,
+                      fontSize: messageOptions.timeFontSize,
                     ),
                   ),
                 ),
@@ -92,8 +91,9 @@ class DefaultMessageText extends StatelessWidget {
       text: text,
       style: TextStyle(
         color: isOwnMessage
-            ? messageOptions.style.currentUserTextColor
-            : messageOptions.style.otherUserTextColor,
+            ? messageOptions.currentUserTextColor
+            // ignore: deprecated_member_use_from_same_package
+            : messageOptions.textColor ?? messageOptions.otherUserTextColor,
       ),
     );
   }
@@ -108,8 +108,9 @@ class DefaultMessageText extends StatelessWidget {
               : null,
         style: TextStyle(
           color: isOwnMessage
-              ? messageOptions.style.currentUserTextColor
-              : messageOptions.style.otherUserTextColor,
+              ? messageOptions.currentUserTextColor
+              // ignore: deprecated_member_use_from_same_package
+              : messageOptions.textColor ?? messageOptions.otherUserTextColor,
           decoration: TextDecoration.none,
           fontWeight: FontWeight.w600,
         ),
