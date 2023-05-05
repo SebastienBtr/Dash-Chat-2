@@ -44,7 +44,7 @@ class ChatUser {
   String getFullName() {
     return (firstName ?? '') +
         (firstName != null && lastName != null
-            ? ' ' + lastName!
+            ? ' ${lastName!}'
             : lastName ?? '');
   }
 
