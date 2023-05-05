@@ -46,8 +46,8 @@ class _VideoPlayerState extends State<VideoPlayer> {
   Widget build(BuildContext context) {
     return _controller.value.isInitialized
         ? Container(
-          color: Colors.black,
-          child: Stack(
+            color: Colors.black,
+            child: Stack(
               alignment: _controller.value.isPlaying
                   ? AlignmentDirectional.bottomStart
                   : AlignmentDirectional.center,
@@ -68,14 +68,16 @@ class _VideoPlayerState extends State<VideoPlayer> {
                         }
                       : null,
                   icon: Icon(
-                    _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                    _controller.value.isPlaying
+                        ? Icons.pause
+                        : Icons.play_arrow,
                     color: Colors.white,
                     // size: 60,
                   ),
                 ),
               ],
             ),
-        )
+          )
         : Container(color: Colors.black);
   }
 }
