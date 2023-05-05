@@ -118,7 +118,7 @@ class MessageOptions {
   /// Default to: `Colors.black54`
   final Color otherUserTimeTextColor;
 
-  /// Deprecated in favor of `otherUserTimeTextColor`
+  /// Deprecated in favor of `otherUserTextColor`
   final Color? textColor;
 
   /// Builder to create the entire message row yourself
