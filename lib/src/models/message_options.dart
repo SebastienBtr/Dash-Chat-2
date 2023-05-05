@@ -3,44 +3,44 @@ part of dash_chat_2;
 /// {@category Customization}
 class MessageOptions {
   const MessageOptions({
-    this.avatarBuilder,
-    this.borderRadius = 18.0,
-    this.bottom,
-    this.currentUserContainerColor = Colors.white,
-    this.currentUserTextColor = Colors.white,
-    this.currentUserTimeTextColor = Colors.white70,
-    this.marginDifferentAuthor = const EdgeInsets.only(top: 15),
-    this.marginSameAuthor = const EdgeInsets.only(top: 2),
-    this.maxWidth,
-    this.messageDecorationBuilder,
-    this.messageMediaBuilder,
-    this.messagePadding = const EdgeInsets.all(11),
-    this.messageRowBuilder,
-    this.messageTextBuilder,
-    this.messageTimeBuilder,
-    this.onLongPressAvatar,
-    this.onLongPressMessage,
-    this.onPressAvatar,
-    this.onPressMention,
-    this.onPressMessage,
-    this.onTapMedia,
-    this.otherUserContainerColor = const Color(0xFFF5F5F5),
-    this.otherUserTextColor = Colors.black,
-    this.otherUserTimeTextColor = Colors.black54,
-    this.parsePatterns,
     this.showCurrentUserAvatar = false,
     this.showOtherUsersAvatar = true,
     this.showOtherUsersName = true,
-    this.showTime = false,
-    this.spaceWhenAvatarIsMissing = 10.0,
-    this.textBeforeMedia = true,
-    this.timeFontSize = 10.0,
-    this.timeFormat,
-    this.timeSpacing = 5.0,
-    this.top,
     this.userNameBuilder,
+    this.avatarBuilder,
+    this.onPressAvatar,
+    this.onLongPressAvatar,
+    this.onLongPressMessage,
+    this.onPressMessage,
+    this.onPressMention,
+    this.currentUserContainerColor = Colors.white,
+    this.currentUserTextColor = Colors.white,
+    this.messagePadding = const EdgeInsets.all(11),
+    this.maxWidth,
+    this.messageDecorationBuilder,
+    this.top,
+    this.bottom,
+    this.messageRowBuilder,
+    this.messageTextBuilder,
+    this.parsePatterns,
+    this.textBeforeMedia = true,
+    this.onTapMedia,
+    this.showTime = false,
+    this.timeFormat,
+    this.messageTimeBuilder,
+    this.messageMediaBuilder,
+    this.borderRadius = 18.0,
+    this.currentUserTimeTextColor = Colors.white70,
+    this.marginDifferentAuthor = const EdgeInsets.only(top: 15),
+    this.marginSameAuthor = const EdgeInsets.only(top: 2),
+    this.otherUserContainerColor = const Color(0xFFF5F5F5),
+    this.otherUserTextColor = Colors.black,
+    this.otherUserTimeTextColor = Colors.black54,
+    this.spaceWhenAvatarIsMissing = 10.0,
+    this.timeFontSize = 10.0,
+    this.timeSpacing = 5.0,
     @Deprecated('Please use otherUserContainerColor') this.containerColor,
-    @Deprecated('Please use otherUserTimeTextColor') this.textColor,
+    @Deprecated('Please use otherUserTextColor') this.textColor,
   });
 
   /// Format of the time if [showTime] is true
@@ -85,22 +85,22 @@ class MessageOptions {
   /// Function to call when the user press on a message mention
   final Function(Mention)? onPressMention;
 
-  /// Color of currentUser's chat bubbles
+  /// Color of the current user chat bubbles
   ///
   /// Default to: `Colors.white`
   final Color currentUserContainerColor;
 
-  /// Color of currentUser's text in chat bubbles
+  /// Color of the current user text in chat bubbles
   ///
   /// Default to: `Colors.white`
   final Color currentUserTextColor;
 
-  /// Color of currentUser's time text in chat bubbles
+  /// Color of current user time text in chat bubbles
   ///
   /// Default to: `Colors.white70`
   final Color currentUserTimeTextColor;
 
-  /// Color of other user's chat bubbles
+  /// Color of the other users chat bubbles
   ///
   /// Default to: `Colors.grey.shade100`
   final Color otherUserContainerColor;
@@ -108,12 +108,12 @@ class MessageOptions {
   /// Deprecated in favor of `otherUserContainerColor`
   final Color? containerColor;
 
-  /// Color of other user's text in chat bubbles
+  /// Color of the other users text in chat bubbles
   ///
   /// Default to: `Colors.black`
   final Color otherUserTextColor;
 
-  /// Color of other user's text in chat bubbles
+  /// Color of other users time text in chat bubbles
   ///
   /// Default to: `Colors.black54`
   final Color otherUserTimeTextColor;
@@ -153,7 +153,7 @@ class MessageOptions {
   /// Default to: `EdgeInsets.all(11)`
   final EdgeInsets messagePadding;
 
-  /// Max chat bubble width
+  /// Max message width
   ///
   /// Default to: `MediaQuery.of(context).size.width * 0.7`
   final double? maxWidth;
@@ -188,12 +188,12 @@ class MessageOptions {
 
   /// Margin around the chat bubble when previous author is different
   ///
-  /// Default to: `Colors.white`
+  /// Default to: `const EdgeInsets.only(top: 15)`
   final EdgeInsets marginDifferentAuthor;
 
   /// Margin around the chat bubble when previous author is the same
   ///
-  /// Default to: `Colors.white`
+  /// Default to: `const EdgeInsets.only(top: 2)`
   final EdgeInsets marginSameAuthor;
 
   /// Space between chat bubble and edge of the list when avatar is missing
