@@ -38,8 +38,7 @@ class DefaultMessageText extends StatelessWidget {
                     style: TextStyle(
                       color: isOwnMessage
                           ? messageOptions.currentUserTimeTextColor
-                          : messageOptions.textColor ??
-                              messageOptions.otherUserTimeTextColor,
+                          : messageOptions.otherUserTimeTextColor,
                       fontSize: messageOptions.timeFontSize,
                     ),
                   ),
