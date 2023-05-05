@@ -40,14 +40,13 @@ class _InputToolbarState extends State<InputToolbar>
         _clearOverlay();
       }
     });
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
   @override
   void didChangeMetrics() {
-    final double bottomInset =
-        WidgetsBinding.instance!.window.viewInsets.bottom;
+    final double bottomInset = WidgetsBinding.instance.window.viewInsets.bottom;
     final bool isKeyboardActive = bottomInset > 0.0;
     if (!isKeyboardActive) {
       _clearOverlay();
@@ -56,7 +55,7 @@ class _InputToolbarState extends State<InputToolbar>
 
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     _clearOverlay();
     super.dispose();
   }
@@ -104,7 +103,7 @@ class _InputToolbarState extends State<InputToolbar>
                     if (widget.inputOptions.onTextChange != null) {
                       widget.inputOptions.onTextChange!(value);
                     }
-                    WidgetsBinding.instance?.addPostFrameCallback((_) async {
+                    WidgetsBinding.instance.addPostFrameCallback((_) async {
                       if (widget.inputOptions.onMention != null) {
                         await _checkMentions(value);
                       }
