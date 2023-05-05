@@ -53,10 +53,7 @@ class TextContainer extends StatelessWidget {
     return Container(
       decoration: messageOptions.messageDecorationBuilder != null
           ? messageOptions.messageDecorationBuilder!(
-              message,
-              previousMessage,
-              nextMessage,
-            )
+              message, previousMessage, nextMessage)
           : defaultMessageDecoration(
               color: isOwnMessage
                   ? messageOptions.currentUserContainerColor
