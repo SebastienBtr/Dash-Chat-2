@@ -1,9 +1,5 @@
 ## [0.0.16] - 05/05/2023
 
-* Added `otherUserContainerColor` message option
-* Added `otherUserTextColor` message option
-* Deprecated `containerColor` in favor of `otherUserContainerColor`
-* Deprecated `textColor` in favor of `otherUserTextColor`
 * Added `borderRadius` message option
 * Added `marginDifferentAuthor` message option
 * Added `marginSameAuthor` message option

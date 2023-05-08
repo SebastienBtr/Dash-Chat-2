@@ -92,7 +92,7 @@ class DefaultMessageText extends StatelessWidget {
       style: TextStyle(
         color: isOwnMessage
             ? messageOptions.currentUserTextColor
-            : messageOptions.textColor ?? messageOptions.otherUserTextColor,
+            : messageOptions.textColor,
       ),
     );
   }
@@ -108,7 +108,7 @@ class DefaultMessageText extends StatelessWidget {
         style: TextStyle(
           color: isOwnMessage
               ? messageOptions.currentUserTextColor
-              : messageOptions.textColor ?? messageOptions.otherUserTextColor,
+              : messageOptions.textColor,
           decoration: TextDecoration.none,
           fontWeight: FontWeight.w600,
         ),

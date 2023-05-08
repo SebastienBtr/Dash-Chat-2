@@ -15,6 +15,8 @@ class MessageOptions {
     this.onPressMention,
     this.currentUserContainerColor = Colors.white,
     this.currentUserTextColor = Colors.white,
+    this.containerColor = const Color(0xFFF5F5F5),
+    this.textColor = Colors.black,
     this.messagePadding = const EdgeInsets.all(11),
     this.maxWidth,
     this.messageDecorationBuilder,
@@ -33,14 +35,10 @@ class MessageOptions {
     this.currentUserTimeTextColor = Colors.white70,
     this.marginDifferentAuthor = const EdgeInsets.only(top: 15),
     this.marginSameAuthor = const EdgeInsets.only(top: 2),
-    this.otherUserContainerColor = const Color(0xFFF5F5F5),
-    this.otherUserTextColor = Colors.black,
     this.otherUserTimeTextColor = Colors.black54,
     this.spaceWhenAvatarIsMissing = 10.0,
     this.timeFontSize = 10.0,
     this.timeSpacing = 5.0,
-    @Deprecated('Please use otherUserContainerColor') this.containerColor,
-    @Deprecated('Please use otherUserTextColor') this.textColor,
   });
 
   /// Format of the time if [showTime] is true
@@ -103,23 +101,17 @@ class MessageOptions {
   /// Color of the other users chat bubbles
   ///
   /// Default to: `Colors.grey.shade100`
-  final Color otherUserContainerColor;
-
-  /// Deprecated in favor of `otherUserContainerColor`
-  final Color? containerColor;
+  final Color containerColor;
 
   /// Color of the other users text in chat bubbles
   ///
   /// Default to: `Colors.black`
-  final Color otherUserTextColor;
+  final Color textColor;
 
   /// Color of other users time text in chat bubbles
   ///
   /// Default to: `Colors.black54`
   final Color otherUserTimeTextColor;
-
-  /// Deprecated in favor of `otherUserTextColor`
-  final Color? textColor;
 
   /// Builder to create the entire message row yourself
   final Widget Function(
