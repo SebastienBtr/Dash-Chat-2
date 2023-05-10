@@ -1,11 +1,9 @@
-## [0.0.16] - 05/05/2023
+## [0.0.16] - 10/05/2023
 
-* Added `borderRadius` message option
-* Added `marginDifferentAuthor` message option
-* Added `marginSameAuthor` message option
-* Added `spaceWhenAvatarIsMissing` message option
-* Added `timeFontSize` message option
-* Added `timeSpacing` message option
+* Upgraded dependencies
+* Removed top safe area padding for the input widget
+* Added possibility to add asset image as user icon
+* Added black background to videos
 
 ## [0.0.15] - 03/10/2022
 
