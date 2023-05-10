@@ -2,6 +2,8 @@
 
 * Upgraded dependencies
 * Removed top safe area padding for the input widget
+* Added possibility to add asset image as user icon
+* Added black background to videos
 
 ## [0.0.15] - 03/10/2022
 
