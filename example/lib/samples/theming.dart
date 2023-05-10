@@ -72,7 +72,7 @@ class ThemeSampleState extends State<ThemeSample> {
               spaceWhenAvatarIsMissing: 6,
               textColor: Color(0xfffbf665),
               timeFontSize: 8,
-              timeSpacing: 2,
+              timePadding: EdgeInsets.only(top: 2),
               timeTextColor: Color.fromRGBO(73, 0, 100, 1),
             ),
             messageListOptions: MessageListOptions(

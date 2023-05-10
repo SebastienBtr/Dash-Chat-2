@@ -37,7 +37,7 @@ class MessageOptions {
     this.marginSameAuthor = const EdgeInsets.only(top: 2),
     this.spaceWhenAvatarIsMissing = 10.0,
     this.timeFontSize = 10.0,
-    this.timeSpacing = 5.0,
+    this.timePadding = const EdgeInsets.only(top: 5),
     this.timeTextColor,
   });
 
@@ -200,6 +200,6 @@ class MessageOptions {
 
   /// Space between time and message text in chat bubbles
   ///
-  /// Default to: `5.0`
-  final double timeSpacing;
+  /// Default to: `const EdgeInsets.only(top: 5)`
+  final EdgeInsets timePadding;
 }

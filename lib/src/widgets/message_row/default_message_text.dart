@@ -31,7 +31,7 @@ class DefaultMessageText extends StatelessWidget {
           messageOptions.messageTimeBuilder != null
               ? messageOptions.messageTimeBuilder!(message, isOwnMessage)
               : Padding(
-                  padding: EdgeInsets.only(top: messageOptions.timeSpacing),
+                  padding: messageOptions.timePadding,
                   child: Text(
                     (messageOptions.timeFormat ?? intl.DateFormat('HH:mm'))
                         .format(message.createdAt),
