@@ -1,3 +1,8 @@
+## [0.0.16] - 10/05/2023
+
+* Upgraded dependencies
+* Removed top safe area padding for the input widget
+
 ## [0.0.15] - 03/10/2022
 
 * Fixed opening dynamic links (deeplinks)
