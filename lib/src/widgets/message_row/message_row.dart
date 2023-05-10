@@ -82,7 +82,7 @@ class MessageRow extends StatelessWidget {
               child: getAvatar(),
             ),
           if (!messageOptions.showOtherUsersAvatar)
-            SizedBox(width: messageOptions.spaceWhenAvatarIsMissing),
+            SizedBox(width: messageOptions.spaceWhenAvatarIsHidden),
           GestureDetector(
             onLongPress: messageOptions.onLongPressMessage != null
                 ? () => messageOptions.onLongPressMessage!(message)
@@ -157,7 +157,7 @@ class MessageRow extends StatelessWidget {
               child: getAvatar(),
             ),
           if (!messageOptions.showCurrentUserAvatar)
-            SizedBox(width: messageOptions.spaceWhenAvatarIsMissing),
+            SizedBox(width: messageOptions.spaceWhenAvatarIsHidden),
         ],
       ),
     );

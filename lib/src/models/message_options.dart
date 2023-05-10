@@ -35,7 +35,7 @@ class MessageOptions {
     this.currentUserTimeTextColor = Colors.white70,
     this.marginDifferentAuthor = const EdgeInsets.only(top: 15),
     this.marginSameAuthor = const EdgeInsets.only(top: 2),
-    this.spaceWhenAvatarIsMissing = 10.0,
+    this.spaceWhenAvatarIsHidden = 10.0,
     this.timeFontSize = 10.0,
     this.timePadding = const EdgeInsets.only(top: 5),
     this.timeTextColor,
@@ -188,10 +188,10 @@ class MessageOptions {
   /// Default to: `const EdgeInsets.only(top: 2)`
   final EdgeInsets marginSameAuthor;
 
-  /// Space between chat bubble and edge of the list when avatar is missing
+  /// Space between chat bubble and edge of the list when avatar is hidden via [showOtherUsersAvatar] or [showCurrentUserAvatar]
   ///
   /// Default to: `10.0`
-  final double spaceWhenAvatarIsMissing;
+  final double spaceWhenAvatarIsHidden;
 
   /// Font size of the time text in chat bubbles
   ///

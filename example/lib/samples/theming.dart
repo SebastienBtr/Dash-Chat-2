@@ -69,7 +69,7 @@ class ThemeSampleState extends State<ThemeSample> {
               currentUserTimeTextColor: Color.fromRGBO(73, 0, 100, 1),
               messagePadding: EdgeInsets.fromLTRB(12, 8, 12, 8),
               showTime: true,
-              spaceWhenAvatarIsMissing: 6,
+              spaceWhenAvatarIsHidden: 6,
               textColor: Color(0xfffbf665),
               timeFontSize: 8,
               timePadding: EdgeInsets.only(top: 2),
