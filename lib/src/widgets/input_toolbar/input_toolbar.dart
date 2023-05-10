@@ -200,6 +200,7 @@ class InputToolbarState extends State<InputToolbar>
                   kToolbarHeight,
             ),
             decoration: BoxDecoration(
+              color: Theme.of(context).canvasColor,
               border: Border(
                 top: BorderSide(
                   width: 0.2,
@@ -208,7 +209,7 @@ class InputToolbarState extends State<InputToolbar>
               ),
             ),
             child: Material(
-              // color: Theme.of(context).selectedRowColor, // TODO: check if still look ok
+              color: Theme.of(context).hoverColor,
               child: SingleChildScrollView(
                 child: Column(
                   children: children,
