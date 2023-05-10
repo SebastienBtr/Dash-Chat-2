@@ -15,10 +15,10 @@ class TypingIndicator extends StatefulWidget {
   final Color flashingCircleBrightColor;
 
   @override
-  _TypingIndicatorState createState() => _TypingIndicatorState();
+  State<TypingIndicator> createState() => TypingIndicatorState();
 }
 
-class _TypingIndicatorState extends State<TypingIndicator>
+class TypingIndicatorState extends State<TypingIndicator>
     with TickerProviderStateMixin {
   late AnimationController _repeatingController;
   final List<Interval> _dotIntervals = const <Interval>[

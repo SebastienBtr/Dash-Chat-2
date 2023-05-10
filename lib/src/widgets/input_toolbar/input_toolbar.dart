@@ -19,10 +19,10 @@ class InputToolbar extends StatefulWidget {
   final ChatUser currentUser;
 
   @override
-  _InputToolbarState createState() => _InputToolbarState();
+  State<InputToolbar> createState() => InputToolbarState();
 }
 
-class _InputToolbarState extends State<InputToolbar>
+class InputToolbarState extends State<InputToolbar>
     with WidgetsBindingObserver {
   late TextEditingController textController;
   OverlayEntry? _overlayEntry;
@@ -174,7 +174,7 @@ class _InputToolbarState extends State<InputToolbar>
   }
 
   void _showMentionModal(List<Widget> children) {
-    final OverlayState overlay = Overlay.of(context)!;
+    final OverlayState overlay = Overlay.of(context);
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final Offset topLeftCornerOffset = renderBox.localToGlobal(Offset.zero);
 
@@ -208,7 +208,7 @@ class _InputToolbarState extends State<InputToolbar>
               ),
             ),
             child: Material(
-              color: Theme.of(context).selectedRowColor,
+              // color: Theme.of(context).selectedRowColor, // TODO: check if still look ok
               child: SingleChildScrollView(
                 child: Column(
                   children: children,
