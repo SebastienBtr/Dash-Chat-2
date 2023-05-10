@@ -56,7 +56,8 @@ class TextContainer extends StatelessWidget {
               message, previousMessage, nextMessage)
           : defaultMessageDecoration(
               color: isOwnMessage
-                  ? messageOptions.currentUserContainerColor
+                  ? messageOptions.currentUserContainerColor ??
+                      Theme.of(context).primaryColor
                   : messageOptions.containerColor,
               borderTopLeft:
                   isPreviousSameAuthor && !isOwnMessage && !isAfterDateSeparator

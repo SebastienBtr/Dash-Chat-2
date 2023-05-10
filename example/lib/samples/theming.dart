@@ -2,12 +2,12 @@ import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:examples/data.dart';
 import 'package:flutter/material.dart';
 
-class Themeing extends StatefulWidget {
+class ThemeSample extends StatefulWidget {
   @override
-  _ThemeingState createState() => _ThemeingState();
+  State<ThemeSample> createState() => ThemeSampleState();
 }
 
-class _ThemeingState extends State<Themeing> {
+class ThemeSampleState extends State<ThemeSample> {
   List<ChatMessage> messages = basicSample;
 
   @override
@@ -68,12 +68,12 @@ class _ThemeingState extends State<Themeing> {
               currentUserTextColor: Color(0xfffbf665),
               currentUserTimeTextColor: Color.fromRGBO(73, 0, 100, 1),
               messagePadding: EdgeInsets.fromLTRB(12, 8, 12, 8),
-              otherUserTimeTextColor: Color.fromRGBO(73, 0, 100, 1),
               showTime: true,
               spaceWhenAvatarIsMissing: 6,
               textColor: Color(0xfffbf665),
               timeFontSize: 8,
               timeSpacing: 2,
+              timeTextColor: Color.fromRGBO(73, 0, 100, 1),
             ),
             messageListOptions: MessageListOptions(
               dateSeparatorBuilder: (date) => DefaultDateSeparator(

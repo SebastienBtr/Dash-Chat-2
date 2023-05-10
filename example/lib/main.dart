@@ -71,7 +71,7 @@ class MyHomePageState extends State<MyHomePage> {
               child: const Text('Mention'),
             ),
             ElevatedButton(
-              onPressed: () => push(Themeing()),
+              onPressed: () => push(ThemeSample()),
               child: const Text('Themeing'),
             ),
           ],
