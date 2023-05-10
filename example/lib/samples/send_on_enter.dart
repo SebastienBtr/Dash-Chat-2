@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class SendOnEnter extends StatefulWidget {
   @override
-  _SendOnEnterState createState() => _SendOnEnterState();
+  State<SendOnEnter> createState() => SendOnEnterState();
 }
 
-class _SendOnEnterState extends State<SendOnEnter> {
+class SendOnEnterState extends State<SendOnEnter> {
   List<ChatMessage> messages = basicSample;
 
   @override

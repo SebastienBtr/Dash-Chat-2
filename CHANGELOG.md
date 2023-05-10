@@ -1,6 +1,9 @@
-## [0.0.16] - 02/03/2023
+## [0.0.16] - 10/05/2023
 
-* Fixed `ListView.builder()` automatically padding `MessageList`
+* Upgraded dependencies
+* Removed top safe area padding for the input widget
+* Added possibility to add asset image as user icon
+* Added black background to videos
 
 ## [0.0.15] - 03/10/2022
 

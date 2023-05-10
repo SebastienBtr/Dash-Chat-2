@@ -39,10 +39,10 @@ class MessageList extends StatefulWidget {
   final List<ChatUser>? typingUsers;
 
   @override
-  _MessageListState createState() => _MessageListState();
+  State<MessageList> createState() => MessageListState();
 }
 
-class _MessageListState extends State<MessageList> {
+class MessageListState extends State<MessageList> {
   bool scrollToBottomIsVisible = false;
   bool isLoadingMore = false;
   late ScrollController scrollController;

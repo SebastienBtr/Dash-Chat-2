@@ -19,10 +19,10 @@ class InputToolbar extends StatefulWidget {
   final ChatUser currentUser;
 
   @override
-  _InputToolbarState createState() => _InputToolbarState();
+  State<InputToolbar> createState() => InputToolbarState();
 }
 
-class _InputToolbarState extends State<InputToolbar>
+class InputToolbarState extends State<InputToolbar>
     with WidgetsBindingObserver {
   late TextEditingController textController;
   OverlayEntry? _overlayEntry;
@@ -63,6 +63,7 @@ class _InputToolbarState extends State<InputToolbar>
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Container(
         padding: widget.inputOptions.inputToolbarPadding,
         margin: widget.inputOptions.inputToolbarMargin,
@@ -173,7 +174,7 @@ class _InputToolbarState extends State<InputToolbar>
   }
 
   void _showMentionModal(List<Widget> children) {
-    final OverlayState overlay = Overlay.of(context)!;
+    final OverlayState overlay = Overlay.of(context);
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final Offset topLeftCornerOffset = renderBox.localToGlobal(Offset.zero);
 
@@ -199,6 +200,7 @@ class _InputToolbarState extends State<InputToolbar>
                   kToolbarHeight,
             ),
             decoration: BoxDecoration(
+              color: Theme.of(context).canvasColor,
               border: Border(
                 top: BorderSide(
                   width: 0.2,
@@ -207,7 +209,7 @@ class _InputToolbarState extends State<InputToolbar>
               ),
             ),
             child: Material(
-              color: Theme.of(context).selectedRowColor,
+              color: Theme.of(context).hoverColor,
               child: SingleChildScrollView(
                 child: Column(
                   children: children,

@@ -9,7 +9,7 @@ List<MatchText> defaultPersePatterns = <MatchText>[
     ),
     onTap: (String url) {
       if (!url.startsWith('http://') && !url.startsWith('https://')) {
-        url = 'http://' + url;
+        url = 'http://$url';
       }
       launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
     },

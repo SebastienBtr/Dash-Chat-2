@@ -12,12 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_parsed_text: ^2.2.1
-  intl: ^0.17.0
+  intl: ^0.18.1
   url_launcher: ^6.0.10
   video_player: ^2.2.5
 
 dev_dependencies:
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
 
