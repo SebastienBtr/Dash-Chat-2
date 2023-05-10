@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class QuickRepliesSample extends StatefulWidget {
   @override
-  _QuickRepliesSampleState createState() => _QuickRepliesSampleState();
+  State<QuickRepliesSample> createState() => QuickRepliesSampleState();
 }
 
-class _QuickRepliesSampleState extends State<QuickRepliesSample> {
+class QuickRepliesSampleState extends State<QuickRepliesSample> {
   List<ChatMessage> messages = quickReplies;
 
   @override

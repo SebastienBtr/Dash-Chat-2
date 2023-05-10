@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class Media extends StatefulWidget {
   @override
-  _MediaState createState() => _MediaState();
+  State<Media> createState() => MediaState();
 }
 
-class _MediaState extends State<Media> {
+class MediaState extends State<Media> {
   List<ChatMessage> messages = media;
 
   @override
