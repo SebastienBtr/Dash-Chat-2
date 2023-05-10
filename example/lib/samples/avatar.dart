@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class AvatarSample extends StatefulWidget {
   @override
-  _AvatarSampleState createState() => _AvatarSampleState();
+  State<AvatarSample> createState() => AvatarSampleState();
 }
 
-class _AvatarSampleState extends State<AvatarSample> {
+class AvatarSampleState extends State<AvatarSample> {
   List<ChatMessage> messages = allUsersSample;
 
   @override

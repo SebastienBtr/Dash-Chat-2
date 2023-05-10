@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class MentionSample extends StatefulWidget {
   @override
-  _MentionSampleState createState() => _MentionSampleState();
+  State<MentionSample> createState() => MentionSampleState();
 }
 
-class _MentionSampleState extends State<MentionSample> {
+class MentionSampleState extends State<MentionSample> {
   List<ChatMessage> messages = mentionSample;
   List<Mention> mentions = [];
 

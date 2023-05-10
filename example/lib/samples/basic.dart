@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class Basic extends StatefulWidget {
   @override
-  _BasicState createState() => _BasicState();
+  State<Basic> createState() => BasicState();
 }
 
-class _BasicState extends State<Basic> {
+class BasicState extends State<Basic> {
   List<ChatMessage> messages = basicSample;
 
   @override

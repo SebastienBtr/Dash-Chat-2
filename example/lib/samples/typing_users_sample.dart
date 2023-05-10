@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class TypingUsersSample extends StatefulWidget {
   @override
-  _TypingUsersSampleState createState() => _TypingUsersSampleState();
+  State<TypingUsersSample> createState() => TypingUsersSampleState();
 }
 
-class _TypingUsersSampleState extends State<TypingUsersSample> {
+class TypingUsersSampleState extends State<TypingUsersSample> {
   List<ChatMessage> messages = basicSample;
 
   @override
