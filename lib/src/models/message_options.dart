@@ -134,7 +134,7 @@ class MessageOptions {
     return _timeTextColor ?? textColor;
   }
 
-  /// Used to calculate [timeTextColor
+  /// Used to calculate [timeTextColor]
   final Color? _timeTextColor;
 
   /// Builder to create the entire message row yourself
