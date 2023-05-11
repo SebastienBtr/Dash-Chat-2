@@ -14,7 +14,7 @@ class MessageOptions {
     this.onPressMessage,
     this.onPressMention,
     this.currentUserContainerColor,
-    this.currentUserTextColor = Colors.white,
+    this.currentUserTextColor,
     this.containerColor = const Color(0xFFF5F5F5),
     this.textColor = Colors.black,
     this.messagePadding = const EdgeInsets.all(11),
@@ -88,15 +88,30 @@ class MessageOptions {
   /// Default to: `Theme.of(context).primaryColor`
   final Color? currentUserContainerColor;
 
+  /// Getter for [currentUserContainerColor]
+  Color getCurrentUserContainerColor(BuildContext context) {
+    return currentUserContainerColor ?? Theme.of(context).primaryColor;
+  }
+
   /// Color of the current user text in chat bubbles
   ///
-  /// Default to: `Colors.white`
-  final Color currentUserTextColor;
+  /// Default to: `Theme.of(context).colorScheme.onPrimary`
+  final Color? currentUserTextColor;
+
+  /// Getter for [currentUserContainerColor]
+  Color getCurrentUserTextColor(BuildContext context) {
+    return currentUserTextColor ?? Theme.of(context).colorScheme.onPrimary;
+  }
 
   /// Color of current user time text in chat bubbles
   ///
   /// Default to: `currentUserTextColor`
   final Color? currentUserTimeTextColor;
+
+  /// Getter for [currentUserTimeTextColor]
+  Color getCurrentUserTimeTextColor(BuildContext context) {
+    return currentUserTimeTextColor ?? getCurrentUserTextColor(context);
+  }
 
   /// Color of the other users chat bubbles
   ///
@@ -112,6 +127,11 @@ class MessageOptions {
   ///
   /// Default to: `textColor`
   final Color? timeTextColor;
+
+  /// Getter for [timeTextColor]
+  Color getTimeTextColor() {
+    return timeTextColor ?? textColor;
+  }
 
   /// Builder to create the entire message row yourself
   final Widget Function(

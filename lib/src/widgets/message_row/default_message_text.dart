@@ -25,7 +25,7 @@ class DefaultMessageText extends StatelessWidget {
           isOwnMessage ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: <Widget>[
         Wrap(
-          children: getMessage(),
+          children: getMessage(context),
         ),
         if (messageOptions.showTime)
           messageOptions.messageTimeBuilder != null
@@ -37,10 +37,8 @@ class DefaultMessageText extends StatelessWidget {
                         .format(message.createdAt),
                     style: TextStyle(
                       color: isOwnMessage
-                          ? messageOptions.currentUserTimeTextColor ??
-                              messageOptions.currentUserTextColor
-                          : messageOptions.timeTextColor ??
-                              messageOptions.textColor,
+                          ? messageOptions.getCurrentUserTimeTextColor(context)
+                          : messageOptions.getTimeTextColor(),
                       fontSize: messageOptions.timeFontSize,
                     ),
                   ),
@@ -49,7 +47,7 @@ class DefaultMessageText extends StatelessWidget {
     );
   }
 
-  List<Widget> getMessage() {
+  List<Widget> getMessage(BuildContext context) {
     if (message.mentions != null && message.mentions!.isNotEmpty) {
       String stringRegex = r'([\s\S]*)';
       String stringMentionRegex = '';
@@ -72,9 +70,9 @@ class DefaultMessageText extends StatelessWidget {
             Mention mention = message.mentions!.firstWhere(
               (Mention m) => m.title == part,
             );
-            res.add(getMention(mention));
+            res.add(getMention(context, mention));
           } else {
-            res.add(getParsePattern(part));
+            res.add(getParsePattern(context, part));
           }
         });
         if (res.isNotEmpty) {
@@ -82,10 +80,10 @@ class DefaultMessageText extends StatelessWidget {
         }
       }
     }
-    return <Widget>[getParsePattern(message.text)];
+    return <Widget>[getParsePattern(context, message.text)];
   }
 
-  Widget getParsePattern(String text) {
+  Widget getParsePattern(BuildContext context, String text) {
     return ParsedText(
       parse: messageOptions.parsePatterns != null
           ? messageOptions.parsePatterns!
@@ -93,13 +91,13 @@ class DefaultMessageText extends StatelessWidget {
       text: text,
       style: TextStyle(
         color: isOwnMessage
-            ? messageOptions.currentUserTextColor
+            ? messageOptions.getCurrentUserTextColor(context)
             : messageOptions.textColor,
       ),
     );
   }
 
-  Widget getMention(Mention mention) {
+  Widget getMention(BuildContext context, Mention mention) {
     return RichText(
       text: TextSpan(
         text: mention.title,
@@ -109,7 +107,7 @@ class DefaultMessageText extends StatelessWidget {
               : null,
         style: TextStyle(
           color: isOwnMessage
-              ? messageOptions.currentUserTextColor
+              ? messageOptions.getCurrentUserTextColor(context)
               : messageOptions.textColor,
           decoration: TextDecoration.none,
           fontWeight: FontWeight.w600,
