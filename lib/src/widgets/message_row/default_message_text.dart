@@ -37,8 +37,8 @@ class DefaultMessageText extends StatelessWidget {
                         .format(message.createdAt),
                     style: TextStyle(
                       color: isOwnMessage
-                          ? messageOptions.getCurrentUserTimeTextColor(context)
-                          : messageOptions.getTimeTextColor(),
+                          ? messageOptions.currentUserTimeTextColor(context)
+                          : messageOptions.timeTextColor(),
                       fontSize: messageOptions.timeFontSize,
                     ),
                   ),
@@ -91,7 +91,7 @@ class DefaultMessageText extends StatelessWidget {
       text: text,
       style: TextStyle(
         color: isOwnMessage
-            ? messageOptions.getCurrentUserTextColor(context)
+            ? messageOptions.currentUserTextColor(context)
             : messageOptions.textColor,
       ),
     );
@@ -107,7 +107,7 @@ class DefaultMessageText extends StatelessWidget {
               : null,
         style: TextStyle(
           color: isOwnMessage
-              ? messageOptions.getCurrentUserTextColor(context)
+              ? messageOptions.currentUserTextColor(context)
               : messageOptions.textColor,
           decoration: TextDecoration.none,
           fontWeight: FontWeight.w600,
