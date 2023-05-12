@@ -4,6 +4,7 @@ part of dash_chat_2;
 class DefaultScrollToBottom extends StatelessWidget {
   const DefaultScrollToBottom({
     required this.scrollController,
+    this.readOnly = false,
     this.backgroundColor,
     this.textColor,
     this.bottom = 10.0,
@@ -59,13 +60,18 @@ class DefaultScrollToBottom extends StatelessWidget {
   /// It will scroll down in any case
   final void Function()? onScrollToBottomPress;
 
+  /// Whether the chat is read only, used to add safe area padding to bottom
+  final bool readOnly;
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
       right: right,
       left: left,
       top: top,
-      bottom: bottom,
+      bottom: readOnly
+          ? MediaQuery.of(context).padding.bottom + (bottom ?? 0)
+          : bottom,
       child: SizedBox(
         width: width,
         height: height,
