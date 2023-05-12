@@ -46,7 +46,7 @@ class InputToolbarState extends State<InputToolbar>
 
   @override
   void didChangeMetrics() {
-    final double bottomInset = WidgetsBinding.instance.window.viewInsets.bottom;
+    final double bottomInset = View.of(context).viewInsets.bottom;
     final bool isKeyboardActive = bottomInset > 0.0;
     if (!isKeyboardActive) {
       _clearOverlay();
