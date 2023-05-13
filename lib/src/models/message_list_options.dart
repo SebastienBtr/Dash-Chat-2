@@ -14,6 +14,7 @@ class MessageListOptions {
     this.onLoadEarlier,
     this.typingBuilder,
     this.scrollPhysics,
+    this.inverted = false,
   });
 
   /// If you want to who a date separator between messages of different dates
@@ -36,6 +37,9 @@ class MessageListOptions {
   /// A widget to show at the bottom of the chat
   /// (between the input and the chat content)
   final Widget? chatFooterBuilder;
+
+  /// To revert the chart orientation, buttom up or top buttom
+  final bool inverted;
 
   /// If you wnat to show [chatFooterBuilder] before or after the quick replies
   final bool showFooterBeforeQuickReplies;
