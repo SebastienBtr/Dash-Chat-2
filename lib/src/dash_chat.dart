@@ -12,6 +12,7 @@ class DashChat extends StatelessWidget {
     this.quickReplyOptions = const QuickReplyOptions(),
     this.scrollToBottomOptions = const ScrollToBottomOptions(),
     this.readOnly = false,
+    this.inverted = false,
     this.typingUsers,
     Key? key,
   }) : super(key: key);
@@ -27,6 +28,10 @@ class DashChat extends StatelessWidget {
 
   /// Options to customize the behaviour and design of the chat input
   final InputOptions inputOptions;
+
+  /// is the chart inverted? default to false
+
+  final bool inverted;
 
   /// Options to customize the behaviour and design of the messages
   final MessageOptions messageOptions;
@@ -60,6 +65,7 @@ class DashChat extends StatelessWidget {
             scrollToBottomOptions: scrollToBottomOptions,
             typingUsers: typingUsers,
             readOnly: readOnly,
+            inverted: inverted,
           ),
         ),
         if (!readOnly)

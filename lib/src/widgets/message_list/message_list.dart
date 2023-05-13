@@ -11,6 +11,7 @@ class MessageList extends StatefulWidget {
     this.quickReplyOptions = const QuickReplyOptions(),
     this.scrollToBottomOptions = const ScrollToBottomOptions(),
     this.typingUsers,
+    this.inverted = false,
     Key? key,
   }) : super(key: key);
 
@@ -22,6 +23,9 @@ class MessageList extends StatefulWidget {
 
   /// Whether the chat is read only, used for safe area
   final bool readOnly;
+
+  /// To revert the chart orientation, buttom up or top buttom
+  final bool inverted;
 
   /// Options to customize the behaviour and design of the messages
   final MessageOptions messageOptions;
@@ -69,7 +73,7 @@ class MessageListState extends State<MessageList> {
                   physics: widget.messageListOptions.scrollPhysics,
                   padding: widget.readOnly ? null : EdgeInsets.zero,
                   controller: scrollController,
-                  reverse: true,
+                  reverse: inverted,
                   itemCount: widget.messages.length,
                   itemBuilder: (BuildContext context, int i) {
                     final ChatMessage? previousMessage =
