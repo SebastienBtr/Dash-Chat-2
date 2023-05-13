@@ -60,7 +60,6 @@ class DashChat extends StatelessWidget {
             scrollToBottomOptions: scrollToBottomOptions,
             typingUsers: typingUsers,
             readOnly: readOnly,
-            inverted: inverted,
           ),
         ),
         if (!readOnly)
