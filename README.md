@@ -40,9 +40,9 @@
 - Reply to messages - WIP
 - Message status - WIP
 
-You need another feature? you can use the `customProperties` field of the models, it allows you to pass other data to the library that you can then use inside custom builders to implement any feature you need. 
+You need another feature? you can use the `customProperties` field of the models, it allows you to pass other data to the library that you can then use inside custom builders to implement any feature you need.
 
-Of course, if  you think this feature can be useful to other people, feel free to open an issue/pull-request to discuss including it "natively" in the package.
+Of course, if you think this feature can be useful to other people, feel free to open an issue/pull-request to discuss including it "natively" in the package.
 
 ## Basic Usage
 
@@ -120,7 +120,7 @@ You can browse the full Dart documentation here: [Documentation](https://pub.dev
 
 ## Found this project useful?
 
-If you found this project useful, then please consider giving it a ⭐️ on Github: [https://github.com/molteo-engineering-team/Dash-Chat-2](https://github.com/molteo-engineering-team/Dash-Chat-2) 
+If you found this project useful, then please consider giving it a ⭐️ on Github: [https://github.com/molteo-engineering-team/Dash-Chat-2](https://github.com/molteo-engineering-team/Dash-Chat-2)
 
 ## Issues and feedback
 
@@ -139,8 +139,10 @@ If you have any suggestions for including a feature or if something doesn't work
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fufesou"><img src="https://avatars.githubusercontent.com/u/13586388?v=4?s=100" width="100px;" alt="fufesou"/><br /><sub><b>fufesou</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=fufesou" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/farmery"><img src="https://avatars.githubusercontent.com/u/56759256?v=4?s=100" width="100px;" alt="Nwachi ifeanyichukwu Victor"/><br /><sub><b>Nwachi ifeanyichukwu Victor</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=farmery" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://games.kaedeee.com"><img src="https://avatars.githubusercontent.com/u/55743370?v=4?s=100" width="100px;" alt="Kaede Games"/><br /><sub><b>Kaede Games</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=kaedeee" title="Code">💻</a></td>
+    </tr>
+    <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/derekpitts28"><img src="https://avatars.githubusercontent.com/u/83979577?v=4?s=100" width="100px;" alt="Derek Pitts"/><br /><sub><b>Derek Pitts</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=derekpitts28" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="[http://legendaf.com](https://github.com/LegendAF)"><img src="https://avatars.githubusercontent.com/u/825344?v=4?s=100" width="100px;" alt="Alex Fernandez"/><br /><sub><b>Alex Fernandez</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=LegendAF" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/LegendAF"><img src="https://avatars.githubusercontent.com/u/825344?v=4?s=100" width="100px;" alt="Alex Fernandez"/><br /><sub><b>Alex Fernandez</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=LegendAF" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
