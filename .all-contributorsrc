@@ -59,11 +59,20 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "LegendAF",
+      "name": "Alex Fernandez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/825344?v=4",
+      "profile": "http://legendaf.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "Dash-Chat-2",
-  "projectOwner": "molteo-engineering-team",
+  "projectOwner": "SebastienBtr",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
