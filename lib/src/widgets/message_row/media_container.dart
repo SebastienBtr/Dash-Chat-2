@@ -19,7 +19,12 @@ class MediaContainer extends StatelessWidget {
   final MessageOptions messageOptions;
 
   /// Get the right media widget according to its type
-  Widget _getMedia(ChatMedia media, double? height, double? width) {
+  Widget _getMedia(
+    BuildContext context,
+    ChatMedia media,
+    double? height,
+    double? width,
+  ) {
     final Widget loading = Container(
       width: 15,
       height: 15,
@@ -64,9 +69,8 @@ class MediaContainer extends StatelessWidget {
                           Icons.description,
                           size: 18,
                           color: isOwnMessage
-                              ? (messageOptions.currentUserTextColor ??
-                                  Colors.white)
-                              : (messageOptions.textColor ?? Colors.black),
+                              ? messageOptions.currentUserTextColor(context)
+                              : messageOptions.textColor,
                         )
                       : loading,
                 ),
@@ -76,9 +80,8 @@ class MediaContainer extends StatelessWidget {
                     style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: isOwnMessage
-                          ? (messageOptions.currentUserTextColor ??
-                              Colors.white)
-                          : (messageOptions.textColor ?? Colors.black),
+                          ? messageOptions.currentUserTextColor(context)
+                          : messageOptions.textColor,
                     ),
                   ),
                 ),
@@ -125,6 +128,7 @@ class MediaContainer extends StatelessWidget {
                       BlendMode.srcATop,
                     ),
                     child: _getMedia(
+                      context,
                       m,
                       media.length > 1 ? gallerySize : null,
                       media.length > 1 ? gallerySize : null,

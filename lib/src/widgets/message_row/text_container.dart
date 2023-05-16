@@ -56,27 +56,26 @@ class TextContainer extends StatelessWidget {
               message, previousMessage, nextMessage)
           : defaultMessageDecoration(
               color: isOwnMessage
-                  ? (messageOptions.currentUserContainerColor ??
-                      Theme.of(context).primaryColor)
-                  : (messageOptions.containerColor ?? Colors.grey[100])!,
+                  ? messageOptions.currentUserContainerColor(context)
+                  : messageOptions.containerColor,
               borderTopLeft:
                   isPreviousSameAuthor && !isOwnMessage && !isAfterDateSeparator
                       ? 0.0
-                      : 18.0,
+                      : messageOptions.borderRadius,
               borderTopRight:
                   isPreviousSameAuthor && isOwnMessage && !isAfterDateSeparator
                       ? 0.0
-                      : 18.0,
+                      : messageOptions.borderRadius,
               borderBottomLeft:
                   !isOwnMessage && !isBeforeDateSeparator && isNextSameAuthor
                       ? 0.0
-                      : 18.0,
+                      : messageOptions.borderRadius,
               borderBottomRight:
                   isOwnMessage && !isBeforeDateSeparator && isNextSameAuthor
                       ? 0.0
-                      : 18.0,
+                      : messageOptions.borderRadius,
             ),
-      padding: messageOptions.messagePadding ?? const EdgeInsets.all(11),
+      padding: messageOptions.messagePadding,
       child: messageTextBuilder != null
           ? messageTextBuilder!(message, previousMessage, nextMessage)
           : DefaultMessageText(

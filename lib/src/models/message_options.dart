@@ -13,11 +13,11 @@ class MessageOptions {
     this.onLongPressMessage,
     this.onPressMessage,
     this.onPressMention,
-    this.currentUserContainerColor,
-    this.currentUserTextColor,
-    this.containerColor,
-    this.textColor,
-    this.messagePadding,
+    Color? currentUserContainerColor,
+    Color? currentUserTextColor,
+    this.containerColor = const Color(0xFFF5F5F5),
+    this.textColor = Colors.black,
+    this.messagePadding = const EdgeInsets.all(11),
     this.maxWidth,
     this.messageDecorationBuilder,
     this.top,
@@ -31,7 +31,18 @@ class MessageOptions {
     this.timeFormat,
     this.messageTimeBuilder,
     this.messageMediaBuilder,
-  });
+    this.borderRadius = 18.0,
+    Color? currentUserTimeTextColor,
+    this.marginDifferentAuthor = const EdgeInsets.only(top: 15),
+    this.marginSameAuthor = const EdgeInsets.only(top: 2),
+    this.spaceWhenAvatarIsHidden = 10.0,
+    this.timeFontSize = 10.0,
+    this.timePadding = const EdgeInsets.only(top: 5),
+    Color? timeTextColor,
+  })  : _currentUserContainerColor = currentUserContainerColor,
+        _currentUserTextColor = currentUserTextColor,
+        _currentUserTimeTextColor = currentUserTimeTextColor,
+        _timeTextColor = timeTextColor;
 
   /// Format of the time if [showTime] is true
   /// Default to: DateFormat('HH:mm')
@@ -76,20 +87,55 @@ class MessageOptions {
   final Function(Mention)? onPressMention;
 
   /// Color of the current user chat bubbles
-  /// Default to primary color
-  final Color? currentUserContainerColor;
+  ///
+  /// Default to: `Theme.of(context).primaryColor`
+  Color currentUserContainerColor(BuildContext context) {
+    return _currentUserContainerColor ?? Theme.of(context).primaryColor;
+  }
+
+  /// Used to calculate [currentUserContainerColor]
+  final Color? _currentUserContainerColor;
 
   /// Color of the current user text in chat bubbles
-  /// Default to white
-  final Color? currentUserTextColor;
+  ///
+  /// Default to: `Theme.of(context).colorScheme.onPrimary`
+  Color currentUserTextColor(BuildContext context) {
+    return _currentUserTextColor ?? Theme.of(context).colorScheme.onPrimary;
+  }
+
+  /// Used to calculate [currentUserTextColor]
+  final Color? _currentUserTextColor;
+
+  /// Color of current user time text in chat bubbles
+  ///
+  /// Default to: `currentUserTextColor`
+  Color currentUserTimeTextColor(BuildContext context) {
+    return _currentUserTimeTextColor ?? currentUserTextColor(context);
+  }
+
+  /// Used to calculate [currentUserTimeTextColor]
+  final Color? _currentUserTimeTextColor;
 
   /// Color of the other users chat bubbles
-  /// Default to Colors.grey[100]
-  final Color? containerColor;
+  ///
+  /// Default to: `Colors.grey.shade100`
+  final Color containerColor;
 
   /// Color of the other users text in chat bubbles
-  /// Default to black
-  final Color? textColor;
+  ///
+  /// Default to: `Colors.black`
+  final Color textColor;
+
+  /// Color of other users time text in chat bubbles
+  ///
+  /// Default to: `textColor`
+
+  Color timeTextColor() {
+    return _timeTextColor ?? textColor;
+  }
+
+  /// Used to calculate [timeTextColor]
+  final Color? _timeTextColor;
 
   /// Builder to create the entire message row yourself
   final Widget Function(
@@ -118,12 +164,14 @@ class MessageOptions {
   /// By default ParsedType.URL is set and will use launchUrl to open the link
   final List<MatchText>? parsePatterns;
 
-  /// Padding arround the message
-  /// Default to: EdgeInsets.all(11)
-  final EdgeInsets? messagePadding;
+  /// Padding around the text in chat bubbles
+  ///
+  /// Default to: `EdgeInsets.all(11)`
+  final EdgeInsets messagePadding;
 
   /// Max message width
-  /// Default to: null, MediaQuery.of(context).size.width * 0.7
+  ///
+  /// Default to: `MediaQuery.of(context).size.width * 0.7`
   final double? maxWidth;
 
   /// When a message have both an text and a list of media
@@ -148,4 +196,34 @@ class MessageOptions {
   /// Function to call when the user clicks on a media
   /// Will not work with the default video player
   final void Function(ChatMedia media)? onTapMedia;
+
+  /// Border radius of the chat bubbles
+  ///
+  /// Default to: `18.0`
+  final double borderRadius;
+
+  /// Margin around the chat bubble when previous author is different
+  ///
+  /// Default to: `const EdgeInsets.only(top: 15)`
+  final EdgeInsets marginDifferentAuthor;
+
+  /// Margin around the chat bubble when previous author is the same
+  ///
+  /// Default to: `const EdgeInsets.only(top: 2)`
+  final EdgeInsets marginSameAuthor;
+
+  /// Space between chat bubble and edge of the list when avatar is hidden via [showOtherUsersAvatar] or [showCurrentUserAvatar]
+  ///
+  /// Default to: `10.0`
+  final double spaceWhenAvatarIsHidden;
+
+  /// Font size of the time text in chat bubbles
+  ///
+  /// Default to: `10.0`
+  final double timeFontSize;
+
+  /// Space between time and message text in chat bubbles
+  ///
+  /// Default to: `const EdgeInsets.only(top: 5)`
+  final EdgeInsets timePadding;
 }
