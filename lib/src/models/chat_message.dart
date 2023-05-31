@@ -5,6 +5,7 @@ class ChatMessage {
   ChatMessage({
     required this.user,
     required this.createdAt,
+    this.id,
     this.text = '',
     this.medias,
     this.quickReplies,
@@ -17,6 +18,7 @@ class ChatMessage {
   /// Create a ChatMessage instance from json data
   factory ChatMessage.fromJson(Map<String, dynamic> jsonData) {
     return ChatMessage(
+      id: (jsonData['messageId'] ?? jsonData['id']).toString(),
       user: ChatUser.fromJson(jsonData['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(jsonData['createdAt'].toString()).toLocal(),
       text: jsonData['text']?.toString() ?? '',
@@ -45,6 +47,10 @@ class ChatMessage {
           : null,
     );
   }
+
+  /// Unique id for a ChatMessage (optional because during sending a message
+  /// we might not have an id, maybe its generated on the server side)
+  String? id;
 
   /// Text of the message (optional because you can also just send a media)
   String text;
