@@ -11,6 +11,7 @@ class MessageOptions {
     this.onPressAvatar,
     this.onLongPressAvatar,
     this.onLongPressMessage,
+    this.onTapDownMessage,
     this.onPressMessage,
     this.onPressMention,
     this.currentUserContainerColor,
@@ -28,10 +29,24 @@ class MessageOptions {
     this.textBeforeMedia = true,
     this.onTapMedia,
     this.showTime = false,
+    this.showStatus = false,
     this.timeFormat,
     this.messageTimeBuilder,
     this.messageMediaBuilder,
-  });
+    this.borderRadius = 18.0,
+    Color? currentUserTimeTextColor,
+    Color? currentUserReadStatusIconColor,
+    this.marginDifferentAuthor = const EdgeInsets.only(top: 15),
+    this.marginSameAuthor = const EdgeInsets.only(top: 2),
+    this.spaceWhenAvatarIsHidden = 10.0,
+    this.timeFontSize = 10.0,
+    this.timePadding = const EdgeInsets.only(top: 5),
+    Color? timeTextColor,
+  })  : _currentUserContainerColor = currentUserContainerColor,
+        _currentUserTextColor = currentUserTextColor,
+        _currentUserTimeTextColor = currentUserTimeTextColor,
+        _currentUserReadStatusIconColor = currentUserReadStatusIconColor,
+        _timeTextColor = timeTextColor;
 
   /// Format of the time if [showTime] is true
   /// Default to: DateFormat('HH:mm')
@@ -39,6 +54,9 @@ class MessageOptions {
 
   /// If you want to show the time under the text of each message
   final bool showTime;
+
+  /// If you want to show the status under the text of each message
+  final bool showStatus;
 
   /// If you want to show the avatar of the current user
   final bool showCurrentUserAvatar;
@@ -69,6 +87,9 @@ class MessageOptions {
   /// Function to call when the user long press on a message
   final Function(ChatMessage)? onLongPressMessage;
 
+  /// Function to call when the user taps on a message
+  final Function(TapDownDetails, ChatMessage)? onTapDownMessage;
+
   /// Function to call when the user press on a message
   final Function(ChatMessage)? onPressMessage;
 
@@ -80,8 +101,37 @@ class MessageOptions {
   final Color? currentUserContainerColor;
 
   /// Color of the current user text in chat bubbles
-  /// Default to white
-  final Color? currentUserTextColor;
+  ///
+  /// Default to: `Theme.of(context).colorScheme.onPrimary`
+  Color currentUserTextColor(BuildContext context) {
+    return _currentUserTextColor ?? Theme.of(context).colorScheme.onPrimary;
+  }
+
+
+  /// Used to calculate [currentUserTextColor]
+  final Color? _currentUserTextColor;
+
+  /// Color of current user time text in chat bubbles
+  ///
+  /// Default to: `currentUserTextColor`
+  Color currentUserTimeTextColor(BuildContext context) {
+    return _currentUserTimeTextColor ?? currentUserTextColor(context);
+  }
+
+  /// Used to calculate [currentUserTimeTextColor]
+  final Color? _currentUserTimeTextColor;
+
+
+  /// Color of current user time text in chat bubbles
+  ///
+  /// Default to: `currentUserTextColor`
+  Color currentUserReadStatusIconColor(BuildContext context) {
+    return _currentUserReadStatusIconColor ?? currentUserTextColor(context);
+  }
+
+  /// Used to calculate [currentUserReadStatusIconColor]
+  final Color? _currentUserReadStatusIconColor;
+
 
   /// Color of the other users chat bubbles
   /// Default to Colors.grey[100]
