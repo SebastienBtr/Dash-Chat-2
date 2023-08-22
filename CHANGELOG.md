@@ -1,3 +1,8 @@
+## [0.0.18] - 22/08/2023
+
+* Allowed customProperties to be null
+* Upgrade dependencies
+
 ## [0.0.17] - 16/05/2023
 
 * Made it compatible with Flutter 3.10
