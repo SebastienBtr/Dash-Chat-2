@@ -1,3 +1,8 @@
+## [0.0.17] - 16/05/2023
+
+* Made it compatible with Flutter 3.10
+* Added more customisation on MessageOption and improved code quality
+
 ## [0.0.16] - 10/05/2023
 
 * Upgraded dependencies
