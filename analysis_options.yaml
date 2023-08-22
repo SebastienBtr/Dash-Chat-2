@@ -41,10 +41,9 @@ linter:
     camel_case_extensions: true
     camel_case_types: true
     cancel_subscriptions: true
+    collection_methods_unrelated_type: true
     directives_ordering: true
     empty_catches: true
-    iterable_contains_unrelated_type: true
-    list_remove_unrelated_type: true
     no_duplicate_case_values: true
     non_constant_identifier_names: true
     package_api_docs: true
