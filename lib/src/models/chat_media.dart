@@ -21,7 +21,7 @@ class ChatMedia {
       uploadedDate: jsonData['uploadedDate'] != null
           ? DateTime.parse(jsonData['uploadedDate'].toString()).toLocal()
           : null,
-      customProperties: jsonData['customProperties'] as Map<String, dynamic>,
+      customProperties: jsonData['customProperties'] as Map<String, dynamic>?,
     );
   }
 

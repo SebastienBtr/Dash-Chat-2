@@ -11,7 +11,7 @@ class Mention {
   factory Mention.fromJson(Map<String, dynamic> jsonData) {
     return Mention(
       title: jsonData['title'].toString(),
-      customProperties: jsonData['customProperties'] as Map<String, dynamic>,
+      customProperties: jsonData['customProperties'] as Map<String, dynamic>?,
     );
   }
 
