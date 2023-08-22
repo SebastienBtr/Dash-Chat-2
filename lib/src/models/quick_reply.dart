@@ -13,7 +13,7 @@ class QuickReply {
     return QuickReply(
       title: jsonData['title'].toString(),
       value: jsonData['value']?.toString(),
-      customProperties: jsonData['customProperties'] as Map<String, dynamic>,
+      customProperties: jsonData['customProperties'] as Map<String, dynamic>?,
     );
   }
 
