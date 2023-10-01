@@ -100,10 +100,14 @@ class MessageStatus {
   @override
   String toString() => _value;
 
-  static MessageStatus parse(String value) {
+ static MessageStatus parse(String value) {
     switch (value) {
       case 'none':
         return MessageStatus.none;
+      case 'failed':
+        return MessageStatus.failed;
+      case 'sent':
+        return MessageStatus.sent;
       case 'read':
         return MessageStatus.read;
       case 'received':
@@ -116,7 +120,10 @@ class MessageStatus {
   }
 
   static const MessageStatus none = MessageStatus._internal('none');
+  static const MessageStatus failed = MessageStatus._internal('failed');
+  static const MessageStatus sent = MessageStatus._internal('sent');
   static const MessageStatus read = MessageStatus._internal('read');
   static const MessageStatus received = MessageStatus._internal('received');
   static const MessageStatus pending = MessageStatus._internal('pending');
 }
+
