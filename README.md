@@ -140,9 +140,10 @@ If you have any suggestions for including a feature or if something doesn't work
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/farmery"><img src="https://avatars.githubusercontent.com/u/56759256?v=4?s=100" width="100px;" alt="Nwachi ifeanyichukwu Victor"/><br /><sub><b>Nwachi ifeanyichukwu Victor</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=farmery" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kaedeee"><img src="https://avatars.githubusercontent.com/u/55743370?v=4?s=100" width="100px;" alt="Kaede Games"/><br /><sub><b>Kaede Games</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=kaedeee" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/derekpitts28"><img src="https://avatars.githubusercontent.com/u/83979577?v=4?s=100" width="100px;" alt="Derek Pitts"/><br /><sub><b>Derek Pitts</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=derekpitts28" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/LegendAF"><img src="https://avatars.githubusercontent.com/u/825344?v=4?s=100" width="100px;" alt="Alex Fernandez"/><br /><sub><b>Alex Fernandez</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=LegendAF" title="Code">💻</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/LegendAF"><img src="https://avatars.githubusercontent.com/u/825344?v=4?s=100" width="100px;" alt="Alex Fernandez"/><br /><sub><b>Alex Fernandez</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=LegendAF" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/funjay"><img src="https://avatars.githubusercontent.com/u/66911451?v=4?s=100" width="100px;" alt="lawrence"/><br /><sub><b>lawrence</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=funjay" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
