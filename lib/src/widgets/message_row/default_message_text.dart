@@ -87,7 +87,7 @@ class DefaultMessageText extends StatelessWidget {
     return ParsedText(
       parse: messageOptions.parsePatterns != null
           ? messageOptions.parsePatterns!
-          : defaultPersePatterns,
+          : defaultParsePatterns,
       text: text,
       style: TextStyle(
         color: isOwnMessage
