@@ -1,3 +1,8 @@
+## [0.0.19] - 23/10/2023
+
+* More parse pattern by default
+* Fixed typo for defaultParsePatterns variable
+
 ## [0.0.18] - 22/08/2023
 
 * Allowed customProperties to be null
