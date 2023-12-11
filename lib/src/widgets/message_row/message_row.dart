@@ -84,6 +84,9 @@ class MessageRow extends StatelessWidget {
           if (!messageOptions.showOtherUsersAvatar)
             SizedBox(width: messageOptions.spaceWhenAvatarIsHidden),
           GestureDetector(
+            onTapDown: messageOptions.onTapDownMessage != null
+                ? (TapDownDetails td) => messageOptions.onTapDownMessage!(td, message)
+                : null,
             onLongPress: messageOptions.onLongPressMessage != null
                 ? () => messageOptions.onLongPressMessage!(message)
                 : null,

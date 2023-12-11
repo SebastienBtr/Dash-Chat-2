@@ -20,29 +20,59 @@ class DefaultMessageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment:
-          isOwnMessage ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+    return Stack(
       children: <Widget>[
         Wrap(
-          children: getMessage(context),
+          verticalDirection: VerticalDirection.down,
+          alignment: WrapAlignment.end,
+          children: <Widget>[
+            ...getMessage(context),
+            // for reserved text
+            if (isOwnMessage) const Text('                 \u202F')
+            // here the icon for read receipt is generally not shown so we need lesser space
+            else const Text('            \u202F'),
+          ],
         ),
-        if (messageOptions.showTime)
-          messageOptions.messageTimeBuilder != null
-              ? messageOptions.messageTimeBuilder!(message, isOwnMessage)
-              : Padding(
-                  padding: messageOptions.timePadding,
-                  child: Text(
-                    (messageOptions.timeFormat ?? intl.DateFormat('HH:mm'))
-                        .format(message.createdAt),
-                    style: TextStyle(
-                      color: isOwnMessage
-                          ? messageOptions.currentUserTimeTextColor(context)
-                          : messageOptions.timeTextColor(),
-                      fontSize: messageOptions.timeFontSize,
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                if (messageOptions.showTime)
+                  messageOptions.messageTimeBuilder != null
+                      ? messageOptions.messageTimeBuilder!(message, isOwnMessage)
+                      : Padding(
+                    padding: messageOptions.timePadding,
+                    child: Text(
+                      (messageOptions.timeFormat ?? intl.DateFormat('HH:mm'))
+                          .format(message.createdAt),
+                      style: TextStyle(
+                        color: isOwnMessage
+                            ? messageOptions.currentUserTimeTextColor(context)
+                            : messageOptions.timeTextColor(),
+                        fontSize: messageOptions.timeFontSize,
+                      ),
                     ),
                   ),
-                ),
+                Visibility(
+                  visible: isOwnMessage,
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 5),
+                      child: messageOptions.showStatus ?
+                      message.status == MessageStatus.read ? Icon(
+                        Icons.done_all, color: messageOptions.currentUserReadStatusIconColor(context), size: 15,
+                      ) :
+                      message.status == MessageStatus.received ? Icon(
+                          Icons.check, color: messageOptions.currentUserReadStatusIconColor(context), size: 15
+                      ) :
+                      Container() : Container()
+                  ),
+                )
+              ]
+          ),
+        ),
       ],
     );
   }
@@ -68,7 +98,7 @@ class DefaultMessageText extends StatelessWidget {
             .forEach((String? part) {
           if (mentionRegex.hasMatch(part!)) {
             Mention mention = message.mentions!.firstWhere(
-              (Mention m) => m.title == part,
+                  (Mention m) => m.title == part,
             );
             res.add(getMention(context, mention));
           } else {
