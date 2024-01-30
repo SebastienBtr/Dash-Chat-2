@@ -5,6 +5,7 @@ class ChatMessage {
   ChatMessage({
     required this.user,
     required this.createdAt,
+    this.isMarkdown = false,
     this.text = '',
     this.medias,
     this.quickReplies,
@@ -45,6 +46,9 @@ class ChatMessage {
           : null,
     );
   }
+
+  /// If the message is Markdown formatted then it will be converted to Markdown (by default it will be false)
+  bool isMarkdown;
 
   /// Text of the message (optional because you can also just send a media)
   String text;
@@ -100,7 +104,7 @@ class MessageStatus {
   @override
   String toString() => _value;
 
- static MessageStatus parse(String value) {
+  static MessageStatus parse(String value) {
     switch (value) {
       case 'none':
         return MessageStatus.none;
@@ -126,4 +130,3 @@ class MessageStatus {
   static const MessageStatus received = MessageStatus._internal('received');
   static const MessageStatus pending = MessageStatus._internal('pending');
 }
-
