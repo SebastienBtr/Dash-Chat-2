@@ -66,10 +66,17 @@ class DefaultMessageText extends StatelessWidget {
         match
             .groups(List<int>.generate(match.groupCount, (int i) => i + 1))
             .forEach((String? part) {
+          Mention? mention;
           if (mentionRegex.hasMatch(part!)) {
-            Mention mention = message.mentions!.firstWhere(
-              (Mention m) => m.title == part,
-            );
+            try {
+              mention = message.mentions?.firstWhere(
+                (Mention m) => m.title == part,
+              );
+            } catch (e) {
+              // There is no mention
+            }
+          }
+          if (mention != null) {
             res.add(getMention(context, mention));
           } else {
             res.add(getParsePattern(context, part, message.isMarkdown));

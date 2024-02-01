@@ -30,6 +30,7 @@
 - Fully customizable components
 - Multi-line TextInput
 - Touchable links using [flutter_parsed_text](https://pub.dev/packages/flutter_parsed_text)
+- Markdown support using [flutter_markdown](https://pub.dev/packages/flutter_markdown)
 - Avatar as user's initials or profile picture
 - Quick Reply messages
 - Load earlier messages
