@@ -72,7 +72,7 @@ class DefaultMessageText extends StatelessWidget {
             );
             res.add(getMention(context, mention));
           } else {
-            res.add(getParsePattern(context, part));
+            res.add(getParsePattern(context, part, message.isMarkdown));
           }
         });
         if (res.isNotEmpty) {
@@ -80,21 +80,39 @@ class DefaultMessageText extends StatelessWidget {
         }
       }
     }
-    return <Widget>[getParsePattern(context, message.text)];
+    return <Widget>[getParsePattern(context, message.text, message.isMarkdown)];
   }
 
-  Widget getParsePattern(BuildContext context, String text) {
-    return ParsedText(
-      parse: messageOptions.parsePatterns != null
-          ? messageOptions.parsePatterns!
-          : defaultParsePatterns,
-      text: text,
-      style: TextStyle(
-        color: isOwnMessage
-            ? messageOptions.currentUserTextColor(context)
-            : messageOptions.textColor,
-      ),
-    );
+  Widget getParsePattern(BuildContext context, String text, bool isMarkdown) {
+    return isMarkdown
+        ? MarkdownBody(
+            data: text,
+            selectable: true,
+            onTapLink: (String value, String? href, String title) {
+              if (href != null) {
+                launchUrl(
+                  Uri.parse(href),
+                  mode: LaunchMode.externalApplication,
+                );
+              } else {
+                launchUrl(
+                  Uri.parse(value),
+                  mode: LaunchMode.externalApplication,
+                );
+              }
+            },
+          )
+        : ParsedText(
+            parse: messageOptions.parsePatterns != null
+                ? messageOptions.parsePatterns!
+                : defaultParsePatterns,
+            text: text,
+            style: TextStyle(
+              color: isOwnMessage
+                  ? messageOptions.currentUserTextColor(context)
+                  : messageOptions.textColor,
+            ),
+          );
   }
 
   Widget getMention(BuildContext context, Mention mention) {
