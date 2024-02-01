@@ -12,7 +12,7 @@ List<MatchText> defaultParsePatterns = <MatchText>[
     ),
     onTap: (String email) {
       String url = 'mailto:$email';
-      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+      openLink(url);
     },
   ),
   MatchText(
@@ -24,7 +24,7 @@ List<MatchText> defaultParsePatterns = <MatchText>[
       if (!url.startsWith('http://') && !url.startsWith('https://')) {
         url = 'http://$url';
       }
-      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+      openLink(url);
     },
   ),
   MatchText(
@@ -34,7 +34,7 @@ List<MatchText> defaultParsePatterns = <MatchText>[
     ),
     onTap: (String phone) {
       String url = 'tel:$phone';
-      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+      openLink(url);
     },
   ),
 ];
