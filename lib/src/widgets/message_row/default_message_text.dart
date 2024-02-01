@@ -90,15 +90,9 @@ class DefaultMessageText extends StatelessWidget {
             selectable: true,
             onTapLink: (String value, String? href, String title) {
               if (href != null) {
-                launchUrl(
-                  Uri.parse(href),
-                  mode: LaunchMode.externalApplication,
-                );
+                openLink(href);
               } else {
-                launchUrl(
-                  Uri.parse(value),
-                  mode: LaunchMode.externalApplication,
-                );
+                openLink(value);
               }
             },
           )
