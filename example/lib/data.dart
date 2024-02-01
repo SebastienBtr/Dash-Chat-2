@@ -134,6 +134,13 @@ List<ChatMessage> media = <ChatMessage>[
       ),
       ChatMedia(
         url:
+            'https://firebasestorage.googleapis.com/v0/b/molteo-40978.appspot.com/o/chat_medias%2F2GFlPkj94hKCqonpEdf1%2F20210526_162318.mp4?alt=media&token=01b814b9-d93a-4bf1-8be1-cf9a49058f97',
+        type: MediaType.video,
+        fileName: 'video.mp4',
+        isUploading: false,
+      ),
+      ChatMedia(
+        url:
             'https://firebasestorage.googleapis.com/v0/b/molteo-40978.appspot.com/o/memes%2F155512641_3864499247004975_4028017188079714246_n.jpg?alt=media&token=0b335455-93ed-4529-9055-9a2c741e0189',
         type: MediaType.file,
         fileName: 'image.png',

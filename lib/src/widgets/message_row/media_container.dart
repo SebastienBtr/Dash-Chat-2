@@ -36,7 +36,7 @@ class MediaContainer extends StatelessWidget {
         return Stack(
           alignment: AlignmentDirectional.bottomEnd,
           children: <Widget>[
-            VideoPlayer(url: media.url, key: GlobalKey()),
+            VideoPlayer(url: media.url, key: Key(media.url)),
             if (media.isUploading) loading
           ],
         );
