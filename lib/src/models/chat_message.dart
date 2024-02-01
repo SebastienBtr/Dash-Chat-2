@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../dash_chat_2.dart';
 
 /// {@category Models}
 class ChatMessage {
@@ -71,7 +71,7 @@ class ChatMessage {
   /// Date of the message
   DateTime createdAt;
 
-  /// Mentionned elements in the message
+  /// Mentioned elements in the message
   List<Mention>? mentions;
 
   /// Status of the message TODO:

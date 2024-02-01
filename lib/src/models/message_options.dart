@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../dash_chat_2.dart';
 
 /// {@category Customization}
 class MessageOptions {
@@ -58,7 +58,7 @@ class MessageOptions {
   final bool showOtherUsersAvatar;
 
   /// If you want to show the name of the other users above the messages
-  /// Usefull in group chats
+  /// Useful in group chats
   final bool showOtherUsersName;
 
   /// If you want to create your own userName widget when [showOtherUsersName] is true
@@ -66,7 +66,7 @@ class MessageOptions {
   final Widget Function(ChatUser user)? userNameBuilder;
 
   /// Builder to create your own avatar
-  /// You can use DefaultAvatar to only override some varibales
+  /// You can use DefaultAvatar to only override some variables
   final Widget Function(
           ChatUser, Function? onPressAvatar, Function? onLongPressAvatar)?
       avatarBuilder;

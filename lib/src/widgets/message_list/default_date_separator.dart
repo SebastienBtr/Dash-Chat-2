@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../../dash_chat_2.dart';
 
 /// {@category Default widgets}
 class DefaultDateSeparator extends StatelessWidget {

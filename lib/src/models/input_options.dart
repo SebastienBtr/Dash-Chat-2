@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../dash_chat_2.dart';
 
 /// {@category Customization}
 class InputOptions {
@@ -40,7 +40,7 @@ class InputOptions {
   /// By default it only includes '@' character
   final List<String> onMentionTriggers;
 
-  /// Function to call when the input text changee
+  /// Function to call when the input text change
   final void Function(String value)? onTextChange;
 
   /// Always show the send button, will be hidden when the text is empty otherwise
@@ -66,7 +66,7 @@ class InputOptions {
   final bool inputDisabled;
 
   /// Input decoration to customize the design of the input
-  /// You can use defaultInputDecoration to only orride some variables
+  /// You can use defaultInputDecoration to only override some variables
   final InputDecoration? inputDecoration;
 
   /// Use to override the default TextCapitalization
@@ -84,7 +84,7 @@ class InputOptions {
   /// A list of widget to show after the input
   final List<Widget>? trailing;
 
-  /// To customize the text style of the inpu
+  /// To customize the text style of the input
   final TextStyle? inputTextStyle;
 
   /// To customize the overall container of the input
@@ -105,6 +105,6 @@ class InputOptions {
   /// Style of the cursor
   final CursorStyle cursorStyle;
 
-  /// Whether to enable autocorrection. Defaults to true.
+  /// Whether to enable auto-correction. Defaults to true.
   final bool autocorrect;
 }

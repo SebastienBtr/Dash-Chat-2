@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../../dash_chat_2.dart';
 
 /// @nodoc
 class MessageList extends StatefulWidget {
@@ -126,7 +126,7 @@ class MessageListState extends State<MessageList> {
                     return widget.messageListOptions.typingBuilder!(user);
                   }
                   return DefaultTypingBuilder(user: user);
-                }).toList(),
+                }),
               if (widget.messageListOptions.showFooterBeforeQuickReplies &&
                   widget.messageListOptions.chatFooterBuilder != null)
                 widget.messageListOptions.chatFooterBuilder!,
@@ -212,7 +212,7 @@ class MessageListState extends State<MessageList> {
     }
   }
 
-  /// Sroll listener to trigger different actions:
+  /// Scroll listener to trigger different actions:
   /// show scroll-to-bottom btn and LoadEarlier behaviour
   Future<void> _onScroll() async {
     bool topReached =

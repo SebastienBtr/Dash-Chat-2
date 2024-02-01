@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../../dash_chat_2.dart';
 
 /// @nodoc
 class MessageRow extends StatelessWidget {

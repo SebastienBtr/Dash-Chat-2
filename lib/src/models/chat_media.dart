@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../dash_chat_2.dart';
 
 /// {@category Models}
 class ChatMedia {
@@ -34,7 +34,7 @@ class ChatMedia {
   /// Type of media
   MediaType type;
 
-  /// If the media is still uploading, usefull to add a visual feedback
+  /// If the media is still uploading, useful to add a visual feedback
   bool isUploading;
 
   /// Uploaded date of the media

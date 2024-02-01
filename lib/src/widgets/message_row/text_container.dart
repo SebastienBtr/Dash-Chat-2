@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../../dash_chat_2.dart';
 
 /// @nodoc
 class TextContainer extends StatelessWidget {
@@ -43,7 +43,7 @@ class TextContainer extends StatelessWidget {
   /// If the message is before by a date separator
   final bool isBeforeDateSeparator;
 
-  /// We could acces that from messageOptions but we want to reuse this widget
+  /// We could access that from messageOptions but we want to reuse this widget
   /// for media and be able to override the text builder
   final Widget Function(ChatMessage, ChatMessage?, ChatMessage?)?
       messageTextBuilder;

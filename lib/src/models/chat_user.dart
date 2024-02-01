@@ -1,4 +1,4 @@
-part of dash_chat_2;
+part of '../../dash_chat_2.dart';
 
 /// {@category Models}
 class ChatUser {
@@ -34,7 +34,7 @@ class ChatUser {
 
   /// First name of the user,
   /// if you only have the name as one string
-  /// you can put the entire value in the [fristName] field
+  /// you can put the entire value in the [firstName] field
   String? firstName;
 
   /// Last name of the user
