@@ -105,7 +105,7 @@ class MediaContainer extends StatelessWidget {
             final bool isImage = m.type == MediaType.image;
             return Container(
               color: Colors.transparent,
-              margin: const EdgeInsets.only(top: 5, right: 5),
+              margin: const EdgeInsets.only(top: 5.0, right: 5.0, bottom: 10.0),
               width: media.length > 1 && isImage ? gallerySize : null,
               height: media.length > 1 && isImage ? gallerySize : null,
               constraints: BoxConstraints(
