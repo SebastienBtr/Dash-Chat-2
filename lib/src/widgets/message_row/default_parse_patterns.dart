@@ -28,7 +28,8 @@ List<MatchText> defaultParsePatterns = <MatchText>[
     },
   ),
   MatchText(
-    type: ParsedType.PHONE,
+    pattern: r'(\+|00|0)?[1-9][0-9 \-\(\)\.]{5,32}[0-9](?!\w)',
+    type: ParsedType.CUSTOM,
     style: const TextStyle(
       decoration: TextDecoration.underline,
     ),
