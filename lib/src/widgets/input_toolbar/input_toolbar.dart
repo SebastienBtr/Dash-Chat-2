@@ -72,7 +72,7 @@ class InputToolbarState extends State<InputToolbar>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            if (widget.inputOptions.leading != null)
+            if (widget.inputOptions.leading != null && !widget.inputOptions.hideLeadingAndTrailingOnType)
               ...widget.inputOptions.leading!,
             Expanded(
               child: Directionality(
@@ -115,7 +115,7 @@ class InputToolbarState extends State<InputToolbar>
               ),
             ),
             if (widget.inputOptions.trailing != null &&
-                widget.inputOptions.showTraillingBeforeSend)
+                widget.inputOptions.showTrailingBeforeSend && !widget.inputOptions.hideLeadingAndTrailingOnType)
               ...widget.inputOptions.trailing!,
             if (widget.inputOptions.alwaysShowSend ||
                 textController.text.isNotEmpty)
@@ -125,7 +125,7 @@ class InputToolbarState extends State<InputToolbar>
                       _sendMessage,
                     ),
             if (widget.inputOptions.trailing != null &&
-                !widget.inputOptions.showTraillingBeforeSend)
+                !widget.inputOptions.showTrailingBeforeSend && !widget.inputOptions.hideLeadingAndTrailingOnType)
               ...widget.inputOptions.trailing!,
           ],
         ),
