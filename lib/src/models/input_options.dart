@@ -23,7 +23,7 @@ class InputOptions {
     this.inputToolbarStyle,
     this.inputMaxLines = 5,
     this.showTrailingBeforeSend = false,
-    this.hideLeadingAndTrailingOnType = false,
+    this.hideTrailingOnType = false,
     this.inputToolbarPadding = const EdgeInsets.all(8.0),
     this.inputToolbarMargin = const EdgeInsets.only(top: 8.0),
     this.cursorStyle = const CursorStyle(),
@@ -97,8 +97,8 @@ class InputOptions {
   /// If [trailing] should be shown before or after the send button
   final bool showTrailingBeforeSend;
 
-  /// Hides the Leading and Trailing icon on typing
-  final bool hideLeadingAndTrailingOnType;
+  /// Hides the Trailing icon on typing
+  final bool hideTrailingOnType;
 
   /// Padding of the overall container of the input
   final EdgeInsets? inputToolbarPadding;

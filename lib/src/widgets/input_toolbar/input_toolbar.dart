@@ -72,7 +72,7 @@ class InputToolbarState extends State<InputToolbar>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            if (widget.inputOptions.leading != null && !widget.inputOptions.hideLeadingAndTrailingOnType)
+            if (widget.inputOptions.leading != null)
               ...widget.inputOptions.leading!,
             Expanded(
               child: Directionality(
@@ -115,17 +115,19 @@ class InputToolbarState extends State<InputToolbar>
               ),
             ),
             if (widget.inputOptions.trailing != null &&
-                widget.inputOptions.showTrailingBeforeSend && !widget.inputOptions.hideLeadingAndTrailingOnType)
+                widget.inputOptions.showTrailingBeforeSend &&
+                (!widget.inputOptions.hideTrailingOnType || textController.text.isEmpty))
               ...widget.inputOptions.trailing!,
             if (widget.inputOptions.alwaysShowSend ||
                 textController.text.isNotEmpty)
               widget.inputOptions.sendButtonBuilder != null
                   ? widget.inputOptions.sendButtonBuilder!(_sendMessage)
                   : defaultSendButton(color: Theme.of(context).primaryColor)(
-                      _sendMessage,
-                    ),
+                _sendMessage,
+              ),
             if (widget.inputOptions.trailing != null &&
-                !widget.inputOptions.showTrailingBeforeSend && !widget.inputOptions.hideLeadingAndTrailingOnType)
+                !widget.inputOptions.showTrailingBeforeSend &&
+                (!widget.inputOptions.hideTrailingOnType || textController.text.isEmpty))
               ...widget.inputOptions.trailing!,
           ],
         ),
@@ -237,4 +239,5 @@ class InputToolbarState extends State<InputToolbar>
       }
     }
   }
+
 }
