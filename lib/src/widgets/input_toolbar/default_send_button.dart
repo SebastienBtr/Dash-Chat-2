@@ -10,10 +10,9 @@ Widget Function(Function send) defaultSendButton({
     (Function fct) => InkWell(
           onTap: disabled ? null : () => fct(),
           child: Padding(
-            padding: padding ??
-                const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+            padding: padding ?? const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             child: Icon(
-              Icons.send,
+              icon,
               color: color,
             ),
           ),
