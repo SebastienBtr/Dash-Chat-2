@@ -6,6 +6,7 @@ class DefaultMessageText extends StatelessWidget {
     required this.message,
     required this.isOwnMessage,
     this.messageOptions = const MessageOptions(),
+    this.styleSheet,
     Key? key,
   }) : super(key: key);
 
@@ -17,6 +18,9 @@ class DefaultMessageText extends StatelessWidget {
 
   /// Options to customize the behaviour and design of the messages
   final MessageOptions messageOptions;
+
+  /// Optional: Style sheet for markdown
+  final MarkdownStyleSheet? styleSheet;
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +97,7 @@ class DefaultMessageText extends StatelessWidget {
   Widget getParsePattern(BuildContext context, String text, bool isMarkdown) {
     return isMarkdown
         ? MarkdownBody(
+            styleSheet: styleSheet,
             data: text,
             selectable: true,
             onTapLink: (String value, String? href, String title) {
