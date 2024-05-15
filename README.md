@@ -146,6 +146,7 @@ If you have any suggestions for including a feature or if something doesn't work
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/funjay"><img src="https://avatars.githubusercontent.com/u/66911451?v=4?s=100" width="100px;" alt="lawrence"/><br /><sub><b>lawrence</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=funjay" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/alamin-karno"><img src="https://avatars.githubusercontent.com/u/56608168?v=4?s=100" width="100px;" alt="Md. Al-Amin"/><br /><sub><b>Md. Al-Amin</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=alamin-karno" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/T-P-F"><img src="https://avatars.githubusercontent.com/u/61667947?v=4?s=100" width="100px;" alt="TPF"/><br /><sub><b>TPF</b></sub></a><br /><a href="https://github.com/SebastienBtr/Dash-Chat-2/commits?author=T-P-F" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
