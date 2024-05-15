@@ -13,7 +13,7 @@ Widget Function(Function send) defaultSendButton({
             padding: padding ??
                 const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             child: Icon(
-              Icons.send,
+              icon,
               color: color,
             ),
           ),
