@@ -38,6 +38,7 @@ class MessageOptions {
     this.spaceWhenAvatarIsHidden = 10.0,
     this.timeFontSize = 10.0,
     this.timePadding = const EdgeInsets.only(top: 5),
+    this.markdownStyleSheet,
     Color? timeTextColor,
   })  : _currentUserContainerColor = currentUserContainerColor,
         _currentUserTextColor = currentUserTextColor,
@@ -226,4 +227,7 @@ class MessageOptions {
   ///
   /// Default to: `const EdgeInsets.only(top: 5)`
   final EdgeInsets timePadding;
+
+  /// Stylesheet for markdown message rendering
+  final MarkdownStyleSheet? markdownStyleSheet;
 }

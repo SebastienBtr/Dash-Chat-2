@@ -95,6 +95,7 @@ class DefaultMessageText extends StatelessWidget {
         ? MarkdownBody(
             data: text,
             selectable: true,
+            styleSheet: messageOptions.markdownStyleSheet,
             onTapLink: (String value, String? href, String title) {
               if (href != null) {
                 openLink(href);
