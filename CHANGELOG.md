@@ -1,3 +1,9 @@
+## [0.0.21] - 02/06/2024
+
+* Upgraded dependencies
+* Added support for markdown stylesheet
+* Fixed defaultSendButton not using the icon param
+
 ## [0.0.20] - 01/02/2024
 
 * Markdown support
