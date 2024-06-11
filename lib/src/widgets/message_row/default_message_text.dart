@@ -94,7 +94,8 @@ class DefaultMessageText extends StatelessWidget {
     return isMarkdown
         ? MarkdownBody(
             data: text,
-            selectable: true,
+            selectable: messageOptions.markdownSelectable,
+            onSelectionChanged: messageOptions.onMarkdownSelectionChanged,
             styleSheet: messageOptions.markdownStyleSheet,
             onTapLink: (String value, String? href, String title) {
               if (href != null) {
