@@ -39,6 +39,8 @@ class MessageOptions {
     this.timeFontSize = 10.0,
     this.timePadding = const EdgeInsets.only(top: 5),
     this.markdownStyleSheet,
+    this.markdownSelectable = true,
+    this.onMarkdownSelectionChanged,
     Color? timeTextColor,
   })  : _currentUserContainerColor = currentUserContainerColor,
         _currentUserTextColor = currentUserTextColor,
@@ -230,4 +232,10 @@ class MessageOptions {
 
   /// Stylesheet for markdown message rendering
   final MarkdownStyleSheet? markdownStyleSheet;
+
+  /// Make markdown selectable
+  final bool markdownSelectable;
+
+  // Function to call when the user selects a markdown text
+  final void Function(String?, TextSelection, SelectionChangedCause?)? onMarkdownSelectionChanged;
 }
