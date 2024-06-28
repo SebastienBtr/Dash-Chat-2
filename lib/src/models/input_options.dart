@@ -27,6 +27,8 @@ class InputOptions {
     this.inputToolbarMargin = const EdgeInsets.only(top: 8.0),
     this.cursorStyle = const CursorStyle(),
     this.autocorrect = true,
+    this.keyboardType = TextInputType.none,
+    this.autofillHints,
   });
 
   /// Function to call when a mention is triggered in the input,
@@ -107,4 +109,11 @@ class InputOptions {
 
   /// Whether to enable auto-correction. Defaults to true.
   final bool autocorrect;
+
+  /// Keyboard type for mobile
+  final TextInputType keyboardType;
+
+  // Autofill hints for mobile keyboard
+  // eg. [AutofillHints.email, AutofillHints.username]
+  final List<String>? autofillHints;
 }

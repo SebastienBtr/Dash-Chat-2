@@ -111,6 +111,8 @@ class InputToolbarState extends State<InputToolbar>
                     });
                   },
                   autocorrect: widget.inputOptions.autocorrect,
+                  keyboardType: widget.inputOptions.keyboardType,
+                  autofillHints: widget.inputOptions.autofillHints,
                 ),
               ),
             ),
